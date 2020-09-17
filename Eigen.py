@@ -44,7 +44,8 @@ class eigenfaces:
             images[i] = cv.cvtColor(images[i],cv.COLOR_BGR2GRAY)
             print(images[i].shape)
         [gamma, qnt_gamma] = ai.createDataMatrix(self,images)
-        print(gamma.shape) 
+        print(gamma.shape)
+        #coé garai
     def classifica(self):
         images = ai.openImg(self,DIRA)
         sz = images[0].shape
