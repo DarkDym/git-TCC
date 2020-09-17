@@ -45,7 +45,6 @@ class eigenfaces:
             print(images[i].shape)
         [gamma, qnt_gamma] = ai.createDataMatrix(self,images)
         print(gamma.shape)
-        #coé garai
     def classifica(self):
         images = ai.openImg(self,DIRA)
         sz = images[0].shape
