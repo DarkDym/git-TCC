@@ -38,6 +38,13 @@ def teste(aux):
 class eigenfaces:
     def __init__(self):
         pass
+    def eigNovo(self):
+        images = ai.openImg(self,DIRA)
+        for i in range(0,len(images)):
+            images[i] = cv.cvtColor(images[i],cv.COLOR_BGR2GRAY)
+            print(images[i].shape)
+        [gamma, qnt_gamma] = ai.createDataMatrix(self,images)
+        print(gamma.shape) 
     def classifica(self):
         images = ai.openImg(self,DIRA)
         sz = images[0].shape
@@ -47,6 +54,33 @@ class eigenfaces:
         mean, eigenVec = cv.PCACompute(data, mean=None, maxComponents=qnt_data)
         global avgFace
         avgFace = mean.reshape(sz)
+
+        #teste de face_media menos a face
+        #teste(avgFace)
+        images = ai.openImg(self,DIRA)
+        print(len(images))
+        for xi in images:
+            img_teste = avgFace - xi
+            #print("PRIMEIRA IMAGEM - " + str(img_teste.shape))
+            img_teste2 = cv.cvtColor(img_teste,cv.COLOR_BGR2GRAY)
+            teste(img_teste)
+            teste(img_teste2)
+            #print("SEGUNDA IMAGEM" + str(img_teste2.shape))
+            cov_img_b = np.cov(img_teste2, rowvar=False, bias=True)
+            #print(cov_img_b)
+            VC, VA = np.linalg.eig(cov_img_b)
+            print(VC)
+            
+            print(VA)
+            lol = (300,300)
+            VA = VA.reshape(lol)
+            teste(VA)
+
+            poar = img_teste2.dot(cov_img_b)
+            print(poar)
+            teste(poar)
+        #teste de face_media menos a face
+        
         phi = []
         phiT = []
         for i in range(0,qnt_data):
@@ -85,10 +119,10 @@ class eigenfaces:
         for i in range(0, NEF):
             sliderValues.append(MAX_SLIDER_VALUE/2)
             cv.createTrackbar( "Weight" + str(i), "Trackbars", round(MAX_SLIDER_VALUE/2), MAX_SLIDER_VALUE, createNewFace)
-        cv.setMouseCallback("Result", resetSliderValues);
+        cv.setMouseCallback("Result", resetSliderValues)
         cv.waitKey(0)
         cv.destroyAllWindows()
     #def createNewFace(self,avg,sValues,eigenFaces):
 
-#tst = eigenfaces()
-#tst.classifica()
+tst = eigenfaces()
+tst.eigNovo()
