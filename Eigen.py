@@ -42,9 +42,54 @@ class eigenfaces:
         images = ai.openImg(self,DIRA)
         for i in range(0,len(images)):
             images[i] = cv.cvtColor(images[i],cv.COLOR_BGR2GRAY)
-            print(images[i].shape)
         [gamma, qnt_gamma] = ai.createDataMatrix(self,images)
-        print(gamma.shape)
+        
+        #INICIO DO TESTE
+        # print(gamma[0])
+        # aux = np.array([gamma[0]])
+        # print(aux)
+        # print(aux.shape)
+        # print(aux.transpose())
+        # print("INICIO DA MEDIA")
+        #TERMINO DO TESTE
+        
+        psi = 0
+        aux_psi = 0
+        for x in range(0,qnt_gamma):
+            aux_psi = gamma[x] + aux_psi
+        psi = aux_psi/qnt_gamma
+        phi = []
+        for y in range(0,qnt_gamma):
+            phi.append(gamma[y] - psi)
+        matrix_cov = 0
+        aux_cov = 0
+        for x in range(0,qnt_gamma):
+            aux_cov = (phi[x].dot(np.transpose(phi[x]))) + aux_cov
+        matrix_cov = aux_cov/qnt_gamma
+        A = np.array(phi)
+        print("SHAPE DO PHI_i: " + str(phi[0].shape))
+        print(A.shape)
+        A_T = A.transpose()
+        print(A_T.shape)
+        Cov = np.dot(A,A_T)
+        print(Cov.shape)
+        print(Cov)
+        [eg_vec,eg_vle] = np.linalg.eig(Cov)
+
+        eg_vle_T =np.array([eg_vle[0]]) 
+        aux_phi = np.transpose(np.array([phi[0]]))
+        w = np.dot(aux_phi,eg_vle_T)
+        print("VALORES QUE ESTOU TESTANDO")
+        eg_face = np.dot(w,eg_vle[0])
+        if (eg_face == phi[0]).all():
+            print("ESSA MERDA TA IGUAL")
+        else:
+            print("TA DIFERENTE CARALHO!")
+        teste(eg_face.reshape((300,300)))
+        # w = []
+        # for i in range(0,qnt_gamma):
+        #     w.append(np.dot(eg_vle[i]))
+        
     def classifica(self):
         images = ai.openImg(self,DIRA)
         sz = images[0].shape
