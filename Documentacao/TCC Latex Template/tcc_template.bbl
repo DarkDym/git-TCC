@@ -1,0 +1,20 @@
+\begin{thebibliography}{\hspace{\parindent}}
+
+\bibitem[COIFMAN; WICKERHAUSER(1995)COIFMAN; WICKERHAUSER]{coif} COIFMAN,
+  R.~R.; WICKERHAUSER, M.~V\@. LOL Experiments with Adapted Wavelet De-Noising
+  for Medical Signals and Images. In: TIME FREQUENCY AND WAVELETS IN BIOMEDICAL
+  SIGNAL PROCESSING, SER. IEEE PRESS SERIES IN BIOMEDICAL ENGINEERING, 1995.
+  \textbf{Anais{\ldots}} [S.l.:~s.n.], 1995. p.323--346.
+
+\bibitem[OPPENHEIM(2009)OPPENHEIM]{Opp} OPPENHEIM, A.~V\@.
+  \textbf{Discrete-Time Signal Processing}. F. Watts, London, England: Prentice
+  Hall, 2009.
+
+\bibitem[PARRAGA(2002)PARRAGA]{parraga} PARRAGA, A\@. \textbf{Aplicação da
+  transformada Wavelet Packet na análise e classificação de sinais de vozes
+  patológicas}. [S.l.]: Dissertação UFRGS, 2002.
+
+\bibitem[TURK; PENTLAND(1991)TURK; PENTLAND]{turk} TURK, M.; PENTLAND, A.~P\@.
+  \textbf{Face Recognition Using Eigenfaces}. 1991.
+
+\end{thebibliography}

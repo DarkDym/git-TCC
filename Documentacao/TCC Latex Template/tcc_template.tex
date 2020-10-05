@@ -1,0 +1,342 @@
+\documentclass[tc,openright]{ii}
+
+\usepackage[T1]{fontenc}        % pacote para conj. de caracteres correto
+\usepackage[latin1]{inputenc}   % pacote para acentua\c c\~ ao
+\usepackage{graphicx}           % pacote para importar figuras
+\usepackage{times}              % pacote para usar fonte Adobe Times
+\usepackage{multirow}
+%\usepackage{listings}
+%\usepackage{scalefnt}
+\usepackage{amsmath}
+\usepackage[brazilian]{babel}
+\usepackage{amsmath}
+\usepackage{subfig}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{color}
+\restylefloat{table}
+
+\bibliographystyle{abnt}
+
+\hyphenation{en-si-na-men-tos a-gra-de-ci-men-to de-se-nha-dos}
+
+
+\title{RECONHECIMENTO FACIAL PARA CLASSIFICAÇÃO E REGISTRO DE PRESENÇA EM SALA DE AULA}
+
+\author{Deus}{Alleff Dymytry Pereira de}
+
+\advisor[Profa.~Dra.]{Guimarães}{Letícia Vieira}
+
+
+% a data deve ser a da defesa; se nao especificada, são gerados
+% mes e ano correntes
+\date{Janeiro}{2020}
+
+\course{Engenharia de Computação}
+
+\location{Guaíba}{RS}
+
+\keyword{key1}
+\keyword{key2}
+\keyword{ }
+\keyword{ }
+% inicio do documento
+\begin{document}
+
+
+\maketitle
+
+
+
+\begin{folhadeaprovacao}
+Monografia sob o título \textit{"Reconhecimento Facial para Classificação e Registro de Presença em Sala de Aula"}, defendida por Alleff Dymytry Pereira de Deus e aprovada em 3 de Julho de 2020, em Guaíba, estado do Rio Grande do Sul, pela banca examinadora constituída pelos professores:
+    \assinatura{Profa. Dra. Adriane Parraga \\ Orientadora}
+    \assinatura{Prof. Dr. João Leonardo Fragoso}
+        \assinatura{Profa. Dra. Letícia Vieira Guimarães}
+    \assinatura{Prof. Dr. Roberto Ribeiro Baldino}
+
+\end{folhadeaprovacao}
+
+
+% dedicatoria
+\clearpage
+\begin{flushright}
+\mbox{}\vfill
+{\sffamily\itshape
+"Se eu vi mais longe, foi por estar de pé sobre ombros de gigantes''\\}
+--- \textsc{Isaac Newton}
+\end{flushright}
+
+% agradecimentos
+\chapter*{Agradecimentos}
+Aos meus ....
+\vspace{0.5cm}
+
+
+\vspace{0.5cm}
+
+
+À minha ...
+\vspace{0.5cm}
+
+
+Aos meus...
+\vspace{0.5cm}
+
+
+À Universidade, professores e funcionários que propiciaram um excelente ambiente de aprendizagem.
+
+% sumario
+\tableofcontents
+
+% lista de abreviaturas e siglas
+\begin{listofabbrv}{SPMD}
+        \item[TWP] Transformada \textit{Wavelet Packet}
+        \item[PDS] Processamento Digital de Sinais
+	\item[RNA] Rede Neural Artificial
+	\item[SLIT] Sistemas Lineares e Invariantes no Tempo
+	\item[FPA] Filtro Passa-Alta
+	\item[FPB] Filtro Passa-Baixa
+	\item[FIR] \textit{Finite Impulse Response} (Resposta ao Impulso Finita)
+	\item[IIR] \textit{Infinite Impulse Response} (Resposta ao Impulso Infinita)
+	\item[ADC] \textit{Analog-to-digital converter} (Conversor Analógico-Digital)
+	\item[TF] Transformada de Fourier
+	\item[TDF] Transformada Discreta de Fourier
+	\item[STFT] \textit{Short Time Fourier Transform} (Transformada de Fourier de Tempo Reduzido)
+\end{listofabbrv}
+
+% lista de figuras
+\listoffigures
+
+% lista de tabelas
+\listoftables
+
+% resumo
+\begin{abstract}
+
+Este trabalho tem por objetivo o desenvolvimento de um sistema que detecta faces para o auxílio no registro de alunos presentes no ambiente acadêmico. Para a localização facial será utilizado o método de classificação Haar Like Features e para a classificação das faces encontradas será utilizado o método Eigen Faces. Para  a facilidade de utilização do usuário final, os métodos irão ser integrados em um sistema que possibilita a inclusão dos dados diretamente no banco de dados, possibilitando a consulta dos mesmo com mais agilidade. 
+
+ \end{abstract}
+
+% abstract
+\begin{englishabstract}
+{Facial Recognition for Classification and Register on Presence in Classroom}
+{key words}
+(COLOCAR EM INGLES DEPOIS)Este trabalho tem por objetivo o desenvolvimento de um sistema que detecta faces para o auxílio no registro de alunos presentes no ambiente acadêmico. Para a localização facial será utilizado o método de classificação Haar Like Features e para a classificação das faces encontradas será utilizado o método Eigen Faces. Para  a facilidade de utilização do usuário final, os métodos irão ser integrados em um sistema que possibilita a inclusão dos dados diretamente no banco de dados, possibilitando a consulta dos mesmo com mais agilidade.(COLOCAR EM INGLES DEPOIS) 
+\end{englishabstract}
+
+\chapter{Introdução}
+Nos dias atuais pode-se notar que a biometria é algo amplamente utilizado e ajuda no cotidiano de todas as pessoas, já que pode-se fazer as mais diversas funções, sendo elas: pagamento de contas, liberação para áreas restritas, verificação em e-mails, para direção de um veículo, etc. A biometria tem por base a medição de características humanas de forma analógicas e transforma para o mundo digital, sendo uma delas a mais emergente o reconhecimento facial.
+
+Segundo a ANSA, no carnaval de 2019, a polícia do Rio de Janeiro e do Salvador, conseguiram detectar e prender criminosos com a ajuda de câmeras equipadas com reconhecimento facial. Existe no mercado atual um crescimento de 20% até 30% por ano na área.
+
+O reconhecimento facial pode ser empregado nas mais diferentes áreas, sem ser a da segurança, com isso pode-se empregar o reconhecimento para verificar sentimentos, expressões, executar comandos configurados, check-in em eventos, entre outras aplicações.
+
+Com esses avanços nas técnicas de reconhecimento facial, pode-se utilizar tais avanços para o reconhecimento de alunos em sala de aulas, já que os mesmos querem ter seus rostos reconhecidos para obter a presença em sala de aula, fazendo que o método tradicional de folha de chamada posso ser substituído e todo o sistema de presença seja diretamente integrado em um único sistema.
+
+Desta forma, a construção de um sistema de reconhecimento facial integrado com um controle de presença se faz necessário para sanar o problema de ainda hoje, em um tempo de integração e avanço tecnológico, utilizar chamadas impressas para marcar se o aluno estava ou não em aula ou em um determinado evento.
+   
+
+\chapter{Fundamentos Teóricos}
+Neste capítulo serão abordados os conhecimentos necessários para a contextualização do presente trabalho, bem como seus métodos de desenvolvimento e funcionalidades específicas.
+O processo de funcionamento do presente trabalho segue a ordem indicada na figura \ref{diag}
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics[width=0.8\textwidth]{figuras/metodologia.png}
+   \caption{Esquemático do método de classificação.}
+   \label{diag}
+\end{figure}
+
+\begin{itemize}
+\item AQUISIÇÃO: O processo de aquisição se refere ao momento em que o usuário tem sua face adquirida por um dispositivo de captura (câmera, filmadora, webcam, etc.);
+
+\item LOCALIZAÇÃO: O processo de localização tem por funcionamento encontrar uma face na imagem adquirida no processo anterior;
+
+\item SEGMENTAÇÃO: O processo de segmentação por sua vez retira para o sistema somente a face localizada no processo anterior, facilitando a próxima etapa do sistema;
+
+\item CLASSIFICAÇÃO: O processo de classificação consiste em utilizar a face para o reconhecimento de qual usuário está no sistema;
+
+\item INSERÇÃO: O processo de inserção finaliza o sistema, inserindo qual usuário que foi reconhecido pelos processos anteriores.
+\end{itemize}
+%Na seção \ref{r1} é feita uma breve abordagem sobre...
+
+\section{EIGENFACES}\label{r1}
+No contexto de análise de imagens, existe um problema em qualquer tipo de classificação, sendo ele o tamanho das dimensões da imagem, onde um problema simples pode se tornar complexo, já que uma imagem em escala de cinza de 300 pixels por 300 pixels irá possuir um total de 90000 valores diferentes $(m = i \times j)$.
+Sendo assim é necessário retirar das imagens somente o que interessa, para isso é utilizado o método de análise de componentes principais (PCA), onde serão extraídas das imagens as partes que possuem as maiores relevâncias dentro do espaço de distribuição de dados.
+
+O PCA é feito pela decomposição em autovetores de uma matriz de covariância, sendo o autovetor o maior autovalor associado correspondente do da componente principal de cada conjunto.
+ 
+\subsection{Reconhecimento Utilizando Eigenfaces}
+
+Pode-se utilizar eigenfaces para reconhecimento facial, alguns passos devem ser feitos antes do reconhecimento concreto, levando em consideração que as imagens utilizadas estão centralizadas e possuem os mesmos tamanhos. Sendo assim pode-se dividir o processo em duas etapas, a primiera de treinamento e o segundo de reconhecimento. Para a etapa de treinamento os seguintes passos devem ser feitos:
+
+\begin{itemize}
+
+\item Adquirir uma coletânea de imagens para ser o conjunto de treinamento;
+\item Deixar as imagens no tamanho desejado, cortando somente a face como objeto de insteresse;
+\item Fazer o vetor de imagens ($I = N \times N$) ser um vetor gamma ($\Gamma = N^{2} \times 1$);
+\item Calcular a face média do vetor $\Gamma$ a partir da fórmula $\Psi = \dfrac{1}{M} \sum_{i=1}^{M} \Gamma_{i}$
+\item Calcular a face média de cada face do conjunto $\Gamma$ a partir da fórmula $\Phi_{i} = \Gamma_i - \Psi$
+\item Obter a matriz de covariância $C = \dfrac{1}{M} \sum_{i=1}^{M} \Phi_i \Phi_{i}^{T} = AA^{T}$. Onde $A = [\Phi_1 \Phi_2 ... \Phi_M]$
+
+%Arrumar depois
+\item Autovalores e Autovetores
+\item Obter os melhores M autovetores
+\item Manter somente os K melhores autovetores(K com maiores autovalores)%Treshold
+
+\end{itemize}
+
+A segunda etapa sendo a de reconhecimento, se utiliza uma face que esta fora do conjunto de treinamento para poder fazer a validação, além de que deve estar com o mesmo tamanho das imagens do conjunto de treino, seguindo os seguintes passos:
+
+\begin{itemize}
+
+\item Normalizar a imagem $\Gamma$ : $\Phi = \Gamma - \Psi$
+
+
+\end{itemize}
+
+
+
+\begin{itemize}
+
+\item Calcular um conjunto de pesos baseados na imagem de entrada e as M Eigenfaces projetando a imagem de entrada em cada uma das Eigenfaces;
+\item Determinar se a imagem de entrada é uma face, calculando se a imagem está suficientemente próxima do espaço facial;
+\item Se for uma face, classificar os padrões de peso para saber se é uma pessoa conhecida ou desconhecida;
+
+\end{itemize}
+
+Segundo \cite{coif}, \cite{parraga}, e este ainda \cite{Opp}. Exemplo de ref 
+
+\vspace{0.3cm}
+\textbf{Altura} (\textit{Pitch})
+\vspace{0.2cm}
+
+
+\section{SISTEMAS EMBARCADOS}\label{r2}
+Atualmente a tecnologia está cada vez mais popular e acessível, sendo assim possui-se diversos tipos diferentes de tecnologias para os mais diversos fins, sendo assim um conceito para que essas tecnologias possam ser classificadas e separadas para os seus específicos fins, pode-se utilizar o conceito de sistemas embarcados. Os sistemas embarcados são tecnologias que são construídas para devidos fins específicos com hardware específico que acaba não podendo ser reutilizado em outras aplicações que não possuam o mesmo hardware utilizado em seu desenvolvimento original.
+
+Os sistemas embarcados podem normalmente desempenhar processos simples, que não geram nenhum tipo de risco para os usuários (exemplo de calculadoras, controles de videogames, telefones, etc.), contudo também podem ser utilizados para tarefas mais complexas que apresentam certos riscos se não forem projetados com um maior rigor (exemplo controle em aviões, controles industriais, monitoramento de saúde, etc.).
+
+Neste âmbito um sistema desenvolvido para um hardware específico pode ser considerado um sistema embarcado, neste tipo de aplicação um hardware muito utilizado atualmente são as RaspberryPi, que são microprocessadores que rodam sistemas operacionais de diversos tipos.
+
+
+\subsection{Sons normais}
+
+
+exemplo de tabela
+
+\cite{turk}
+\cite{parraga}
+\cite{Opp}
+\cite{coif}
+
+
+\begin{table}[ht]
+\begin{center}
+    \begin{tabular}{ | l | l | p{6.5cm} |}
+    \hline
+    Tipo & Intensidade & Descrição \\ \hline
+
+    Vesicular & Suave  & Formado pela passagem do ar pelo parênquima pulmonar. \\ \hline
+
+    Bronquial & Alta  & Som traqueal audível na zona de projeção de brônquios de maior calibre. \\ \hline
+
+    Broncovesicular  & Intermediária  & Somam-se as características do som bronquial com o som vesicular. \\ \hline
+
+    Traqueal & Muito alta & Som produzido na traqueia pela passagem do ar. \\  \hline
+    \end{tabular}
+    \caption{Tipos de sons normais.} % title of Table
+\label{tsonsnormais}
+
+\end{center}
+\end{table}
+
+
+\section{Processamento Digital de Sinais}\label{r3}
+
+
+
+\subsection{Sistemas lineares e invariantes no tempo}
+bla bla bla
+
+\subsubsection{Impulso Unitário}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.6\textwidth]{Figuras/1.png}
+\caption{Função impulso.}
+\label{dirac}
+\end{figure}
+
+A função impulso, 
+
+\subsubsection{Convolução}
+A convolução é uma ...
+
+Caso a entrada neste sistema seja um impulso, o sinal de saída será denominada como resposta impulsiva e representado como $h[n]$, na eq. \ref{conv}.
+
+
+exemplo de equaão
+\begin{equation}
+{y[n]} = x[n] * h[n] = \sum \limits _{k=-\infty}^{\infty} {x[k].h[n-k]} \label{conv}
+\end{equation}
+
+
+\begin{figure}[htb]
+        \centering
+        \subfloat[]{
+            \begin{minipage}{0.338\linewidth}
+              \includegraphics[width=0.98\linewidth, height = 0.2\textheight, keepaspectratio=true]{Figuras/8.png}             
+            \end{minipage}} 
+        \subfloat[]{
+            \begin{minipage}{0.324\linewidth}
+             \includegraphics[width=0.98\linewidth, height = 0.2\textheight, keepaspectratio=true]{Figuras/8.png}
+            \end{minipage}}
+        \subfloat[]{
+            \begin{minipage}{0.338\linewidth}
+              \includegraphics[width=0.98\linewidth, height = 0.2\textheight, keepaspectratio=true]{Figuras/8.png}
+            \end{minipage}}
+             
+           \caption{Espectros dos sinais: (a) sinal $X(f)$, (b) trem de impulsos, (c) sinal $X(f)$ multiplicado pelo trem de impulsos.}
+           \label{samp2} 
+    \end{figure}
+
+
+\section{Transformada \textit{Wavelet}} \label{r4}
+bla bla bla
+
+\subsection{Modelo do neurônio biológico} \label{MNB}
+
+\subsubsection{Topologia da rede}
+
+\chapter{Materiais e métodos}
+
+bla bla bla 
+
+\section{Arduino Due}\label{mm1}
+
+\chapter{Resultados e discussões}
+
+\section{Geração da RNA} \label{RD1}
+ 
+\chapter{Conclusão} 
+\chapter{Trabalhos Futuros}
+
+%\bibliography{TESTE}
+
+\bibliography{bibliografia}
+
+%\appendix
+
+%\begin{center}
+%\chapter{Detalhes sobre um ítem %específico do trabalho}
+%\end{center}	
+
+
+%\begin{verbatim}	
+%apendice
+%\end{verbatim}
+
+
+
+\end{document}

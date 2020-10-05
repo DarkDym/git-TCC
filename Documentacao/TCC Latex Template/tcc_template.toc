@@ -1,0 +1,28 @@
+\babel@toc {brazilian}{}
+\contentsline {chapter}{Lista de Abreviaturas e Siglas}{6}%
+\contentsline {chapter}{Lista de Figuras}{7}%
+\contentsline {chapter}{Lista de Tabelas}{8}%
+\contentsline {chapter}{Resumo}{9}%
+\babel@toc {english}{}
+\contentsline {chapter}{Abstract}{10}%
+\babel@toc {brazilian}{}
+\contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{11}%
+\contentsline {chapter}{\numberline {2}Fundamentos Te\'oricos}{12}%
+\contentsline {section}{\numberline {2.1}EIGENFACES}{12}%
+\contentsline {subsection}{\numberline {2.1.1}Reconhecimento Utilizando Eigenfaces}{13}%
+\contentsline {section}{\numberline {2.2}SISTEMAS EMBARCADOS}{14}%
+\contentsline {subsection}{\numberline {2.2.1}Sons normais}{14}%
+\contentsline {section}{\numberline {2.3}Processamento Digital de Sinais}{14}%
+\contentsline {subsection}{\numberline {2.3.1}Sistemas lineares e invariantes no tempo}{14}%
+\contentsline {subsubsection}{\numberline {2.3.1.1}Impulso Unit\'ario}{14}%
+\contentsline {subsubsection}{\numberline {2.3.1.2}Convolu\c c\~ao}{14}%
+\contentsline {section}{\numberline {2.4}Transformada \textit {Wavelet}}{15}%
+\contentsline {subsection}{\numberline {2.4.1}Modelo do neur\^onio biol\'ogico}{15}%
+\contentsline {subsubsection}{\numberline {2.4.1.1}Topologia da rede}{15}%
+\contentsline {chapter}{\numberline {3}Materiais e m\'etodos}{16}%
+\contentsline {section}{\numberline {3.1}Arduino Due}{16}%
+\contentsline {chapter}{\numberline {4}Resultados e discuss\~oes}{17}%
+\contentsline {section}{\numberline {4.1}Gera\c c\~ao da RNA}{17}%
+\contentsline {chapter}{\numberline {5}Conclus\~ao}{18}%
+\contentsline {chapter}{\numberline {6}Trabalhos Futuros}{19}%
+\contentsline {chapter}{Refer{\^e}ncias}{20}%
