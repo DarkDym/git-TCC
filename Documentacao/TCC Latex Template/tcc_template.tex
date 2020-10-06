@@ -63,8 +63,8 @@ Monografia sob o título \textit{"Reconhecimento Facial para Classificação e Regi
 \begin{flushright}
 \mbox{}\vfill
 {\sffamily\itshape
-"Se eu vi mais longe, foi por estar de pé sobre ombros de gigantes''\\}
---- \textsc{Isaac Newton}
+"Você deve entender que há mais de um caminho para o topo da montanha.''\\}
+--- \textsc{Miyamoto Musashi}
 \end{flushright}
 
 % agradecimentos
@@ -139,13 +139,13 @@ Desta forma, a construção de um sistema de reconhecimento facial integrado com u
 
 \chapter{Fundamentos Teóricos}
 Neste capítulo serão abordados os conhecimentos necessários para a contextualização do presente trabalho, bem como seus métodos de desenvolvimento e funcionalidades específicas.
-O processo de funcionamento do presente trabalho segue a ordem indicada na figura \ref{diag}
+O processo de funcionamento do presente trabalho segue a ordem indicada na figura \ref{aquisicao}
 
 \begin{figure}[htb]
    \centering
    \includegraphics[width=0.8\textwidth]{figuras/metodologia.png}
    \caption{Esquemático do método de classificação.}
-   \label{diag}
+   \label{aquisicao}
 \end{figure}
 
 \begin{itemize}
@@ -227,6 +227,7 @@ Neste âmbito um sistema desenvolvido para um hardware específico pode ser consid
 exemplo de tabela
 
 \cite{turk}
+\cite{turk2}
 \cite{parraga}
 \cite{Opp}
 \cite{coif}
@@ -251,24 +252,6 @@ exemplo de tabela
 
 \end{center}
 \end{table}
-
-
-\section{Processamento Digital de Sinais}\label{r3}
-
-
-
-\subsection{Sistemas lineares e invariantes no tempo}
-bla bla bla
-
-\subsubsection{Impulso Unitário}
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.6\textwidth]{Figuras/1.png}
-\caption{Função impulso.}
-\label{dirac}
-\end{figure}
-
-A função impulso, 
 
 \subsubsection{Convolução}
 A convolução é uma ...
@@ -301,28 +284,70 @@ exemplo de equaão
            \label{samp2} 
     \end{figure}
 
-
-\section{Transformada \textit{Wavelet}} \label{r4}
-bla bla bla
-
-\subsection{Modelo do neurônio biológico} \label{MNB}
-
-\subsubsection{Topologia da rede}
-
 \chapter{Materiais e métodos}
 
-bla bla bla 
+Neste capítulo serão abordados os materiais utilizados para a construção e desenvolvimento do presente trabalho, bem como os métodos discutidos anteriormente. 
 
-\section{Arduino Due}\label{mm1}
+\section{MATERIAIS}\label{mm1}
+
+A aplicação será desenvolvida utilizando a linguagem de programação Python, sendo ela a linguagem escolhida devido ao seu maior acervo bibliográfico referente as funções necessárias para a o desenvolvimento de presente trabalho.
+
+Para o tratamento e requisições das imagens, será utilizado a biblioteca OpenCV, devido ao seu alto grau de conceituação na literatura atual além de ser de código aberto e com uma ampla disponibilidade de documentação.
+
+Para o armazenamento das informações necessária para gerar as presenças dentro da aplicação, será utilizado o banco de dados não relacional MongoDB, devido a não necessidade de relação entre as informações inseridas nas tabelas do banco criado, assim como a inserção das informações das imagens. Além de possuir conexão com a linguagem escolhida para a criação da aplicação.
+Para o desenvolvimento da interface gráfica, será utilizado o framework de desenvolvimento gráfico PyQt, gerando uma interface ?amigável? para todos os tipos de usuários, além de disponibilizar mais facilmente as opções de gerência do banco de dados utilizado.
+
+O banco de imagens para o treinamento e o teste dos métodos previamente descritos, são o banco FEI face database, YALE face database e um banco de dados criado manualmente. O banco FEI é um banco de imagens faciais brasileiro que possui 14 imagens de 200 indivíduos, totalizando 2800 imagens. O banco YALE possui 165 imagens de 15 indivíduos, totalizando 2475 imagens.
+
+Os testes serão realizados em uma Raspberry Pi 3, que possui um processador ARMv8 CORTEX A53 QUADCORE com velocidade de operação de 1.2GHz e 1GB de memória RAM. Utilizando o sistema operacional Linux para executar a aplicação desenvolvida.
+
+\section{PYTHON}
+
+Python é uma linguagem de programação considerada de alto nível, tendo o seu funcionamento interpretado, onde o programa é executado por um interpretador e após pelo sistema operacional ou processador. A linguagem também é orientada a objetos e funcional. Foi criada em 1991. Possui uma grande comunidade, já que a linguagem possui um modelo de desenvolvimento comunitário, onde várias pessoas podem ajudar a desenvolver novas bibliotecas para que toda a comunidade posso utilizar.
+
+\section{OPENCV}
+
+O OpenCV é uma biblioteca de visão computacional e aprendizagem de máquina com código livre, possuindo mais 2500 algoritmos otimizados para uso de todos. Os algoritmos vão desde detectar objetos até extração de modelos 3D. A biblioteca pode ser utilizada nas linguagens de programação Python, C++, Java e MatLab, tendo seus códigos escritos nativamente em C++.
+
+\section{MONGODB}
+
+O MongoDB é um banco de dados não relacional que utiliza documentos para armazenar informações, utilizando informações na linguagem JSON. Podendo se conectar com as mais diversas linguagens de programação (como por exemplo: Java, Python, Ruby, C++, etc).
+
+\section{EIGENFACES}
+
+Eigenfaces é um classificador de faces utilizado em visão computacional, utiliza autovetores para poder fazer a aproximação do valor de rosto médio com o rosto em questão. A criação do conceito de eigenfaces foi criada em 1987 por Sirovich e Kirby, tendo como primeira intenção de uma aproximação de uma representação de imagens em dimensões menores. As eigenfaces podem ser geradas a partir de um processo matemático chamado de Análise de Componente Principal (PCA) em um banco de imagens de faces consideravelmente grande.
+
+\section{METODOLOGIA}
+
+Nesta seção serão apresentadas as etapas de desenvolvimento do presente trabalho seguindo o caminho da fig. \ref{diagrama}.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figuras/diagrama.png}
+	\caption{Diagrama das etapas de desenvolvimento.}
+	\label{diagrama}
+\end{figure}
+
+O desenvolvimento do presente trabalho possuí uma construção paralela das funções para que se possa ir integrando cada parte do sistema, afim de chegar no final do desenvolvimento com todas as funções funcionando integralmente, sendo assim o início do desenvolvimento segue a etapa de aquisição das imagens, tendo em paralelo o desenvolvimento de uma interface que seja de simples acesso e o mais claro possível para o usuário final. As imagens serão adquiridas utilizando um algoritmo, contendo a biblioteca OpenCV, sendo executado na Raspberry Pi juntamente com uma câmera (podendo ser um webcam ou uma Raspicam).
+ 
+Após a obtenção das imagens é necessário fazer a segmentação do rosto encontrado, considerando somente a face (do queixo até início da cabeça), em paralelo será construído e integrado o banco de dados com a interface, já que será necessário analisar como os dados das imagens adquiridas serão armazenadas no banco de dados (para que não seja necessário armazenar nenhum tipo de informação na RaspberryPi, devido ao seu espaço limitado de armazenamento). 
+
+Assim que a face estiver segmentada, poderá ser aplicado o classificador Eigenfaces (a segmentação se faz necessária para que o fundo da imagem e qualquer outro objeto não influencie na classificação do indivíduo) para o reconhecimento do indivíduo em questão, como dito anteriormente, em paralelo será testado funções de frequência/presença no sistema, para que o objetivo final do sistema, que seria de por meio do reconhecimento facial a presença do indivíduo, da qual quer ser reconhecido, receberá presença dentro do sistema.
+ 
+Na sua etapa final, todas as partes desenvolvidas serão integradas em uma versão final, já que ao longo do desenvolvimento do sistema as partes serão testadas para não ter nenhum tipo de problema na integração dos mesmos. O funcionamento do sistema pode ser visto na fig. \ref{sistema}.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figuras/sistema.png}
+	\caption{Diagrama do sistema.}
+	\label{sistema}
+\end{figure}
 
 \chapter{Resultados e discussões}
-
-\section{Geração da RNA} \label{RD1}
  
 \chapter{Conclusão} 
-\chapter{Trabalhos Futuros}
 
-%\bibliography{TESTE}
+\chapter{Trabalhos Futuros}
 
 \bibliography{bibliografia}
 

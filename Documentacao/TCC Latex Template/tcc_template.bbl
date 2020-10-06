@@ -14,7 +14,10 @@
   transformada Wavelet Packet na análise e classificação de sinais de vozes
   patológicas}. [S.l.]: Dissertação UFRGS, 2002.
 
-\bibitem[TURK; PENTLAND(1991)TURK; PENTLAND]{turk} TURK, M.; PENTLAND, A.~P\@.
+\bibitem[TURK; PENTLAND(1991a)TURK; PENTLAND]{turk} TURK, M.; PENTLAND, A.~P\@.
   \textbf{Face Recognition Using Eigenfaces}. 1991.
+
+\bibitem[TURK; PENTLAND(1991b)TURK; PENTLAND]{turk2} TURK, M.; PENTLAND,
+  A.~P\@. \textbf{Eigenfaces for Recognition}. 1991.
 
 \end{thebibliography}

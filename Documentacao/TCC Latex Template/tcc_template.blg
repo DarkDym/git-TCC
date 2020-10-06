@@ -9,45 +9,47 @@ Warning--entry type for "parraga" isn't style-file defined
 --line 20 of file bibliografia.bib
 Warning--entry type for "turk" isn't style-file defined
 --line 29 of file bibliografia.bib
-You've used 4 entries,
+Warning--entry type for "turk2" isn't style-file defined
+--line 36 of file bibliografia.bib
+You've used 5 entries,
             2364 wiz_defined-function locations,
-            599 strings with 4781 characters,
-and the built_in function-call counts, 5230 in all, are:
-= -- 646
-> -- 13
-< -- 57
-+ -- 342
-- -- 13
-* -- 177
-:= -- 437
-add.period$ -- 16
-call.type$ -- 4
-change.case$ -- 39
-chr.to.int$ -- 14
-cite$ -- 4
-duplicate$ -- 741
-empty$ -- 195
-format.name$ -- 42
-if$ -- 1176
-int.to.chr$ -- 0
+            602 strings with 4845 characters,
+and the built_in function-call counts, 6025 in all, are:
+= -- 721
+> -- 15
+< -- 72
++ -- 394
+- -- 14
+* -- 220
+:= -- 508
+add.period$ -- 19
+call.type$ -- 5
+change.case$ -- 51
+chr.to.int$ -- 15
+cite$ -- 5
+duplicate$ -- 851
+empty$ -- 241
+format.name$ -- 56
+if$ -- 1335
+int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 0
-newline$ -- 11
-num.names$ -- 20
-pop$ -- 86
+newline$ -- 13
+num.names$ -- 25
+pop$ -- 102
 preamble$ -- 1
-purify$ -- 4
+purify$ -- 5
 quote$ -- 0
-skip$ -- 345
+skip$ -- 386
 stack$ -- 0
-substring$ -- 339
-swap$ -- 438
+substring$ -- 376
+swap$ -- 512
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 36
+type$ -- 41
 warning$ -- 0
-while$ -- 28
+while$ -- 34
 width$ -- 0
-write$ -- 6
-(There were 2 warnings)
+write$ -- 7
+(There were 3 warnings)

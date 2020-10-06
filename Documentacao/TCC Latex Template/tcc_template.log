@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.10.5)  5 OCT 2020 18:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.10.5)  6 OCT 2020 15:02
 entering extended mode
 **./tcc_template.tex
 (tcc_template.tex
@@ -370,7 +370,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--10
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 22--22
+Underfull \hbox (badness 10000) in paragraph at lines 16--16
+ []  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--23
  []  
  []
 
@@ -380,17 +385,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--24
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 25--25
+ []  
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 26--26
- []  
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 27--27
- []  
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 28--28
  []  
  []
 
@@ -427,7 +427,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 124--124
 ] [11
 
 ]
-<figuras/metodologia.png, id=44, 432.86719pt x 47.42719pt>
+<figuras/metodologia.png, id=43, 432.86719pt x 47.42719pt>
 File: figuras/metodologia.png Graphic file (type png)
 <use figuras/metodologia.png>
 Package pdftex.def Info: figuras/metodologia.png  used on input line 146.
@@ -452,86 +452,109 @@ mm/m/it/12 A \OT1/cmr/m/n/12 = [[][]\OML/cmm/m/it/12 :::\OT1/cmr/m/n/12 []]$
  []
 
 [13]
-<Figuras/1.png, id=56, 187.7882pt x 55.48288pt>
-File: Figuras/1.png Graphic file (type png)
-<use Figuras/1.png>
-Package pdftex.def Info: Figuras/1.png  used on input line 266.
-(pdftex.def)             Requested size: 256.07741pt x 75.6614pt.
+
+Package natbib Warning: Citation `turk2' on page 14 undefined on input line 230
+.
+
+<Figuras/8.png, id=55, 190.7928pt x 77.76253pt>
+File: Figuras/8.png Graphic file (type png)
+<use Figuras/8.png>
+Package pdftex.def Info: Figuras/8.png  used on input line 273.
+(pdftex.def)             Requested size: 141.37659pt x 57.62167pt.
+File: Figuras/8.png Graphic file (type png)
+<use Figuras/8.png>
+Package pdftex.def Info: Figuras/8.png  used on input line 277.
+(pdftex.def)             Requested size: 135.52203pt x 55.2355pt.
+File: Figuras/8.png Graphic file (type png)
+<use Figuras/8.png>
+Package pdftex.def Info: Figuras/8.png  used on input line 281.
+(pdftex.def)             Requested size: 141.37659pt x 57.62167pt.
+
+Overfull \hbox (8.99998pt too wide) in paragraph at lines 273--282
+ [][][][] 
+ []
+
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 \T1/ptm/m/n/10.95 14
  []
 
-[14]
-<Figuras/8.png, id=61, 190.7928pt x 77.76253pt>
-File: Figuras/8.png Graphic file (type png)
-<use Figuras/8.png>
-Package pdftex.def Info: Figuras/8.png  used on input line 290.
-(pdftex.def)             Requested size: 141.37659pt x 57.62167pt.
-File: Figuras/8.png Graphic file (type png)
-<use Figuras/8.png>
-Package pdftex.def Info: Figuras/8.png  used on input line 294.
-(pdftex.def)             Requested size: 135.52203pt x 55.2355pt.
-File: Figuras/8.png Graphic file (type png)
-<use Figuras/8.png>
-Package pdftex.def Info: Figuras/8.png  used on input line 298.
-(pdftex.def)             Requested size: 141.37659pt x 57.62167pt.
-
-Overfull \hbox (8.99998pt too wide) in paragraph at lines 290--299
- [][][][] 
- []
-
-[15 <./Figuras/1.png> <./Figuras/8.png>]
+[14] [15 <./Figuras/8.png>]
 Underfull \hbox (badness 10000) has occurred while \output is active
 \T1/ptm/m/n/10.95 16
  []
 
 [16
 
-] [17
-
 ]
+<figuras/diagrama.png, id=68, 258.21469pt x 331.99031pt>
+File: figuras/diagrama.png Graphic file (type png)
+<use figuras/diagrama.png>
+Package pdftex.def Info: figuras/diagrama.png  used on input line 326.
+(pdftex.def)             Requested size: 213.39568pt x 274.37662pt.
+ [17]
+<figuras/sistema.png, id=72, 454.69875pt x 128.73094pt>
+File: figuras/sistema.png Graphic file (type png)
+<use figuras/sistema.png>
+Package pdftex.def Info: figuras/sistema.png  used on input line 341.
+(pdftex.def)             Requested size: 341.43437pt x 96.6658pt.
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 \T1/ptm/m/n/10.95 18
  []
 
-[18
+[18 <./figuras/diagrama.png> <./figuras/sistema.png>] [19
 
-] (tcc_template.bbl [19
-
-]) 
-AED: lastpage setting LastPage
-
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 \T1/ptm/m/n/10.95 20
  []
 
 [20
 
-] (tcc_template.aux) ) 
+] (tcc_template.bbl [21
+
+]) 
+AED: lastpage setting LastPage
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\T1/ptm/m/n/10.95 22
+ []
+
+[22
+
+]
+
+Package natbib Warning: There were undefined citations.
+
+(tcc_template.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+) ) 
 Here is how much of TeX's memory you used:
- 5116 strings out of 480790
- 75796 string characters out of 2907049
- 338273 words of memory out of 3000000
- 21015 multiletter control sequences out of 15000+200000
- 579434 words of font info for 66 fonts, out of 3000000 for 9000
+ 5117 strings out of 480790
+ 75950 string characters out of 2907049
+ 339238 words of memory out of 3000000
+ 21018 multiletter control sequences out of 15000+200000
+ 573898 words of font info for 62 fonts, out of 3000000 for 9000
  1144 hyphenation exceptions out of 8191
- 48i,10n,49p,620b,394s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/
-Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program File
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
-C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Fi
-les/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX/fonts/t
-ype1/urw/helvetic/uhvro8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/ut
-mb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Program
- Files/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/t
-ype1/urw/times/utmri8a.pfb>
-Output written on tcc_template.pdf (20 pages, 199226 bytes).
+ 48i,10n,49p,645b,394s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr1
+2.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Prog
+ram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/ty
+pe1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/u
+hvro8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Progra
+m Files/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/
+type1/urw/times/utmri8a.pfb>
+Output written on tcc_template.pdf (22 pages, 230349 bytes).
 PDF statistics:
- 126 PDF objects out of 1000 (max. 8388607)
+ 128 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
