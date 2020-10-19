@@ -43,4 +43,4 @@ class abreImg:
             img = image[i].flatten()
             data[i,:] = img
         image.clear()    
-        return data,numImg    
+        return data,numImg
