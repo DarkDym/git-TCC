@@ -7,3 +7,4 @@ requisito para a graduação em Bacharel de Engenharia de computação na Univer
 Esse repositório foi criado também com o intuito de obter uma melhor organização do versionamento e controle dos códigos e documentação atrelados ao TCC.
 
 *Autor:* **Alleff Dymytry**
+*Orientadora:* **Letícia Vieira Guimarães**
