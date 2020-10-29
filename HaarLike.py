@@ -12,6 +12,7 @@ from AbreIMG import abreImg as ai
 
 #Mudar PATH e DIRA caso seja mudado de computador, precisa ser o caminho absoluto
 DIRA = "C://Users//Dymytry//Desktop//TCC Alleff//TCC Alleff//TCC_v1-3//CODES//IMAGENS//FRONTAL"
+DIRA_MOD = "C://Users//Dymytry//Desktop//TCC Alleff//git-TCC//IMAGENS//TESTE"
 PATH = "C://Users//Dymytry//Desktop//TCC Alleff//TCC Alleff//TCC_v1-3//CODES//"
 
 class harr:
@@ -54,23 +55,23 @@ class harr:
         return self.roi_gray
     def cutFace(self):
         image = []
-        for filePath in sorted(os.listdir(DIRA)):
-            imagePath = os.path.join(DIRA,filePath)
+        for filePath in sorted(os.listdir(DIRA_MOD)):
+            imagePath = os.path.join(DIRA_MOD,filePath)
             im = cv.imread(imagePath)
             image.append(im)
             imFlip = cv.flip(im,1)
             image.append(imFlip)
         lgt = len(image)
         print(lgt)
-        os.chdir("./IMAGENS/FT")
+        os.chdir("./IMAGENS/TESTE_FT")
         y = 1
         for x in range(0,lgt):
             aux = image[x]
             frame = self.detecta2(aux)
             frame = cv.resize(frame, (300,300))
-            cv.imwrite(str(y)+"-11.jpg",frame)
+            cv.imwrite(str(y)+"-12.jpg",frame)
             y = y + 1
         image.clear()
 
-#root = harr()
-#root.cutFace() 
+# root = harr()
+# root.cutFace() 

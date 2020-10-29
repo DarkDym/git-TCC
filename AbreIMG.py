@@ -44,3 +44,15 @@ class abreImg:
             data[i,:] = img
         image.clear()    
         return data,numImg
+    def saveImg(self,img_np,name,PATH):
+        try:
+            os.chdir(PATH)
+            # print("VALOR DO IMG_NP: "+str(img_np))
+            normimg = cv.normalize(img_np, None, alpha=0, beta=1,norm_type=cv.NORM_MINMAX, dtype=cv.CV_32F)
+            normimg = normimg*255.0
+            # print("VALOR DO TESTE: "+str(teste))
+            # teste = np.array(img_np)
+            cv.imwrite(name,normimg)
+        except OSError:
+            print("Caminho " + str(PATH) +" inválido.")
+
