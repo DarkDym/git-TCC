@@ -6,7 +6,7 @@ class db_mongo:
 
     def conecta(self):
         # global client
-        client = pymongo.MongoClient("mongodb+srv://admin:Alfaromeuhp!1@cluster0-c8iqj.mongodb.net/test?retryWrites=true&w=majority")
+        client = pymongo.MongoClient("")
         return client
 
     def kill_connection(self,client):
