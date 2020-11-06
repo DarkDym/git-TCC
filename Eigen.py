@@ -13,6 +13,7 @@ from bson import Binary
 
 from AbreIMG import abreImg as ai
 from Database import db_mongo as db
+from Google_Drive import connect_drive as gd
 
 NEF = 10
 #Mudar DIRA caso seja mudado de computador, precisa ser o caminho absoluto
@@ -60,23 +61,48 @@ def teste3(aux1,aux2,aux3):
 class eigenfaces:
     def __init__(self):
         pass
+    def img2json(self,name_arq,img_json,GDA,client,obj_name):
+        # Seria certo salvar para cada pessoa o seu phi e omega, pois assim teria as métricas gerada de cada pessoa quando forem cadastradas no sistema,
+        # pensando nisso, esse método salva o arquivo em um json e envia pro drive.
+        # A função deve receber Phi_i , Omega_i e i.
+        # A função deve receber o connect do Database.py e receber o id do arquivo do Google_Drive.py
+        # A função deve enviar o nome e o objeto do arquivo para o Google_drive.py via parâmetro
+        # As conexões das funções do Google_Drive.py e Database.py não podem ficar dentro da função, deve ser instanciada fora, devido a quantidade
+        # repetida que as mesmas serão abertas.
+        
+        # client = db.conecta(self)
+        # GDA = gd.connect()
+        # img_json <-- Phi_i,Omega_i
+        # obj_json <-- nome,id_drive 
+
+        id_img = gd.create_img2json(name_arq,img_json,GDA)
+        obj_json = {"Nome":obj_name,"Id_drive":id_img}
+        db.gamma2db(self,client,obj_json)
+
+
+
+
     def img2db(self):
         client = db.conecta(self)
-        images = ai.openImg(self,DIRA)
+        images = ai.openImg2DB(self,DIRA)
         for i in range(0,len(images)):
             images[i] = cv.cvtColor(images[i],cv.COLOR_BGR2GRAY)
         [gamma, qnt_gamma] = ai.createDataMatrix(self,images)
         print(len(images))
+        y = 1
         for x in range(0,qnt_gamma):
             img_list = gamma[x].tolist()
-            img_json = {"nome":"foto"+str(x+1),"pixel":img_list}
+            if (x % 2 == 0):
+                nome = "pessoa"+str(y)
+                y += 1
+            img_json = {"nome":nome,"pixel":img_list}
 
             # TESTE PARA SALVAR ARQUIVO E VER TAMANHO DELE
             # with open("teste2.json","w") as write_file:
                 # json.dump(img_json,write_file,indent=4)
             # write_file.close()
 
-            img_json = {"nome":"foto"+str(x+1),"pixel":Binary(gamma[x])}
+            # img_json = {"nome":"foto"+str(x+1),"pixel":Binary(gamma[x])}
             
 
             # stri = base64.b64encode(images[x])
@@ -166,6 +192,19 @@ class eigenfaces:
         aux_omegay.clear()
         #Geração dos pesos de treino Omega
 
+        # Teste com a função de salvar no banco e drive
+        client = db.conecta(self)
+        GDA = gd.connect()
+        y = 1
+        for x in range(0,phi_aux.shape[0]):
+            phi_list = phi_aux[x].tolist()
+            omega_list = omega[x].tolist()
+            if (x % 2 == 0):
+                nome_arq = "pessoa"+str(y)
+                y += 1
+            img_json = {"PHI":phi_list,"OMEGA":omega_list}
+            eigenfaces.img2json(self,nome_arq,img_json,GDA,client,nome_arq)
+        
         #Comentado, pois é necessário fazer uma função própria para reconhecimento, porém esta funcionando
         # images = ai.openImg(self,DIRA_MOD)
         # for i in range(0,len(images)):
@@ -812,9 +851,9 @@ class eigenfaces:
         cv.destroyAllWindows()
     #def createNewFace(self,avg,sValues,eigenFaces):
 
-tst = eigenfaces()
+# tst = eigenfaces()
 # tst.db2img()
 # tst.eigNovo()
 # tst.eig_mod()
-tst.get_eigenfaces()
+# tst.get_eigenfaces()
 # tst.img2db()

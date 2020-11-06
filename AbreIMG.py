@@ -55,4 +55,13 @@ class abreImg:
             cv.imwrite(name,normimg)
         except OSError:
             print("Caminho " + str(PATH) +" inválido.")
-
+    def openImg2DB(self,path):
+        image = []
+        for filePath in sorted(os.listdir(path)):
+            imagePath = os.path.join(path,filePath)
+            im = cv.imread(imagePath)
+            im = np.float32(im)/255.0
+            image.append(im)
+            # imFlip = cv.flip(im,1)
+            # image.append(imFlip)
+        return image

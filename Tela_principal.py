@@ -20,7 +20,7 @@ class Application:
         #db.conecta(self)
         #pdf.tabela(self,"teste")
         print("OI")
-        eg.classifica(self)
+        # eg.classififcca(self)
         self.window = window
 
         self.cam = cv.VideoCapture(0)

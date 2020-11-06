@@ -4,9 +4,12 @@ from pydrive.drive import GoogleDrive
 class connect_drive:
     def connect():
         gauth = GoogleAuth()
-        gauth.LocalWebserverAuth()
-        # gauth.CommandLineAuth()
-        drive = GoogleDrive(gauth)
+        gauth.LoadCredentialsFile("credentials.json")
+        return gauth
+        
+    def get_files():
+        GA = connect_drive.connect()
+        drive = GoogleDrive(GA)
         fileList = drive.ListFile({'q': "'root' in parents and trashed=false"}).GetList()
         # print(fileList)
         for files in fileList:
@@ -24,5 +27,26 @@ class connect_drive:
                 print(info)
                 break
 
-drive = connect_drive
-drive.connect()
+    def get_credentials():
+        gauth = GoogleAuth()
+        gauth.LocalWebserverAuth()
+        print("Arquivo credentials.json criado.")
+    
+    def create_img2json(name_arq,cont_arq,GA):
+        # GA = connect_drive.connect()
+        drive = GoogleDrive(GA)
+        fileList = drive.ListFile({'q': "'root' in parents and trashed=false"}).GetList()
+        
+        for files in fileList:
+            if (files['title'] == "IMAGES_TCC"):
+                fileID = files['id']
+                break
+        
+        fileSave = drive.CreateFile({'title': name_arq+str(".json"),'parents':[{'id':fileID}]})
+        fileSave.SetContentString(str(cont_arq))
+        fileSave.Upload()
+        return fileSave['id']
+
+# drive = connect_drive
+# drive.connect()
+# drive.get_files()

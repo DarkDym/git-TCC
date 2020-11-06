@@ -6,16 +6,22 @@ class db_mongo:
 
     def conecta(self):
         # global client
-        client = pymongo.MongoClient("")
+        client = pymongo.MongoClient("mongodb+srv://admin:Alfaromeuhp!1@cluster0-c8iqj.mongodb.net/test?retryWrites=true&w=majority")
         return client
 
     def kill_connection(self,client):
         print("CLOSING THE CONNECTION WITH DB.")
         client.close()
 
-    def gamma2db(self,client,gamma):
+    def gamma2db(self,client,img_obj):
+        db = client.tcc
+        collection = db.images
+        inserted = collection.insert_one(img_obj).inserted_id
+
+
+    def gamma2db_mod(self,client,gamma):
         # client = db_mongo.conecta(self)
-        print(client)
+        # print(client)
         db = client.tcc
         collection = db.fotos3
         inserted = collection.insert_one(gamma).inserted_id
