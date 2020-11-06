@@ -21,6 +21,7 @@ class db_mongo:
         db = client.tcc
         collection = db.images
         inserted = collection.insert_one(img_obj).inserted_id
+        print("Arquivo inserido com sucesso, ID:"+str(inserted))
 
 
     def gamma2db_mod(self,client,gamma):

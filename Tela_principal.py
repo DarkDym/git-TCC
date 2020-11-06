@@ -80,6 +80,13 @@ class Application:
         self.btn_foto2['command'] = self.tira_foto2
         self.btn_foto2.pack()
 
+        self.btn_eigen = Button(self.btn_cont1)
+        self.btn_eigen['text'] = "Foto2"
+        self.btn_eigen['font'] = ("Calibri","10")
+        self.btn_eigen['width'] = "12"
+        self.btn_eigen['command'] = self.get_eigen
+        self.btn_eigen.pack()
+
         self.sc_cam() #Com cam descomenta | sem cam comenta
 
     def sc_cam(self):
@@ -134,12 +141,16 @@ class Application:
         self.cnvs_cont.create_image(mx,my, image=self.photo, anchor=NW)
         print("BTN APERTADO")
         plt.show()
+    
+    def get_eigen(self):
+        print("COÉ")
 
     def update(self):
         ret, frm = self.cam.read()
         tst = cv.cvtColor(frm, cv.COLOR_BGR2GRAY) #Com cam descomenta | sem cam comenta 
         if ret :
-            frmhr = hr.detecta(self,frm)
+            # frmhr = hr.detecta(self,frm)
+            frmhr = hr.detect4eigen(self,frm)
             #self.photo = ImageTk.PhotoImage(image = Image.fromarray(tst))
             self.photo = ImageTk.PhotoImage(image = Image.fromarray(frmhr))
             self.cnvs_cont.create_image(0,0, image=self.photo, anchor=NW)

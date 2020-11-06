@@ -3,12 +3,8 @@
     1. Pegar as imagens a partir do Drive para a função do Eigenface;
     2. Criar a função que lê o JSON da imagem e transforma no vetor Gamma;
     3. Escrever no texto o que já foi feito até o momento e estruturar os materiais e métodos utilizados referenciando os autores necessários;
-    4. Criar arquivo de autenticação para o arquivo Database.py que não pode ser anexada ao github;
     5. Organizar funções na Tela_principal.py para realizar os testes dos resultados necesários no documento.
-    6. Criar função que pega da câmera o rosto e faz o cálculo dos pesos a partir da face média previamente obtida.
-    7. Fazer arquivos que não serão levados ao GitHub, pois contem as credenciais do Mongo e do Drive.
-    8. Fazer o merge do Sandman com o Master.
-    9. Salvar o valor da face média PSI no drive e no mongo.
+    6. Fazer o cálculo dos pesos a partir da face média previamente obtida com a face cropada do HaarLike.py.
     10. Fazer os cálculos euclidianos das faces perante as faces de fora do treinamento.
 
 # Changelog
@@ -16,6 +12,14 @@
 ## 06/11/2020
 
     1. Modificação dos arquivos da aplicação para que seja executada pela função principal que executa a interface do sistema, localizada no arquivo Tela_principal.py.
+    2. Tarefas feitas do TO DO:
+        1.  Criar arquivo de autenticação para o arquivo Database.py que não pode ser anexada ao github;
+        2.  Fazer arquivos que não serão levados ao GitHub, pois contem as credenciais do Mongo e do Drive.
+        3.  Fazer o merge do Sandman com o Master.
+        4.  Salvar o valor da face média PSI no drive e no mongo.
+    3.  Modificação da função de detecção de faces no arquivo Tela_principal.py.
+    4. Criada função que salva PSI no mongo e no drive.
+    5. Criação de uma função de detecção no arquivo HaarLike.py para a função das eigenfaces.
 
 ## 29/10/2020
 

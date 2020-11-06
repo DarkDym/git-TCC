@@ -61,6 +61,37 @@ def teste3(aux1,aux2,aux3):
 class eigenfaces:
     def __init__(self):
         pass
+
+    def show_img(self,aux):
+        cv.namedWindow("TESTE",cv.WINDOW_AUTOSIZE)
+        cv.imshow("TESTE",aux)
+        cv.waitKey(0)
+        cv.destroyAllWindows()
+
+    def get_omegaface(self,gamma_frm):
+        # Função que recebe a face cropada da Tela_principal a partir do HaarLike, a imagem já vem cortada no valor de TAM_IMG (Obs: pode ser BGR ou GRAY)
+        # necessário calcular os omegas e phi da imagem recebida, para cálculo euclidiano.
+        # images = ai.openImg(self,DIRA_MOD)
+        # for i in range(0,len(images)):
+        #     images[i] = cv.cvtColor(images[i],cv.COLOR_BGR2GRAY)
+        # [gamma_mod, qnt_gamma_mod] = ai.createDataMatrix(self,images)
+        phi_mod = gamma_frm - psi
+        w_aux = 0
+        omega_project = []
+        for x in range(0,K):
+            w = np.dot(u_cov[x],phi_mod)
+            w_aux = (w*u_cov[x]) + w_aux
+            omega_project.append(w)
+        omega_project = np.array(omega_project)
+        phi_project = w_aux
+        erk = []
+        for x in range(0,K):
+            aux_erk2 = np.linalg.norm(omega_project - omega[x])
+            erk.append(aux_erk2)
+        erk = np.array(erk)
+        err_phi = np.linalg.norm(phi_mod - phi_project)
+        min_erk = np.amin(erk,axis=0)
+
     def img2json(self,name_arq,img_json,GDA,client,obj_name):
         # Seria certo salvar para cada pessoa o seu phi e omega, pois assim teria as métricas gerada de cada pessoa quando forem cadastradas no sistema,
         # pensando nisso, esse método salva o arquivo em um json e envia pro drive.
@@ -146,6 +177,7 @@ class eigenfaces:
         for x in range(0,qnt_gamma):
             aux_psi = gamma[x] + aux_psi
         psi = aux_psi/qnt_gamma
+        eigenfaces.save_psi(self,psi)
         #Geração da face média Psi(N^2 X 1)
 
         #Geração do vetor Phi(Gamma - Psi)
@@ -192,18 +224,20 @@ class eigenfaces:
         aux_omegay.clear()
         #Geração dos pesos de treino Omega
 
+        # Comentado pois não é necessário salvar no banco no momento
+        # Fazer uma função a parte depois
         # Teste com a função de salvar no banco e drive
-        client = db.conecta(self)
-        GDA = gd.connect()
-        y = 1
-        for x in range(0,phi_aux.shape[0]):
-            phi_list = phi_aux[x].tolist()
-            omega_list = omega[x].tolist()
-            if (x % 2 == 0):
-                nome_arq = "pessoa"+str(y)
-                y += 1
-            img_json = {"PHI":phi_list,"OMEGA":omega_list}
-            eigenfaces.img2json(self,nome_arq,img_json,GDA,client,nome_arq)
+        # client = db.conecta(self)
+        # GDA = gd.connect()
+        # y = 1
+        # for x in range(0,phi_aux.shape[0]):
+        #     phi_list = phi_aux[x].tolist()
+        #     omega_list = omega[x].tolist()
+        #     if (x % 2 == 0):
+        #         nome_arq = "pessoa"+str(y)
+        #         y += 1
+        #     img_json = {"PHI":phi_list,"OMEGA":omega_list}
+        #     eigenfaces.img2json(self,nome_arq,img_json,GDA,client,nome_arq)
         
         #Comentado, pois é necessário fazer uma função própria para reconhecimento, porém esta funcionando
         # images = ai.openImg(self,DIRA_MOD)
@@ -850,6 +884,15 @@ class eigenfaces:
         cv.waitKey(0)
         cv.destroyAllWindows()
     #def createNewFace(self,avg,sValues,eigenFaces):
+
+    def save_psi(self,psi):
+        client = db.conecta(self)
+        GDA = gd.connect()
+        psi = psi.tolist()
+        nome_arq = "face_media"
+        save_json = {"PSI":psi}
+        eigenfaces.img2json(self,nome_arq,save_json,GDA,client,nome_arq)
+
 
 # tst = eigenfaces()
 # tst.db2img()

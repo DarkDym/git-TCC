@@ -45,6 +45,7 @@ class connect_drive:
         fileSave = drive.CreateFile({'title': name_arq+str(".json"),'parents':[{'id':fileID}]})
         fileSave.SetContentString(str(cont_arq))
         fileSave.Upload()
+        print("Arquivo criado com sucesso, ID: "+str(fileSave['id']))
         return fileSave['id']
 
 # drive = connect_drive
