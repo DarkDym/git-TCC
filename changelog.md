@@ -8,6 +8,8 @@
     6. Criar função que pega da câmera o rosto e faz o cálculo dos pesos a partir da face média previamente obtida.
     7. Fazer arquivos que não serão levados ao GitHub, pois contem as credenciais do Mongo e do Drive.
     8. Fazer o merge do Sandman com o Master.
+    9. Salvar o valor da face média PSI no drive e no mongo.
+    10. Fazer os cálculos euclidianos das faces perante as faces de fora do treinamento.
 
 # Changelog
 

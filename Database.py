@@ -1,12 +1,16 @@
 import pymongo
 
+PATH = "C://Users//Dymytry//Desktop//TCC Alleff//git-TCC//"
+
 class db_mongo:
     def __init__(self):
         print("TESTE")
 
     def conecta(self):
         # global client
-        client = pymongo.MongoClient("")
+        open_arq = PATH + "key.txt"
+        filea = open(open_arq,"r")
+        client = pymongo.MongoClient(str(filea.readline()))
         return client
 
     def kill_connection(self,client):
@@ -57,4 +61,5 @@ class db_mongo:
         client.close()
 
 # mongo = db_mongo()
-# mongo.insert_data()
+# teste = mongo.conecta()
+# print(teste)
