@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.10.5)  21 OCT 2020 13:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.10.5)  8 NOV 2020 11:41
 entering extended mode
 **./tcc_template.tex
 (tcc_template.tex
@@ -264,28 +264,28 @@ File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
 (tcc_template.aux)
 \openout1 = `tcc_template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 44
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 43
 .
  ("C:\Program Files\MiKTeX\tex/latex/psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 44.
+(lastpage)             ! on input line 43.
 
 ("C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -311,14 +311,14 @@ Package caption Info: float package is loaded.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--47
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 
  []
 
 [1
 
 {C:/Users/Dymytry/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 51
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 50
 .
 
 ("C:\Program Files\MiKTeX\tex/latex/psnfss\t1phv.fd"
@@ -328,7 +328,7 @@ File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 65.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 64.
  [3
 
 ] [4
@@ -380,17 +380,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--23
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
- []  
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 25--25
- []  
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 26--26
+ []  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+ []  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--28
  []  
  []
 
@@ -417,7 +417,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--26
 ] [9
 
 ]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 124--124
+Overfull \hbox (3.0pt too wide) in paragraph at lines 123--123
 [] 
  []
 
@@ -430,10 +430,10 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 124--124
 <figuras/metodologia.png, id=43, 432.86719pt x 47.42719pt>
 File: figuras/metodologia.png Graphic file (type png)
 <use figuras/metodologia.png>
-Package pdftex.def Info: figuras/metodologia.png  used on input line 146.
+Package pdftex.def Info: figuras/metodologia.png  used on input line 145.
 (pdftex.def)             Requested size: 341.43437pt x 37.41061pt.
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-52.
+51.
  ("C:\Program Files\MiKTeX\tex/latex/psnfss\ts1ptm.fd"
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
@@ -444,7 +444,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [12
 
  <./figuras/metodologia.png>]
-Overfull \hbox (1.67085pt too wide) in paragraph at lines 181--182
+Overfull \hbox (1.67085pt too wide) in paragraph at lines 180--181
 []\T1/ptm/m/n/12 Obter a ma-triz de co-va-ri-ân-cia $\OML/cmm/m/it/12 C \OT1/cm
 r/m/n/12 = [] [][] [][] = \OML/cmm/m/it/12 AA[]$\T1/ptm/m/n/12 . Onde $\OML/c
 mm/m/it/12 A \OT1/cmr/m/n/12 = [[][]\OML/cmm/m/it/12 :::\OT1/cmr/m/n/12 []]$
@@ -452,7 +452,7 @@ mm/m/it/12 A \OT1/cmr/m/n/12 = [[][]\OML/cmm/m/it/12 :::\OT1/cmr/m/n/12 []]$
  []
 
 [13]
-Overfull \hbox (3.10367pt too wide) in paragraph at lines 229--234
+Overfull \hbox (3.10367pt too wide) in paragraph at lines 228--233
 []\T1/ptm/m/n/12 (TURK; PEN-TLAND, 1991a) (TURK; PEN-TLAND, 1991b) (PAR-RAGA, 2
 002) (OP-
  []
@@ -466,18 +466,18 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 <Figuras/8.png, id=58, 190.7928pt x 77.76253pt>
 File: Figuras/8.png Graphic file (type png)
 <use Figuras/8.png>
-Package pdftex.def Info: Figuras/8.png  used on input line 322.
+Package pdftex.def Info: Figuras/8.png  used on input line 320.
 (pdftex.def)             Requested size: 141.37659pt x 57.62167pt.
 File: Figuras/8.png Graphic file (type png)
 <use Figuras/8.png>
-Package pdftex.def Info: Figuras/8.png  used on input line 326.
+Package pdftex.def Info: Figuras/8.png  used on input line 324.
 (pdftex.def)             Requested size: 135.52203pt x 55.2355pt.
 File: Figuras/8.png Graphic file (type png)
 <use Figuras/8.png>
-Package pdftex.def Info: Figuras/8.png  used on input line 330.
+Package pdftex.def Info: Figuras/8.png  used on input line 328.
 (pdftex.def)             Requested size: 141.37659pt x 57.62167pt.
 
-Overfull \hbox (8.99998pt too wide) in paragraph at lines 322--331
+Overfull \hbox (8.99998pt too wide) in paragraph at lines 320--329
  [][][][] 
  []
 
@@ -492,45 +492,78 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 <figuras/diagrama.png, id=68, 258.21469pt x 331.99031pt>
 File: figuras/diagrama.png Graphic file (type png)
 <use figuras/diagrama.png>
-Package pdftex.def Info: figuras/diagrama.png  used on input line 375.
+Package pdftex.def Info: figuras/diagrama.png  used on input line 373.
 (pdftex.def)             Requested size: 213.39568pt x 274.37662pt.
  [17]
 <figuras/sistema.png, id=72, 454.69875pt x 128.73094pt>
 File: figuras/sistema.png Graphic file (type png)
 <use figuras/sistema.png>
-Package pdftex.def Info: figuras/sistema.png  used on input line 390.
+Package pdftex.def Info: figuras/sistema.png  used on input line 388.
 (pdftex.def)             Requested size: 341.43437pt x 96.6658pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 \T1/ptm/m/n/10.95 18
  []
 
-[18 <./figuras/diagrama.png> <./figuras/sistema.png>] [19
+[18 <./figuras/diagrama.png> <./figuras/sistema.png>]
+<figuras/face1.jpg, id=76, 301.125pt x 301.125pt>
+File: figuras/face1.jpg Graphic file (type jpg)
+<use figuras/face1.jpg>
+Package pdftex.def Info: figuras/face1.jpg  used on input line 403.
+(pdftex.def)             Requested size: 170.71393pt x 170.71947pt.
+<figuras/psi.jpg, id=77, 301.125pt x 301.125pt>
+File: figuras/psi.jpg Graphic file (type jpg)
+<use figuras/psi.jpg>
+Package pdftex.def Info: figuras/psi.jpg  used on input line 419.
+(pdftex.def)             Requested size: 170.71393pt x 170.71947pt.
+ [19
 
-]
+ <./figuras/face1.jpg>]
+<figuras/phi.jpg, id=82, 803.0pt x 602.25pt>
+File: figuras/phi.jpg Graphic file (type jpg)
+<use figuras/phi.jpg>
+Package pdftex.def Info: figuras/phi.jpg  used on input line 433.
+(pdftex.def)             Requested size: 213.39568pt x 160.04578pt.
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 \T1/ptm/m/n/10.95 20
  []
 
-[20
-
-] (tcc_template.bbl [21
-
-]) 
-AED: lastpage setting LastPage
-
+[20 <./figuras/psi.jpg> <./figuras/phi.jpg>]
+<figuras/eigen.jpg, id=86, 803.0pt x 602.25pt>
+File: figuras/eigen.jpg Graphic file (type jpg)
+<use figuras/eigen.jpg>
+Package pdftex.def Info: figuras/eigen.jpg  used on input line 459.
+(pdftex.def)             Requested size: 256.07741pt x 192.06229pt.
+<figuras/interface.png, id=87, 484.81125pt x 388.45125pt>
+File: figuras/interface.png Graphic file (type png)
+<use figuras/interface.png>
+Package pdftex.def Info: figuras/interface.png  used on input line 486.
+(pdftex.def)             Requested size: 256.07741pt x 205.19061pt.
+ [21 <./figuras/eigen.jpg>]
 Underfull \hbox (badness 10000) has occurred while \output is active
 \T1/ptm/m/n/10.95 22
  []
 
-[22
+[22 <./figuras/interface.png>] [23
+
+] (tcc_template.bbl
+Underfull \hbox (badness 10000) has occurred while \output is active
+\T1/ptm/m/n/10.95 24
+ []
+
+[24
+
+]) 
+AED: lastpage setting LastPage
+[25
 
 ] (tcc_template.aux) ) 
 Here is how much of TeX's memory you used:
- 5117 strings out of 480790
- 75950 string characters out of 2907049
- 338288 words of memory out of 3000000
- 21018 multiletter control sequences out of 15000+200000
+ 5159 strings out of 480790
+ 76630 string characters out of 2907049
+ 338446 words of memory out of 3000000
+ 21056 multiletter control sequences out of 15000+200000
  573898 words of font info for 62 fonts, out of 3000000 for 9000
  1144 hyphenation exceptions out of 8191
  48i,10n,49p,645b,394s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -545,9 +578,9 @@ les/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX/fonts/t
 ype1/urw/helvetic/uhvro8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/ut
 mb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program 
 Files/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on tcc_template.pdf (22 pages, 235051 bytes).
+Output written on tcc_template.pdf (25 pages, 528366 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
+ 143 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

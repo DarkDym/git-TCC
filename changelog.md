@@ -9,6 +9,11 @@
 
 # Changelog
 
+## 07/11/2020
+
+    1.  Modificação na Documentação.
+    2.  Modificações na função do arquivo Eigen.py para salvar as imagens para a documentação.
+
 ## 06/11/2020
 
     1. Modificação dos arquivos da aplicação para que seja executada pela função principal que executa a interface do sistema, localizada no arquivo Tela_principal.py.

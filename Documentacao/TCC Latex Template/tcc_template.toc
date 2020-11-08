@@ -21,6 +21,8 @@
 \contentsline {section}{\numberline {3.5}EIGENFACES}{17}%
 \contentsline {section}{\numberline {3.6}METODOLOGIA}{17}%
 \contentsline {chapter}{\numberline {4}Resultados e discuss\~oes}{19}%
-\contentsline {chapter}{\numberline {5}Conclus\~ao}{20}%
-\contentsline {chapter}{\numberline {6}Trabalhos Futuros}{21}%
-\contentsline {chapter}{Refer{\^e}ncias}{22}%
+\contentsline {section}{\numberline {4.1}Obten\c c\~ao das Eigenfaces}{19}%
+\contentsline {section}{\numberline {4.2}Interface}{21}%
+\contentsline {chapter}{\numberline {5}Conclus\~ao}{23}%
+\contentsline {chapter}{\numberline {6}Trabalhos Futuros}{24}%
+\contentsline {chapter}{Refer{\^e}ncias}{25}%

@@ -36,10 +36,9 @@
 
 \location{Guaíba}{RS}
 
-\keyword{key1}
-\keyword{key2}
-\keyword{ }
-\keyword{ }
+\keyword{Eigenfaces}
+\keyword{Reconhecimento Facial}
+\keyword{Haar Like Features}
 % inicio do documento
 \begin{document}
 
@@ -392,7 +391,103 @@ Na sua etapa final, todas as partes desenvolvidas serão integradas em uma versão
 \end{figure}
 
 \chapter{Resultados e discussões}
+
+Nesta seção serão discutidos os resultados obtidos a partir da aplicação construida e das eigenfaces obtidas.
+
+\section{Obtenção das Eigenfaces}
+
+A primeira etapa para o processo de obtenção das eigenfaces é obter um conjunto de imagens, estas imagens serão o grupo de treinamento, após deve-se transformar cada imagem $I : (N \times N)$ em um vetor gama $\Gamma : (N^2 \times 1)$, onde é necessário tranformar o vetor em uma dimensão, para reduzir o tamanho dos cálculos as imagens foram dimensionadas no tamanho $M = 300 \times 300$ e possuem somente um canal em escala de cinza, um exemplo da imagem de treinamento pode ser vista na figura \ref{face}. As imagens podem ser normalizadas dividindo pelo valor máximo de 255 para facilitar os cálculos.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figuras/face1.jpg}
+	\caption{Face pertencente ao treino.}
+	\label{face}
+\end{figure}
+
+Após este processo de achatamento da imagem, deve-se obter a face média do treinamento, sendo uma soma de todas as imagens presentes no treinamento e dividido pela quantidade de imagens, sendo obtida uma imagem psi na equação \ref{psi}.
+
+\begin{equation}
+\Psi = \dfrac{1}{M} \sum \limits _{i=1}^{M} \Gamma_i
+\label{psi}
+\end{equation}
+
+A imagem gerada é um amalgama de todas as faces de treino, possuindo um pouco de cada característica mais exuberante de cada face, o resultado da junção das faces pode ser notada na figura \ref{psi_face}.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figuras/psi.jpg}
+	\caption{Face média $\Psi$.}
+	\label{psi_face}
+\end{figure}
+
+Cada face $\Gamma$ pode ser subtraida da face média $\Psi$ para assim formar um vetor de diferenças $\Phi$ presente na equação \ref{phi}, sendo estas as diferenças mais distintas de cada face, essa diferença pode ser notada nas figura \ref{phi_face}.
+
+\begin{equation}
+\Phi_i = \Gamma_i - \Psi
+\label{phi}
+\end{equation}
  
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figuras/phi.jpg}
+	\caption{Faces $\Phi$.}
+	\label{phi_face}
+\end{figure} 
+ 
+Os autovetores e autovalores podem ser obtidas a partir da matriz de covarância do vetor $AA^T$ como pode ser visto na equação \ref{cov}, sendo este um vetor de $\Phi$, porém esta matriz possui um tamanho que pode ser um disperdicio computacional ($N^2 \times N^2$) então é necessário fazer o cálculo a partir da matriz transposta $A^T$ que é computacionalmente menor ($M \times M$). 
+
+\begin{equation}
+\label{cov}
+	C = \dfrac{1}{M} \sum \limits _{i=1}^{M} \Phi_i\Phi_{i}^{T} = AA^T \hspace{1cm}(N^2 \times N^2)
+\end{equation}
+
+Sendo assim é necessário calcular os autovetores a partir de $A^T A$ e achar os autovetores de $AA^T$ a partir da relação da equação \ref{egvec}.
+
+\begin{equation}
+A^TAv_i = \mu_i v_i \Rightarrow
+AA^TAv_i = \mu_i Av_i \Rightarrow
+CAv_i = \mu_i Av_i \Rightarrow
+onde\longrightarrow u_i = Av_i
+\label{egvec}
+\end{equation}
+
+Sendo assim é possível encontrar os autovetores da matriz de covariância $AA^T$, sendo estes os maiores autovetores de dos autovetores de $A^T A$. Os autovetores podem ser referenciados como as eigenfaces que devem ser redimensionadas para que seja possível ser visualizadas em uma imagem. Alguns exemplos de eigenfaces obtidas podem ser vistas na figura \ref{eigenface}.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figuras/eigen.jpg}
+	\caption{Eigenfaces.}
+	\label{eigenface}
+\end{figure}
+
+Com as eigenfaces geradas é necessário calcular os pesos de cada eigenface nas diferentes faces do treinamento, os pesos calculados para cada face são obtidos utilizando as eigenfaces transpostas vezes a face $\Phi$ como na equação \ref{weigth}.
+
+\begin{equation}
+\label{weigth}
+	w_j = u_{j}^{T}\Phi_i
+\end{equation}
+
+Os pesos $w_j$ são distintos para cada face, esses pesos mais a face média $\Psi$, resulta na face original $\Phi$, contudo essa reconstrução pode não ocorrer do jeito esperado, já que cada rosto possui uma forma própria mesmo que elas sejam alinhadas. Para representar as faces no "espaço de faces" é necessário reunir cada peso $w_j$ de cada face em um vetor $\Omega$ como na equação \ref{Omega}
+
+\begin{equation}
+\label{Omega}
+	\Omega_i = \left[ \begin{array}{c}
+				 w_{1}^{i} \\ w_{2}^{i} \\ w_{3}^{i} \\ \vdots \\ w_{K}^{i} 
+			\end{array} \right], \hspace{2cm} i = 1,2,\cdots,M	 
+\end{equation}
+
+\section{Interface}
+
+Para a utilização das eigenfaces, foi desenvolvido uma interface utilizando a biblioteca Tkinter. O objetivo da interface é mostrar para o usuário que a sua face esta sendo capturada e sendo calculado se a sua face será reconhecida, devido ao fato de que as pessoas que serão submetidas ao sistema tem o interesse de serem reconhecidas.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figuras/interface.png}
+	\caption{Interface do sistema.}
+	\label{interface}
+\end{figure}
+
 \chapter{Conclusão} 
 
 \chapter{Trabalhos Futuros}

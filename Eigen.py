@@ -56,7 +56,7 @@ def teste3(aux1,aux2,aux3):
     cv.imshow("TESTE",numpy_horizontal)
     cv.waitKey(0)
     cv.destroyAllWindows()
-    
+
 
 class eigenfaces:
     def __init__(self):
@@ -177,7 +177,7 @@ class eigenfaces:
         for x in range(0,qnt_gamma):
             aux_psi = gamma[x] + aux_psi
         psi = aux_psi/qnt_gamma
-        eigenfaces.save_psi(self,psi)
+        # eigenfaces.save_psi(self,psi)
         #Geração da face média Psi(N^2 X 1)
 
         #Geração do vetor Phi(Gamma - Psi)
@@ -223,6 +223,30 @@ class eigenfaces:
         aux_omegax.clear()
         aux_omegay.clear()
         #Geração dos pesos de treino Omega
+
+        #Não faz parte da obtenção das Eigenfaces, somente utilizada para a documentação.
+        
+        #Salvar as Eigenfaces
+        # sv_name = "eigen"
+        # for x in range(0,10):
+            # norm = cv.normalize(u_cov[x].reshape(TAM_IMG), None, alpha=0, beta=1,norm_type=cv.NORM_MINMAX, dtype=cv.CV_32F)
+            # norm = norm*255.0
+            # cv.imwrite((sv_name+str(x+1)+".jpg"),norm) 
+        #Salvar as Eigenfaces
+        
+        #Salvar Psi
+        # norm = cv.normalize(psi.reshape(TAM_IMG), None, alpha=0, beta=1,norm_type=cv.NORM_MINMAX, dtype=cv.CV_32F)
+        # norm = norm*255.0
+        # cv.imwrite("psi.jpg",norm)
+        #Salvar Psi
+        
+        #Salvar Phi
+        for x in range(0,10):
+            norm = cv.normalize(phi_aux[x].reshape(TAM_IMG), None, alpha=0, beta=1,norm_type=cv.NORM_MINMAX, dtype=cv.CV_32F)
+            norm = norm*255.0
+            cv.imwrite("phi"+str(x)+".jpg",phi_aux[x].reshape(TAM_IMG))
+        #Salvar Phi
+        #Não faz parte da obtenção das Eigenfaces, somente utilizada para a documentação.
 
         # Comentado pois não é necessário salvar no banco no momento
         # Fazer uma função a parte depois
@@ -894,9 +918,9 @@ class eigenfaces:
         eigenfaces.img2json(self,nome_arq,save_json,GDA,client,nome_arq)
 
 
-# tst = eigenfaces()
+tst = eigenfaces()
 # tst.db2img()
 # tst.eigNovo()
 # tst.eig_mod()
-# tst.get_eigenfaces()
+tst.get_eigenfaces()
 # tst.img2db()
