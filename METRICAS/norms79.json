@@ -1,0 +1,702 @@
+[
+    {
+        "MIN_ERROR": "2113.3684",
+        "NORM_OMEGA": "5020.548",
+        "NORM_PROJECT": "6068.0293",
+        "PROJECT_OMEGA": "1047.4814",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1840.8679",
+        "NORM_OMEGA": "5843.2305",
+        "NORM_PROJECT": "5753.9893",
+        "PROJECT_OMEGA": "-89.24121",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "1249.303",
+        "NORM_OMEGA": "3111.7478",
+        "NORM_PROJECT": "3060.8867",
+        "PROJECT_OMEGA": "-50.861084",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1307.9021",
+        "NORM_OMEGA": "3177.9011",
+        "NORM_PROJECT": "3076.6013",
+        "PROJECT_OMEGA": "-101.299805",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "460.66937",
+        "NORM_OMEGA": "5189.35",
+        "NORM_PROJECT": "5249.8335",
+        "PROJECT_OMEGA": "60.4834",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "557.71497",
+        "NORM_OMEGA": "5364.6553",
+        "NORM_PROJECT": "5438.3184",
+        "PROJECT_OMEGA": "73.663086",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "648.3918",
+        "NORM_OMEGA": "5159.5854",
+        "NORM_PROJECT": "4877.5586",
+        "PROJECT_OMEGA": "-282.02686",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "706.07806",
+        "NORM_OMEGA": "5154.197",
+        "NORM_PROJECT": "4805.6284",
+        "PROJECT_OMEGA": "-348.56836",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1875.5692",
+        "NORM_OMEGA": "5070.5435",
+        "NORM_PROJECT": "3756.2705",
+        "PROJECT_OMEGA": "-1314.273",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "1894.8746",
+        "NORM_OMEGA": "4853.4814",
+        "NORM_PROJECT": "3432.8794",
+        "PROJECT_OMEGA": "-1420.602",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "472.13684",
+        "NORM_OMEGA": "10530.311",
+        "NORM_PROJECT": "10494.062",
+        "PROJECT_OMEGA": "-36.249023",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "482.6089",
+        "NORM_OMEGA": "10573.563",
+        "NORM_PROJECT": "10566.469",
+        "PROJECT_OMEGA": "-7.0947266",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1394.737",
+        "NORM_OMEGA": "4348.9395",
+        "NORM_PROJECT": "5034.2656",
+        "PROJECT_OMEGA": "685.3262",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "1432.9656",
+        "NORM_OMEGA": "4274.1953",
+        "NORM_PROJECT": "4680.5767",
+        "PROJECT_OMEGA": "406.38135",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "294.17392",
+        "NORM_OMEGA": "3550.947",
+        "NORM_PROJECT": "3548.6665",
+        "PROJECT_OMEGA": "-2.2805176",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "277.78232",
+        "NORM_OMEGA": "3192.326",
+        "NORM_PROJECT": "3210.161",
+        "PROJECT_OMEGA": "17.83496",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1334.5265",
+        "NORM_OMEGA": "3527.4045",
+        "NORM_PROJECT": "4307.0107",
+        "PROJECT_OMEGA": "779.6062",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1241.4545",
+        "NORM_OMEGA": "3327.5427",
+        "NORM_PROJECT": "4070.198",
+        "PROJECT_OMEGA": "742.6553",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "458.19263",
+        "NORM_OMEGA": "3023.4263",
+        "NORM_PROJECT": "3266.6772",
+        "PROJECT_OMEGA": "243.25098",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "424.86127",
+        "NORM_OMEGA": "3124.6506",
+        "NORM_PROJECT": "3309.154",
+        "PROJECT_OMEGA": "184.50342",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1616.8206",
+        "NORM_OMEGA": "4869.9834",
+        "NORM_PROJECT": "4867.2573",
+        "PROJECT_OMEGA": "-2.7260742",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "1724.6392",
+        "NORM_OMEGA": "3741.1897",
+        "NORM_PROJECT": "4797.232",
+        "PROJECT_OMEGA": "1056.0422",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1887.9373",
+        "NORM_OMEGA": "4720.079",
+        "NORM_PROJECT": "4119.3013",
+        "PROJECT_OMEGA": "-600.77783",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "1776.0845",
+        "NORM_OMEGA": "4671.0938",
+        "NORM_PROJECT": "3901.5142",
+        "PROJECT_OMEGA": "-769.5796",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "960.4139",
+        "NORM_OMEGA": "4371.9414",
+        "NORM_PROJECT": "3666.3218",
+        "PROJECT_OMEGA": "-705.6196",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1013.8062",
+        "NORM_OMEGA": "4429.676",
+        "NORM_PROJECT": "3649.6086",
+        "PROJECT_OMEGA": "-780.06714",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1868.5067",
+        "NORM_OMEGA": "11274.251",
+        "NORM_PROJECT": "9980.263",
+        "PROJECT_OMEGA": "-1293.9883",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1750.9105",
+        "NORM_OMEGA": "11310.623",
+        "NORM_PROJECT": "10055.669",
+        "PROJECT_OMEGA": "-1254.9541",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1048.9349",
+        "NORM_OMEGA": "6602.217",
+        "NORM_PROJECT": "7015.006",
+        "PROJECT_OMEGA": "412.78906",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1158.3815",
+        "NORM_OMEGA": "6732.7446",
+        "NORM_PROJECT": "7247.45",
+        "PROJECT_OMEGA": "514.70557",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "952.4659",
+        "NORM_OMEGA": "4816.9956",
+        "NORM_PROJECT": "5175.264",
+        "PROJECT_OMEGA": "358.26855",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "905.2382",
+        "NORM_OMEGA": "4661.371",
+        "NORM_PROJECT": "4941.8613",
+        "PROJECT_OMEGA": "280.49023",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "353.89798",
+        "NORM_OMEGA": "3816.3066",
+        "NORM_PROJECT": "3777.325",
+        "PROJECT_OMEGA": "-38.98169",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "397.6267",
+        "NORM_OMEGA": "3867.9226",
+        "NORM_PROJECT": "3802.283",
+        "PROJECT_OMEGA": "-65.63965",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1398.2023",
+        "NORM_OMEGA": "2369.6152",
+        "NORM_PROJECT": "2572.2048",
+        "PROJECT_OMEGA": "202.5896",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1269.2198",
+        "NORM_OMEGA": "2496.4924",
+        "NORM_PROJECT": "2569.1619",
+        "PROJECT_OMEGA": "72.66943",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1406.9423",
+        "NORM_OMEGA": "4094.801",
+        "NORM_PROJECT": "4415.9385",
+        "PROJECT_OMEGA": "321.13745",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1267.1714",
+        "NORM_OMEGA": "4117.136",
+        "NORM_PROJECT": "4329.0723",
+        "PROJECT_OMEGA": "211.93604",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "641.86664",
+        "NORM_OMEGA": "4348.9395",
+        "NORM_PROJECT": "4510.973",
+        "PROJECT_OMEGA": "162.03369",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "688.9952",
+        "NORM_OMEGA": "4274.1953",
+        "NORM_PROJECT": "4302.4575",
+        "PROJECT_OMEGA": "28.262207",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "537.1198",
+        "NORM_OMEGA": "9300.129",
+        "NORM_PROJECT": "9482.223",
+        "PROJECT_OMEGA": "182.09375",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "521.246",
+        "NORM_OMEGA": "9682.624",
+        "NORM_PROJECT": "9811.409",
+        "PROJECT_OMEGA": "128.78516",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1471.4318",
+        "NORM_OMEGA": "3702.6296",
+        "NORM_PROJECT": "3429.2725",
+        "PROJECT_OMEGA": "-273.35718",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "1458.2709",
+        "NORM_OMEGA": "3282.7961",
+        "NORM_PROJECT": "2980.842",
+        "PROJECT_OMEGA": "-301.9541",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "909.0923",
+        "NORM_OMEGA": "10309.079",
+        "NORM_PROJECT": "10249.983",
+        "PROJECT_OMEGA": "-59.095703",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "985.8932",
+        "NORM_OMEGA": "10420.231",
+        "NORM_PROJECT": "10373.195",
+        "PROJECT_OMEGA": "-47.036133",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "526.0876",
+        "NORM_OMEGA": "4377.684",
+        "NORM_PROJECT": "4101.526",
+        "PROJECT_OMEGA": "-276.1582",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "532.0227",
+        "NORM_OMEGA": "4261.127",
+        "NORM_PROJECT": "3989.9878",
+        "PROJECT_OMEGA": "-271.13916",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "453.71188",
+        "NORM_OMEGA": "12329.747",
+        "NORM_PROJECT": "12315.073",
+        "PROJECT_OMEGA": "-14.673828",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "457.7122",
+        "NORM_OMEGA": "12329.244",
+        "NORM_PROJECT": "12313.71",
+        "PROJECT_OMEGA": "-15.53418",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1028.2996",
+        "NORM_OMEGA": "4674.2134",
+        "NORM_PROJECT": "4799.307",
+        "PROJECT_OMEGA": "125.09375",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1099.9443",
+        "NORM_OMEGA": "4684.1416",
+        "NORM_PROJECT": "4916.957",
+        "PROJECT_OMEGA": "232.81543",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1109.154",
+        "NORM_OMEGA": "11179.735",
+        "NORM_PROJECT": "10481.395",
+        "PROJECT_OMEGA": "-698.3408",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1165.5103",
+        "NORM_OMEGA": "11210.271",
+        "NORM_PROJECT": "10475.254",
+        "PROJECT_OMEGA": "-735.0176",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1398.5103",
+        "NORM_OMEGA": "5282.387",
+        "NORM_PROJECT": "6135.3794",
+        "PROJECT_OMEGA": "852.9922",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "1484.9102",
+        "NORM_OMEGA": "4984.18",
+        "NORM_PROJECT": "5889.222",
+        "PROJECT_OMEGA": "905.042",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "1648.9869",
+        "NORM_OMEGA": "4720.079",
+        "NORM_PROJECT": "5060.4976",
+        "PROJECT_OMEGA": "340.41846",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1474.6636",
+        "NORM_OMEGA": "4671.0938",
+        "NORM_PROJECT": "5059.9077",
+        "PROJECT_OMEGA": "388.81396",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1661.8412",
+        "NORM_OMEGA": "2998.266",
+        "NORM_PROJECT": "2429.6113",
+        "PROJECT_OMEGA": "-568.6548",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "1770.3422",
+        "NORM_OMEGA": "2805.3882",
+        "NORM_PROJECT": "2455.6848",
+        "PROJECT_OMEGA": "-349.70337",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "1529.2719",
+        "NORM_OMEGA": "6598.199",
+        "NORM_PROJECT": "5735.0967",
+        "PROJECT_OMEGA": "-863.10254",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1306.9735",
+        "NORM_OMEGA": "6835.615",
+        "NORM_PROJECT": "6061.481",
+        "PROJECT_OMEGA": "-774.1343",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1580.1318",
+        "NORM_OMEGA": "5511.934",
+        "NORM_PROJECT": "6006.8716",
+        "PROJECT_OMEGA": "494.9375",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1613.4049",
+        "NORM_OMEGA": "5537.1196",
+        "NORM_PROJECT": "6067.03",
+        "PROJECT_OMEGA": "529.91016",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "706.72577",
+        "NORM_OMEGA": "3929.9421",
+        "NORM_PROJECT": "4457.069",
+        "PROJECT_OMEGA": "527.1267",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "669.4923",
+        "NORM_OMEGA": "3612.3643",
+        "NORM_PROJECT": "4107.253",
+        "PROJECT_OMEGA": "494.88867",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "692.9134",
+        "NORM_OMEGA": "4976.1475",
+        "NORM_PROJECT": "4557.7217",
+        "PROJECT_OMEGA": "-418.42578",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "668.91797",
+        "NORM_OMEGA": "5305.9277",
+        "NORM_PROJECT": "4888.013",
+        "PROJECT_OMEGA": "-417.91455",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1070.8633",
+        "NORM_OMEGA": "2998.266",
+        "NORM_PROJECT": "2665.2375",
+        "PROJECT_OMEGA": "-333.02856",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1249.4569",
+        "NORM_OMEGA": "2805.3882",
+        "NORM_PROJECT": "2750.025",
+        "PROJECT_OMEGA": "-55.36328",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "569.15717",
+        "NORM_OMEGA": "7193.556",
+        "NORM_PROJECT": "7555.077",
+        "PROJECT_OMEGA": "361.521",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "600.90826",
+        "NORM_OMEGA": "6997.467",
+        "NORM_PROJECT": "7439.238",
+        "PROJECT_OMEGA": "441.771",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1656.6719",
+        "NORM_OMEGA": "4034.1025",
+        "NORM_PROJECT": "4814.8228",
+        "PROJECT_OMEGA": "780.7202",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "1574.9479",
+        "NORM_OMEGA": "3826.1985",
+        "NORM_PROJECT": "4318.6265",
+        "PROJECT_OMEGA": "492.42798",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "1644.0825",
+        "NORM_OMEGA": "7302.741",
+        "NORM_PROJECT": "6529.1787",
+        "PROJECT_OMEGA": "-773.5625",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1724.3184",
+        "NORM_OMEGA": "4984.18",
+        "NORM_PROJECT": "6113.9976",
+        "PROJECT_OMEGA": "1129.8174",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "1238.2938",
+        "NORM_OMEGA": "3380.613",
+        "NORM_PROJECT": "2990.9858",
+        "PROJECT_OMEGA": "-389.6272",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1339.7428",
+        "NORM_OMEGA": "3190.9614",
+        "NORM_PROJECT": "2873.3594",
+        "PROJECT_OMEGA": "-317.60205",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1212.8674",
+        "NORM_OMEGA": "7111.181",
+        "NORM_PROJECT": "7207.8003",
+        "PROJECT_OMEGA": "96.61914",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1276.6769",
+        "NORM_OMEGA": "7303.923",
+        "NORM_PROJECT": "7085.5737",
+        "PROJECT_OMEGA": "-218.34912",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1790.0221",
+        "NORM_OMEGA": "4377.684",
+        "NORM_PROJECT": "5684.324",
+        "PROJECT_OMEGA": "1306.6401",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "1712.5267",
+        "NORM_OMEGA": "4261.127",
+        "NORM_PROJECT": "5675.5815",
+        "PROJECT_OMEGA": "1414.4546",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "846.4318",
+        "NORM_OMEGA": "7401.512",
+        "NORM_PROJECT": "7332.9",
+        "PROJECT_OMEGA": "-68.612305",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1012.0738",
+        "NORM_OMEGA": "7226.285",
+        "NORM_PROJECT": "7026.214",
+        "PROJECT_OMEGA": "-200.07129",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1707.1611",
+        "NORM_OMEGA": "4674.06",
+        "NORM_PROJECT": "5346.2524",
+        "PROJECT_OMEGA": "672.1924",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1713.6659",
+        "NORM_OMEGA": "4171.651",
+        "NORM_PROJECT": "4897.025",
+        "PROJECT_OMEGA": "725.374",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "954.0435",
+        "NORM_OMEGA": "5734.1357",
+        "NORM_PROJECT": "5082.1226",
+        "PROJECT_OMEGA": "-652.0132",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "965.1573",
+        "NORM_OMEGA": "5363.333",
+        "NORM_PROJECT": "4739.1616",
+        "PROJECT_OMEGA": "-624.1714",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1995.5859",
+        "NORM_OMEGA": "3804.266",
+        "NORM_PROJECT": "4310.654",
+        "PROJECT_OMEGA": "506.3877",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1880.9849",
+        "NORM_OMEGA": "4990.4897",
+        "NORM_PROJECT": "4439.0825",
+        "PROJECT_OMEGA": "-551.4072",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "1319.9341",
+        "NORM_OMEGA": "3380.613",
+        "NORM_PROJECT": "3522.1907",
+        "PROJECT_OMEGA": "141.57764",
+        "REC": "0"
+    },
+    {
+        "MIN_ERROR": "1460.3578",
+        "NORM_OMEGA": "3754.2788",
+        "NORM_PROJECT": "3222.845",
+        "PROJECT_OMEGA": "-531.43384",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1141.4012",
+        "NORM_OMEGA": "3776.5012",
+        "NORM_PROJECT": "3637.039",
+        "PROJECT_OMEGA": "-139.46216",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1150.9934",
+        "NORM_OMEGA": "3574.3657",
+        "NORM_PROJECT": "3319.1619",
+        "PROJECT_OMEGA": "-255.20386",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1330.8696",
+        "NORM_OMEGA": "3186.9775",
+        "NORM_PROJECT": "2663.6438",
+        "PROJECT_OMEGA": "-523.33374",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1252.1469",
+        "NORM_OMEGA": "3168.6992",
+        "NORM_PROJECT": "2914.185",
+        "PROJECT_OMEGA": "-254.51416",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1021.4897",
+        "NORM_OMEGA": "3254.355",
+        "NORM_PROJECT": "3453.094",
+        "PROJECT_OMEGA": "198.73901",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "1033.9126",
+        "NORM_OMEGA": "3167.8772",
+        "NORM_PROJECT": "3527.9614",
+        "PROJECT_OMEGA": "360.08423",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "411.79373",
+        "NORM_OMEGA": "6667.919",
+        "NORM_PROJECT": "6721.326",
+        "PROJECT_OMEGA": "53.407227",
+        "REC": "1"
+    },
+    {
+        "MIN_ERROR": "405.56863",
+        "NORM_OMEGA": "6346.7554",
+        "NORM_PROJECT": "6347.2817",
+        "PROJECT_OMEGA": "0.5263672",
+        "REC": "1"
+    }
+]

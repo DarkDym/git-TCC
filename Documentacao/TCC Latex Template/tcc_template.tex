@@ -30,7 +30,7 @@
 
 % a data deve ser a da defesa; se nao especificada, são gerados
 % mes e ano correntes
-\date{Janeiro}{2020}
+\date{Dezembro}{2020}
 
 \course{Engenharia de Computação}
 
@@ -90,7 +90,7 @@ Aos meus...
 
 % lista de abreviaturas e siglas
 \begin{listofabbrv}{SPMD}
-        \item[TWP] Transformada \textit{Wavelet Packet}
+        \item[PCA] Principal Component Analisys
         \item[PDS] Processamento Digital de Sinais
 	\item[RNA] Rede Neural Artificial
 	\item[SLIT] Sistemas Lineares e Invariantes no Tempo
@@ -120,7 +120,7 @@ Este trabalho tem por objetivo o desenvolvimento de um sistema que detecta faces
 % abstract
 \begin{englishabstract}
 {Facial Recognition for Classification and Register on Presence in Classroom}
-{key words}
+{Eigenfaces,Facial Recognition,Haar Like Features}
 (COLOCAR EM INGLES DEPOIS)Este trabalho tem por objetivo o desenvolvimento de um sistema que detecta faces para o auxílio no registro de alunos presentes no ambiente acadêmico. Para a localização facial será utilizado o método de classificação Haar Like Features e para a classificação das faces encontradas será utilizado o método Eigen Faces. Para  a facilidade de utilização do usuário final, os métodos irão ser integrados em um sistema que possibilita a inclusão dos dados diretamente no banco de dados, possibilitando a consulta dos mesmo com mais agilidade.(COLOCAR EM INGLES DEPOIS) 
 \end{englishabstract}
 
@@ -174,14 +174,14 @@ Pode-se utilizar eigenfaces para reconhecimento facial, alguns passos devem ser 
 
 \item Adquirir uma coletânea de imagens para ser o conjunto de treinamento;
 \item Deixar as imagens no tamanho desejado, cortando somente a face como objeto de insteresse;
-\item Fazer o vetor de imagens ($I = N \times N$) ser um vetor gamma ($\Gamma = N^{2} \times 1$);
-\item Calcular a face média do vetor $\Gamma$ a partir da fórmula $\Psi = \dfrac{1}{M} \sum_{i=1}^{M} \Gamma_{i}$
-\item Calcular a face média de cada face do conjunto $\Gamma$ a partir da fórmula $\Phi_{i} = \Gamma_i - \Psi$
-\item Obter a matriz de covariância $C = \dfrac{1}{M} \sum_{i=1}^{M} \Phi_i \Phi_{i}^{T} = AA^{T}$. Onde $A = [\Phi_1 \Phi_2 ... \Phi_M]$
+\item Transformar o vetor de imagens I ($I = N \times N$) em um vetor gamma $\Gamma$ ($\Gamma = N^{2} \times 1$);
+\item Calcular a face média $\Psi$ do vetor $\Gamma$;
+\item Calcular o PCA ($\Phi$) de cada face do conjunto $\Gamma$;
+\item Obter a matriz de covariância $C$;
 
 %Arrumar depois
-\item Autovalores e Autovetores
-\item Obter os melhores M autovetores
+\item Obter os Autovalores(Eigenvalues) e Autovetores(Eigenvectors) da matriz de Covariância $C$;
+\item Selecionar os melhores M autovetores; 
 \item Manter somente os K melhores autovetores(K com maiores autovalores)%Treshold
 
 \end{itemize}
@@ -205,12 +205,6 @@ A segunda etapa sendo a de reconhecimento, se utiliza uma face que esta fora do 
 
 \end{itemize}
 
-Segundo \cite{coif}, \cite{parraga}, e este ainda \cite{Opp}. Exemplo de ref 
-
-\vspace{0.3cm}
-\textbf{Altura} (\textit{Pitch})
-\vspace{0.2cm}
-
 
 \section{SISTEMAS EMBARCADOS}\label{r2}
 Atualmente a tecnologia está cada vez mais popular e acessível, sendo assim possui-se diversos tipos diferentes de tecnologias para os mais diversos fins, sendo assim um conceito para que essas tecnologias possam ser classificadas e separadas para os seus específicos fins, pode-se utilizar o conceito de sistemas embarcados. Os sistemas embarcados são tecnologias que são construídas para devidos fins específicos com hardware específico que acaba não podendo ser reutilizado em outras aplicações que não possuam o mesmo hardware utilizado em seu desenvolvimento original.
@@ -218,18 +212,6 @@ Atualmente a tecnologia está cada vez mais popular e acessível, sendo assim poss
 Os sistemas embarcados podem normalmente desempenhar processos simples, que não geram nenhum tipo de risco para os usuários (exemplo de calculadoras, controles de videogames, telefones, etc.), contudo também podem ser utilizados para tarefas mais complexas que apresentam certos riscos se não forem projetados com um maior rigor (exemplo controle em aviões, controles industriais, monitoramento de saúde, etc.).
 
 Neste âmbito um sistema desenvolvido para um hardware específico pode ser considerado um sistema embarcado, neste tipo de aplicação um hardware muito utilizado atualmente são as RaspberryPi, que são microprocessadores que rodam sistemas operacionais de diversos tipos.
-
-
-\subsection{Sons normais}
-
-
-exemplo de tabela
-
-\cite{turk}
-\cite{turk2}
-\cite{parraga}
-\cite{Opp}
-\cite{coif}
 
 
 \begin{table}[ht]
@@ -252,13 +234,6 @@ exemplo de tabela
 \end{center}
 \end{table}
 
-\subsubsection{FORMULAS USADAS}
-A convolução é uma ...
-
-Caso a entrada neste sistema seja um impulso, o sinal de saída será denominada como resposta impulsiva e representado como $h[n]$, na eq. \ref{conv}.
-
-
-Pra salvar as equações e variáveis que estou utilizando no momento.
 
 \begin{equation}
 N = 300
@@ -358,11 +333,11 @@ O OpenCV é uma biblioteca de visão computacional e aprendizagem de máquina com c
 
 \section{MONGODB}
 
-O MongoDB é um banco de dados não relacional que utiliza documentos para armazenar informações, utilizando informações na linguagem JSON. Podendo se conectar com as mais diversas linguagens de programação (como por exemplo: Java, Python, Ruby, C++, etc).
+O MongoDB é um banco de dados não relacional que utiliza documentos para armazenar informações, utilizando informações na linguagem JSON. Podendo se conectar com as mais diversas linguagens de programação (como por exemplo: Java, Python, Ruby, C++, etc). Pode ser utilizado com repositórios locais ou até mesmo com repositórios armazenados em nuvem de forma gratuita (conforme utilização do armazenamento e acesso repetidos dos dados). Dentro de algumas de suas vantegens, pode-se elencar a relação de não ser necessário as condições relacionais para começar a armazenar dados, obtendo melhor performace em relação as suas consultas, já que tudo esta dentro de um único documento. Contudo isso acaba sendo uma desvantagem também, pois caso seja necessário a modificação de algum atributo para todos as entradas, cada valor deve ser tratado um a um.
 
 \section{EIGENFACES}
 
-Eigenfaces é um classificador de faces utilizado em visão computacional, utiliza autovetores para poder fazer a aproximação do valor de rosto médio com o rosto em questão. A criação do conceito de eigenfaces foi criada em 1987 por Sirovich e Kirby, tendo como primeira intenção de uma aproximação de uma representação de imagens em dimensões menores. As eigenfaces podem ser geradas a partir de um processo matemático chamado de Análise de Componente Principal (PCA) em um banco de imagens de faces consideravelmente grande.
+Eigenface é um classificador de faces utilizado em visão computacional, utiliza autovetores para poder fazer a aproximação do valor de rosto médio com o rosto em questão. A criação do conceito de eigenfaces foi criada em 1987 por Sirovich e Kirby, tendo como primeira intenção de uma aproximação de uma representação de imagens em dimensões menores. As eigenfaces podem ser geradas a partir de um processo matemático chamado de Análise de Componente Principal (PCA) em um banco de imagens de faces consideravelmente grande. Pode-se utilizar as Eigenfaces para a classificação e reconhecimento facial, como feito por \citep{turk2}, onde foram utilizadas para reconhecer faces de pessoas da equipe de pesquisa. Foram elencados certos problemas da utilização das mesmas, onde a iluminação, orientação e obstrução das imagens podem afetar diretamente no reconhecimento de cada face.
 
 \section{METODOLOGIA}
 
@@ -396,12 +371,19 @@ Nesta seção serão discutidos os resultados obtidos a partir da aplicação constru
 
 \section{Obtenção das Eigenfaces}
 
-A primeira etapa para o processo de obtenção das eigenfaces é obter um conjunto de imagens, estas imagens serão o grupo de treinamento, após deve-se transformar cada imagem $I : (N \times N)$ em um vetor gama $\Gamma : (N^2 \times 1)$, onde é necessário tranformar o vetor em uma dimensão, para reduzir o tamanho dos cálculos as imagens foram dimensionadas no tamanho $M = 300 \times 300$ e possuem somente um canal em escala de cinza, um exemplo da imagem de treinamento pode ser vista na figura \ref{face}. As imagens podem ser normalizadas dividindo pelo valor máximo de 255 para facilitar os cálculos.
+A primeira etapa para o processo de obtenção das eigenfaces é obter um conjunto de imagens, estas imagens serão o grupo de treinamento um exemplo de algumas das imagens utilizadas nesta etapa pode ser notada na Figura \ref{faces}, as imagens foram utilizadas para o treinamento, tiveram a face cortada, pois somente é necessário utilizar uma parte menor do rosto para o reconhecimento, sendo assim após o corte e tranformação em um único canal de escala de cinza, para que a quantidade de cálculos diminuisse (Imagem sem modificar $I: (N \times N \times 3)$, imagem modificada $I: (N \times N \times 1)$)  após deve-se transformar cada imagem $I : (N \times N)$ em um vetor gama $\Gamma : (N^2 \times 1)$, onde é necessário tranformar o vetor em uma dimensão, para reduzir o tamanho dos cálculos as imagens foram redimensionadas no tamanho $N = 300 \times 300$ e possuem somente um canal em escala de cinza, um exemplo da imagem de treinamento pode ser vista na figura \ref{face}. As imagens podem ser normalizadas dividindo pelo valor máximo de 255 para facilitar os cálculos.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figuras/faces.jpg}
+	\caption{Faces sem tratamento pertencentes ao treino.}
+	\label{faces}
+\end{figure}
 
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.4\textwidth]{figuras/face1.jpg}
-	\caption{Face pertencente ao treino.}
+	\caption{Face tratada pertencente ao treino.}
 	\label{face}
 \end{figure}
 
@@ -477,6 +459,132 @@ Os pesos $w_j$ são distintos para cada face, esses pesos mais a face média $\Psi
 			\end{array} \right], \hspace{2cm} i = 1,2,\cdots,M	 
 \end{equation}
 
+\subsection{Reconhecimento utilizando as Eigenfaces}
+
+Para a fase de reconhecimento é necessário representar uma face nova, de fora do conjunto de treinamento, no "espaço de faces" normalizando ela com a face média $\Psi$ como na equação \ref{new_face} (a nova face já deve estar no formato de $\Gamma$ para ser representada).
+
+\begin{equation}
+\label{new_face}
+	\widehat{\Phi} = \Gamma - \Psi
+\end{equation}
+
+Para a projeção das eigenfaces é necessário calcular o vetor de pesos $\Omega$ desta face $\Gamma$, utilizando as eigenfaces obtidas anteriormente, essa representação pode ser vista na equação \ref{project_face}
+
+\begin{equation}
+\label{project_face}
+	 w_i = u_{i}^{T}\widehat{\Phi} \hspace{2cm}
+	 \Omega = \left[ \begin{array}{c}
+				 w_{1} \\ w_{2} \\ w_{3} \\ \vdots \\ w_{K} 
+			\end{array} \right]
+\end{equation}
+
+Calculando o vetor $\Omega$ da nova face, é necessário achar o menor erro euclidiano entre os pesos da nova face menos os pesos de cada face do conjunto de treinamento. Este erro deve ser o menor possível e estar abaixo de um valor de \textit{threshold} para ser considerado a mesma face, a equação \ref{error} representa essa distância da face nova de cada face do conjunto de treino.
+
+\begin{equation}
+\label{error}
+	e_r = min_l \hspace{1mm} \| \Omega - \Omega^l \| 
+\end{equation}
+
+ 
+
+O valor de \textit{Threshold} pode ser escolhido arbitrário ou perante um critério de cada aplicação, segundo \cite{marijeta}, não há uma formula para o cálculo de um valor de \textit{Threshold},o que se pode fazer é calcular o erro mínimo da imagem de teste com o treinamento, obtido a partir da fórmula \ref{error}, e pode-se calcular utilizando a equação \ref{thresh}. Contudo este valor máximo acaba sendo um valor distante dos demais valores de erros da fórmula \ref{error}, não podendo ser utilizado para a comparação.
+
+\begin{equation}
+\label{thresh}
+	\theta = 0,8 * max(rast) 
+\end{equation}
+
+Com o valor de erro de cada face obtido, foi necessário procurar qual a face que havia obtido o menor erro, os resultdos podem ser observados na Figura \ref{erro_face}
+
+\begin{figure}[htb]
+        \centering
+        \subfloat[]{
+            \begin{minipage}{0.45\linewidth}
+              \includegraphics[width=0.98\linewidth, height = 0.2\textheight, keepaspectratio=true]{figuras/erro_face_win.png}             
+            \end{minipage}} 
+        \subfloat[]{
+            \begin{minipage}{0.45\linewidth}
+             \includegraphics[width=0.98\linewidth, height = 0.2\textheight, keepaspectratio=true]{Figuras/erro_face_lose.png}
+            \end{minipage}}     
+           \caption{Face de teste, Face reconhecida do banco e Face reconhecida do sistema: (a) Face que foi reconhecida, (b) Face não foi reconhecida}
+           \label{erro_face} 
+    \end{figure}
+
+A primeira face da Figura \ref{erro_face}(a) é a face que foi utilizada como teste de reconhecimento, a segunda e terceira face são as faces que foram reconhecidas como as que possuiam o menor valor de erro, sendo a segunda obtida do banco de imagens armazenadas no banco de dados e a terceira a armazenada na execução do algoritmo. Porém a Figura \ref{erro_face}(b) mostra uma face de teste que foi reconhecida erroneamente com outra face da base de treinamento.
+
+Dentro dos testes de reconhecimento realizados com o algoritmo, foram utilizados diversas quantidades de eigenfaces, pois segundo \citep{turk2}, utilizar somente as \textit{K} melhores eigenfaces esta diretamente relacionado a eficiência computacional, já que o tamanho do banco de imagens que é utilizada pelo sistema pode aumentar conforme a necessidade de cada sistema. Neste trabalho foram utilizadas 196 imagens para o total da base de treinamento. A Figura \ref{k_win} exemplifica a relação da utilização de \textit{K} para a quantidade de acertos e a Figura \ref{k_lose} a relação de \textit{K} para erros. A quantidade de acertos e erros foram computadas observando manualmente cada imagem do teste com o as imagens da base de treinamento, um exemplo desta validação esta na Figura \ref{erro_face}, onde a imagem era comparada manualmente caso obtivesse um um resultado satisfatório, foi computado como um acerto e caso não como um erro.  
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/k_win.png}
+	\caption{Gráfico K x Acertos.}
+	\label{k_win}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/k_lose.png}
+	\caption{Gráfico K x Erros.}
+	\label{k_lose}
+\end{figure}
+
+Com os resultados de \textit{K}, observou-se que um dos melhores valores para a utilização para o algoritmo foi o de $K = 70$, sendo assim foram utilizadas as melhores 70 eigenfaces obtidas previamente no processo de reconhecimento.
+Os valores dos omegas de cada imagem de teste projetada no espaço de faces, possui um valor de desvio padrão que aparece estar próximo das faces que possuem características semelheantes. O efeito do desvio padrão pode ser notado na Figura \ref{s_omegap}.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/s_omegap.png}
+	\caption{Desvio Padrão dos Omegas projetados no espaço de faces.}
+	\label{s_omegap}
+\end{figure}
+
+Este efeito pode ser notado também no desvio padrão das imagens utilizadas no conjunto de treinamento, onde cada face que possui  características semelheantes, acabam tendo um valor mais próximo do outro e fazendo um agrupamento no gráfico da Figura \ref{s_omega}.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/s_omega.png}
+	\caption{Desvio Padrão dos Omegas no espaço de faces.}
+	\label{s_omega}
+\end{figure}
+
+\section{Armazenamento}
+Dentro do desenvolvimento do trabalho proposto, foi necessário criar um meio de armazenar e recuperar as imagens e valores utilizados pelo sistema. No inicio da aplicação foram utilizadas as imagens localmente, sendo armazenadas e utilizadas somente durante a execução do sistema. Contudo este tipo de solução pode acabar esgotando o armazenamento interno do dispositivo que roda o sistema, sendo assim para que este problema fosse sanado, a forma de armazenamento das informações foi dividdo em duas formas, sendo uma delas para o armazenamento das informações e outra para o armazenamento dos arquivos.
+Para o armazenamento das informações foi utilizado o MongoDB com um repositório em nuvem, o seu acesso é feito a partir da biblioteca \textit{Pymongo}, onde cada face tem as seguintes informações armazenadas: 
+\begin{itemize}
+\item ID do Mongo
+\item Nome da Pessoa
+\item ID do Google Drive
+\end{itemize}
+O \textit{ID do Mongo} é um identificador que é gerado automaticamente, sendo uma chave primária igual a de um banco de dados relacional, onde este é um identificador único. O \textit{ID do Google Drive} é o identificador que é gerado automaticamente quando o arquivo com as informações da imagem da face são salvos.
+
+Para o armazenamento de cada imagem foi utilizado o Google Drive, o seu acesso é feito a partir da biblioteca \textit{Pydrive}, onde cada face tem as seguintes infromações armazenadas:
+\begin{itemize}
+\item Valor de $\Phi$ da face;
+\item Valor de $\Omega$ da face.
+\end{itemize}
+Os valores são armazenados em um arquivo \textit{JSON}, podendo ser utilizadas outras formas de salvar o arquivo, porém foi escolhido o arquivo \textit{JSON} para a facilitação ao acesso das informações, já que as mesmas são armazenadas em formato de lista, sendo mais fácil de fazer a transformação para vetores da biblioteca \textit{Numpy}.
+
+Para o acesso de ambos os bancos é necessário a configuração e utilização de arquivos de configuração, que contenham os usuários e senhas para acesso. Para o acesso do repositório do MongoDB é necessário repassar a linha de conexão do repositório. Para a conexão do Google Drive é necessário a configuração e o aceite na conta do usuário que irá hospedar os arquivos, neste caso foi configurado o arquivo \textit{settings.yaml} para que não fosse necessário abrir uma janela de aceite a cada vez que o sistema fosse executado.
+
+O processo de armazenamento em ambos os bancos ocorre em três etapas, sendo elas: Gerar as informações da face (valores de $\Phi$ e $\Omega$ de cada face individualmente), salvar essas informações no Google Drive e devolver o ID que foi salvo e salvar no Mongo o ID do Gogle Drive juntamente com o nome de cada pessoa. Um exemplo deste processo pode ser notado na Figura \ref{fluxo_banco}.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/fluxo_arm.jpg}
+	\caption{Recuperação das imagens a partir dos Bancos de Dados.}
+	\label{fluxo_banco}
+\end{figure}
+
+
+Para a análise de um nova face, é necessário buscar os valores de cada face no banco de imagens, a forma de busca é feita a partir dos valors de $\Omega$, que foram armazenados previamente, e devolvido o valor de $\Phi$ da face reconhecida (deve-se após receber o valor de $\Phi$ somar o valor de $\Psi$ que também está armazenado no banco de imagens). O método de utilização de ambos os bancos pode ser notado na Figura \ref{recupera_img}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figuras/recupera_img.jpg}
+	\caption{Recuperação das imagens a partir dos Bancos de Dados.}
+	\label{recupera_img}
+\end{figure}
+
+
 \section{Interface}
 
 Para a utilização das eigenfaces, foi desenvolvido uma interface utilizando a biblioteca Tkinter. O objetivo da interface é mostrar para o usuário que a sua face esta sendo capturada e sendo calculado se a sua face será reconhecida, devido ao fato de que as pessoas que serão submetidas ao sistema tem o interesse de serem reconhecidas.
@@ -492,7 +600,7 @@ Para a utilização das eigenfaces, foi desenvolvido uma interface utilizando a bi
 
 \chapter{Trabalhos Futuros}
 
-\bibliography{bibliografia}
+\bibliography{tcc_template}
 
 %\appendix
 

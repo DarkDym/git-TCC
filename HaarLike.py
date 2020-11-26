@@ -13,12 +13,10 @@ from Eigen import eigenfaces as eg
 
 #Mudar PATH e DIRA caso seja mudado de computador, precisa ser o caminho absoluto
 DIRA = "C://Users//Dymytry//Desktop//TCC Alleff//TCC Alleff//TCC_v1-3//CODES//IMAGENS//FRONTAL"
-DIRA_MOD = "C://Users//Dymytry//Desktop//TCC Alleff//git-TCC//IMAGENS//TESTE"
+DIRA_MOD = "C://Users//Dymytry//Desktop//TCC Alleff//git-TCC//IMAGENS//TESTE3"
 PATH = "C://Users//Dymytry//Desktop//TCC Alleff//TCC Alleff//TCC_v1-3//CODES//"
 
 class harr:
-    def __init__(self):
-        pass
     def detecta(self,frame):
         #face_cascade = cv.CascadeClassifier('C://Users//Katy//Desktop//TCC Alleff//TCC_v1-3//CODES//haarcascade_frontalface_default.xml')
         face_cascade = cv.CascadeClassifier(PATH + 'haarcascade_frontalface_default.xml')
@@ -63,11 +61,11 @@ class harr:
             imagePath = os.path.join(DIRA_MOD,filePath)
             im = cv.imread(imagePath)
             image.append(im)
-            imFlip = cv.flip(im,1)
-            image.append(imFlip)
+            # imFlip = cv.flip(im,1)
+            # image.append(imFlip)
         lgt = len(image)
         print(lgt)
-        os.chdir("./IMAGENS/TESTE_FT")
+        os.chdir("./IMAGENS/TESTE3_FT")
         y = 1
         for x in range(0,lgt):
             aux = image[x]

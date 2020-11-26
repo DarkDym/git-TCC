@@ -20,11 +20,21 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Diagrama das etapas de desenvolvimento.\relax }}{18}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Diagrama do sistema.\relax }}{18}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Face pertencente ao treino.\relax }}{19}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Face m\'edia $\Psi $.\relax }}{20}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Faces $\Phi $.\relax }}{20}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Eigenfaces.\relax }}{21}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Interface do sistema.\relax }}{22}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Faces sem tratamento pertencentes ao treino.\relax }}{19}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Face tratada pertencente ao treino.\relax }}{20}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Face m\'edia $\Psi $.\relax }}{20}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Faces $\Phi $.\relax }}{21}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Eigenfaces.\relax }}{21}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Face de teste, Face reconhecida do banco e Face reconhecida do sistema: (a) Face que foi reconhecida, (b) Face n\~ao foi reconhecida\relax }}{23}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{23}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{23}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Gr\'afico K x Acertos.\relax }}{23}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Gr\'afico K x Erros.\relax }}{24}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Desvio Padr\~ao dos Omegas projetados no espa\c co de faces.\relax }}{24}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Desvio Padr\~ao dos Omegas no espa\c co de faces.\relax }}{25}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Recupera\c c\~ao das imagens a partir dos Bancos de Dados.\relax }}{26}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Recupera\c c\~ao das imagens a partir dos Bancos de Dados.\relax }}{26}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Interface do sistema.\relax }}{27}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

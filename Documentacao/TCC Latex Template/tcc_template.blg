@@ -4,52 +4,54 @@ The top-level auxiliary file: tcc_template.aux
 Reallocating 'name_of_file' (item size: 1) to 5 items.
 The style file: abnt.bst
 Reallocating 'name_of_file' (item size: 1) to 13 items.
-Database file #1: bibliografia.bib
+Database file #1: tcc_template.bib
 Warning--entry type for "parraga" isn't style-file defined
---line 20 of file bibliografia.bib
+--line 20 of file tcc_template.bib
 Warning--entry type for "turk" isn't style-file defined
---line 29 of file bibliografia.bib
+--line 29 of file tcc_template.bib
 Warning--entry type for "turk2" isn't style-file defined
---line 36 of file bibliografia.bib
-You've used 5 entries,
+--line 36 of file tcc_template.bib
+Warning--entry type for "marijeta" isn't style-file defined
+--line 44 of file tcc_template.bib
+You've used 6 entries,
             2364 wiz_defined-function locations,
-            602 strings with 4845 characters,
-and the built_in function-call counts, 6025 in all, are:
-= -- 721
-> -- 15
-< -- 72
-+ -- 394
-- -- 14
-* -- 220
-:= -- 508
-add.period$ -- 19
-call.type$ -- 5
-change.case$ -- 51
+            607 strings with 5042 characters,
+and the built_in function-call counts, 7009 in all, are:
+= -- 828
+> -- 17
+< -- 87
++ -- 461
+- -- 15
+* -- 263
+:= -- 594
+add.period$ -- 22
+call.type$ -- 6
+change.case$ -- 63
 chr.to.int$ -- 15
-cite$ -- 5
-duplicate$ -- 851
-empty$ -- 241
-format.name$ -- 56
-if$ -- 1335
+cite$ -- 6
+duplicate$ -- 993
+empty$ -- 287
+format.name$ -- 70
+if$ -- 1542
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 0
-newline$ -- 13
-num.names$ -- 25
-pop$ -- 102
+newline$ -- 15
+num.names$ -- 30
+pop$ -- 118
 preamble$ -- 1
-purify$ -- 5
+purify$ -- 6
 quote$ -- 0
-skip$ -- 386
+skip$ -- 444
 stack$ -- 0
-substring$ -- 376
-swap$ -- 512
+substring$ -- 429
+swap$ -- 602
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 41
+type$ -- 46
 warning$ -- 0
-while$ -- 34
+while$ -- 40
 width$ -- 0
-write$ -- 7
-(There were 3 warnings)
+write$ -- 8
+(There were 4 warnings)

@@ -19,11 +19,14 @@ NEF = 10
 #Mudar DIRA caso seja mudado de computador, precisa ser o caminho absoluto
 DIRA = "C://Users//Dymytry//Desktop//TCC Alleff//git-TCC//IMAGENS//FT"
 DIRA_MOD = "C://Users//Dymytry//Desktop//TCC Alleff//git-TCC//IMAGENS//TESTE_FT"
+DIRA_TESTE = "C://Users//Dymytry//Desktop//TCC Alleff//git-TCC//IMAGENS//TESTE2_FT"
+DIRA_TESTE2 = "C://Users//Dymytry//Desktop//TCC Alleff//git-TCC//IMAGENS//TESTE3_FT"
 PATH_SAVE = "C://Users//Dymytry//Desktop//TCC Alleff//git-TCC//IMAGENS//EIGEN"
 MAX_SLIDER_VALUE = 255
 avgFace = 0
 # eface = []
-K = 50
+K = 70
+E_PHI = 30
 # THETA = 
 TAM_IMG = (300,300)
 
@@ -165,6 +168,13 @@ class eigenfaces:
             images[i] = cv.cvtColor(images[i],cv.COLOR_BGR2GRAY)
         [gamma, qnt_gamma] = ai.createDataMatrix(self,images)
         #Geração do vetor Gamma(N^2 X 1)
+
+        #Não faz parte da obtenção das Eigenfaces, somente utilizada para a documentação.
+        #Visualização das imagens que estão sendo utilizadas no sistema
+        # for x in range(0,qnt_gamma):
+        #     print("VALOR DE X: "+str(x))
+        #     teste(gamma[x].reshape(TAM_IMG))
+        #Visualização das imagens que estão sendo utilizadas no sistema
         
         #Limpeza do vetor images e coletor do Python(medida necessária para não estouro da memória do Python)
         images.clear()
@@ -177,7 +187,7 @@ class eigenfaces:
         for x in range(0,qnt_gamma):
             aux_psi = gamma[x] + aux_psi
         psi = aux_psi/qnt_gamma
-        # eigenfaces.save_psi(self,psi)
+        # eigenfaces.save_psi(self,psi) 
         #Geração da face média Psi(N^2 X 1)
 
         #Geração do vetor Phi(Gamma - Psi)
@@ -224,7 +234,317 @@ class eigenfaces:
         aux_omegay.clear()
         #Geração dos pesos de treino Omega
 
+        # Comentado pois não é necessário salvar no banco no momento
+        # Fazer uma função a parte depois
+        # Teste com a função de salvar no banco e drive
+        # client = db.conecta(self)
+        # GDA = gd.connect()
+        # y = 1
+        # for x in range(0,phi_aux.shape[0]):
+        #     phi_list = phi_aux[x].tolist()
+        #     omega_list = omega[x].tolist()
+        #     if (x % 2 == 0):
+        #         nome_arq = "pessoa"+str(y)
+        #         y += 1
+        #     img_json = '{"PHI":'+str(phi_list)+',"OMEGA":'+str(omega_list)+'}'
+        #     eigenfaces.img2json(self,nome_arq,img_json,GDA,client,nome_arq)
+
         #Não faz parte da obtenção das Eigenfaces, somente utilizada para a documentação.
+
+        #Geração da tabela de Omegas em json
+        # omega_save = "omega"
+        # omega_json = []
+        # with open("omega"+str(K)+".json","w") as json_file:
+            # for x in range(0,K):
+                # omega_json.append({omega_save + str(x+1):omega[x].tolist()}) 
+            # json.dump(omega_json,json_file,indent=4)
+        #Geração da tabela de Omegas em json
+
+        #Geração da tabela de erros euclidianos
+
+        #Teste com faces modificadas, porém todas do treinamento
+        images = ai.openImg(self,DIRA_MOD)
+        #Teste com faces modificadas, porém todas do treinamento
+        
+        #Teste com faces exatamente do treinamento
+        # images = ai.openImg(self,DIRA_TESTE)
+        #Teste com faces exatamente do treinamento
+
+        #Teste com faces desconhecidas pelo sistema
+        # images = ai.openImg(self,DIRA_TESTE2)
+        #Teste com faces desconhecidas pelo sistema
+
+        for i in range(0,len(images)):
+            images[i] = cv.cvtColor(images[i],cv.COLOR_BGR2GRAY)
+        [gamma_mod, qnt_gamma_mod] = ai.createDataMatrix(self,images)
+        images.clear()
+
+        phi_mod = []
+        for x in range(0,qnt_gamma_mod):
+            phi_mod.append(gamma_mod[x] - psi)
+        phi_mod = np.array(phi_mod)
+        
+        omega_json = []
+        flag_rec = []
+        s_project = []
+        s_erk = []
+        # GDA = gd.connect()
+        with open("erros"+str(K)+".json","w") as json_file:
+            for y in range(0,qnt_gamma_mod):
+                w_aux = 0
+                omega_project = []
+                for x in range(0,K):
+                    w = np.dot(u_cov[x],phi_mod[y])
+                    w_aux = (w*u_cov[x]) + w_aux
+                    omega_project.append(w)
+                omega_project = np.array(omega_project)
+                s_project.append(np.std(omega_project))
+                phi_project = w_aux
+                erk = []
+                err_phi = []
+                for x in range(0,phi_aux.shape[0]):
+                    aux_erk2 = np.linalg.norm(omega_project - omega[x])
+                    aux_err_phi = np.linalg.norm(phi_mod[y] - phi_aux[x])
+                    # aux_erk2 = np.sqrt(aux_erk2)
+                    erk.append(aux_erk2)
+                    err_phi.append(aux_err_phi)
+                erk = np.array(erk)
+                err_phi = np.array(err_phi)
+                s_erk.append(np.std(erk))
+                # err_phi = np.linalg.norm(phi_mod[y] - phi_project)
+                min_erk = np.amin(erk,axis=0)
+
+               #TESTE
+                teste_gamma = 0
+                for x in range(0,K):
+                    teste_gamma = np.dot(u_cov[x],omega_project[x]) + teste_gamma
+                teste_gamma = np.array(teste_gamma)
+                # print("SHAPE DO TESTE GAMA "+str(teste_gamma.shape))
+                teste_gamma = teste_gamma + psi
+                # teste(teste_gamma.reshape(TAM_IMG))
+                epsilon = np.sqrt(np.linalg.norm(phi_mod[y] - teste_gamma))
+                print("VALOR DO EPSILON: "+str(epsilon))
+
+                #Cálculo do Threshold
+                theta_aux_i = []
+                # theta_aux_j = []
+                for i in range(0,phi_aux.shape[0]):
+                    for j in range(0,phi_aux.shape[0]):
+                        theta_aux_i.append(np.linalg.norm(omega[i] - omega[j]))
+                theta_aux_i = np.array(theta_aux_i)
+                max_theta = np.amax(theta_aux_i,axis=0)
+                max_theta = max_theta / 2
+                # max_theta = max_theta * 0.3
+                print("VALOR MÁXIMO DE THETA: "+str(max_theta))                
+                #Cálculo do Threshold
+
+                #TESTE PARA VER SE O ERRO MINIMO DE PHI AJUDA
+                sigma1 = 0
+                sigma2 = 0
+                op_thresh = 0
+                for z in range(0,phi_aux.shape[0]):
+                    if erk[z] == min_erk:
+                        sigma1 = z
+                    if err_phi[z] == np.amin(err_phi,axis=0):
+                        sigma2 = z
+                
+                if sigma1 == sigma2:
+                    op_thresh = sigma1
+                    print("NESSA SITUAÇÃO AMBOS SÃO IGUAIS E REINAM JUNTOS")
+                else:
+                    op_thresh = sigma2
+                    print("NESSA SITUAÇÃO SIGMA 2 REINA SOZINHO, POIS SEMPRE ESTA CERTO")
+
+                for z in range(0,phi_aux.shape[0]):
+                    if op_thresh == z:
+                        # teste2((phi_mod[y] + psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG))
+                        # teste3((phi_mod[y] + psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG),(phi_aux[sigma1] + psi).reshape(TAM_IMG))
+                        print("O OMEGA É: "+str(z))
+                        print("O VALOR É: "+str(erk[z]))
+                        print("O ERRO MINIMO É: "+str(min_erk))
+                        # print("VALOR DE OMEGA[z]: "+str(omega[z]))
+                        print("VALOR NORMALIZADO: "+str(np.linalg.norm(omega[z])))
+                        # print("VALOR DO OMEGA_PROJECT: "+str(omega_project))
+                        print("VALOR NORMALIZADO: "+str(np.linalg.norm(omega_project)))
+                        print("VALOR DO ERRO PHI: "+str(err_phi[z]))
+                        print("VALOR MINIMO DO ERRO PHI: "+str(np.amin(err_phi,axis=0)))
+                        if np.amin(err_phi,axis=0) >= E_PHI:
+                            op = 0
+                        else:
+                            op = 1
+                        # op2 = input("Certo - 1  Errado - 0 : ")
+                        # flag_rec.append({"MIN_ERROR":str(min_erk),"NORM_OMEGA":str(np.linalg.norm(omega[z])),"NORM_PROJECT":str(np.linalg.norm(omega_project)),"PROJECT_OMEGA":str((np.linalg.norm(omega_project))-(np.linalg.norm(omega[z]))),"NORM_ERRO_PHI":str(np.linalg.norm(err_phi)),"MEDIA_ERRO_PHI":str(np.mean(err_phi)),"MIN_ERRO_PHI":str(np.amin(err_phi,axis=0)),"REC_SOLO":str(op),"REC":str(op2)})
+                        
+                #TESTE PARA VER SE O ERRO MINIMO DE PHI AJUDA
+
+
+
+                # for z in range(0,phi_aux.shape[0]):
+                    
+                #     # if flag_rec != 0:    
+                #     # print()
+                #     if erk[z] == min_erk:
+                #         # if (min_erk < max_theta) and (epsilon < max_theta) :
+                #         #     print("A IMAGEM ESTA NOS PADROES")
+                #         #     teste2((phi_mod[y] + psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG))
+                #         print("O OMEGA É: "+str(z))
+                #         print("O VALOR É: "+str(erk[z]))
+                #         print("O ERRO MINIMO É: "+str(min_erk))
+                #         print("VALOR DE OMEGA[z]: "+str(omega[z]))
+                #         print("VALOR NORMALIZADO: "+str(np.linalg.norm(omega[z])))
+                #         print("VALOR DO OMEGA_PROJECT: "+str(omega_project))
+                #         print("VALOR NORMALIZADO: "+str(np.linalg.norm(omega_project)))
+                #         print("SÓ PRA DESCARGO: "+str(np.linalg.norm(omega_project - omega[z])))
+                #         # teste((phi_mod[y] + psi).reshape(TAM_IMG))
+                #         # conte = gd.get_json2img(GDA,omega[z])
+                #         # print(conte)
+                #         print("Valor do Y: "+str(y)+" Valor do Z: "+str(z))
+                #         teste2((phi_mod[y] + psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG))
+                #         op = input("Certo - 1  Errado - 0 : ")
+                #         flag_rec.append({"MIN_ERROR":str(min_erk),"NORM_OMEGA":str(np.linalg.norm(omega[z])),"NORM_PROJECT":str(np.linalg.norm(omega_project)),"PROJECT_OMEGA":str((np.linalg.norm(omega_project))-(np.linalg.norm(omega[z]))),"NORM_ERRO_PHI":str(np.linalg.norm(err_phi)),"MEDIA_ERRO_PHI":str(np.mean(err_phi)),"MIN_ERRO_PHI":str(np.amin(err_phi,axis=0)),"REC":str(op)})
+                #         # flag_rec.append(input("0(errado) OU 1(certo)"))
+                #         # teste3((phi_mod[y] + psi).reshape(TAM_IMG),(conte["PHI"]+psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG))
+                #         # break
+                # #TESTE
+
+                omega_json.append({"ERRO_OMEGA":erk.tolist(),"MIN_ERRO_OMEGA":str(min_erk),"ERRO_PHI":err_phi.tolist(),"NORM_ERRO_PHI":str(np.linalg.norm(err_phi)),"MEDIA_ERRO_PHI":str(np.mean(err_phi)),"MIN_ERRO_PHI":str(np.amin(err_phi,axis=0)),"Media":str(np.mean(erk)),"Desvio":str(np.std(erk))}) 
+            json.dump(omega_json,json_file,indent=4)
+        # with open("norms"+str(K)+".json","w") as norm_json:
+            # json.dump(flag_rec,norm_json,indent=4)
+
+        #Geração da tabela de erros euclidianos
+
+        #GERAÇÃO DO GRAFICO DE ACERTOS NOVOS
+        with open("norms70.json","r") as e_phi:
+            val = json.loads(e_phi.read())
+            win = []
+            win_val = []
+            lose = []
+            lose_val = []
+            valores = []
+            for ind in range(0,len(val)):
+                # win_val.append(float(val[ind]["MIN_ERRO_PHI"]))
+                if val[ind]["REC_SOLO"] == "1":
+                    # win.append("1")
+                    # valores.append(ind)
+                    win.append(float(val[ind]["MIN_ERRO_PHI"]))
+                else:
+                    # lose.append("0")
+                    lose.append(float(val[ind]["MIN_ERRO_PHI"]))
+                if val[ind]["REC"] == "1":
+                    # win.append("1")
+                    # valores.append(ind)
+                    win_val.append(float(val[ind]["MIN_ERRO_PHI"]))
+                else:
+                    # lose.append("0")
+                    lose_val.append(float(val[ind]["MIN_ERRO_PHI"]))
+        e_phi.close()
+        
+        # print(win_val)
+        # print(lose_val)
+        plt.subplot(2,1,1)
+        plt.title("ERRO PHI = "+str(E_PHI))
+        plt.plot(win,win,"ob")
+        plt.plot(lose_val,lose_val,"dy")
+        plt.subplot(2,1,2)
+        plt.plot(win_val,win_val,"og")
+        plt.plot(lose,lose,"dr")
+        plt.show()
+
+        #GERAÇÃO DO GRAFICO DE ACERTOS NOVOS
+
+        #Cálculo de Media,Mediana,Desvio Padrão, Variância
+        s = []
+        with open("omega70.json","r") as calc:
+            valores = json.loads(calc.read())
+            for qnt in range(0,len(valores)):
+                print("NUMERO DO OMEGA: "+str(qnt))
+                print("MEDIA: "+str(np.mean(valores[qnt]["omega"+str(qnt+1)])))
+                print("MEDIANA: "+str(np.median(valores[qnt]["omega"+str(qnt+1)])))
+                print("MEDIA ARITIMÉTICA: "+str(np.average(valores[qnt]["omega"+str(qnt+1)])))
+                print("DESVIO: "+str(np.std(valores[qnt]["omega"+str(qnt+1)])))
+                s.append(np.std(valores[qnt]["omega"+str(qnt+1)]))
+                print("VARIANCIA: "+str(np.var(valores[qnt]["omega"+str(qnt+1)])))
+                # valores[qnt]["omega"+str(qnt+1)]
+        calc.close()
+        print("Desvio Padrao de s: "+str(np.std(s)))
+        plt.title("DESVIO PADRÃO DOS OMEGAS DO TREINAMENTO")
+        plt.xlabel("INDICE DE OMEGA")
+        plt.ylabel("DESVIO PADRÃO S")
+        plt.plot(s,"ob")
+        plt.show()
+        print("DESVIO PADRÂO DE CADA OMEGA PROJETADO: "+str(s_project))
+        plt.title("DESVIO PADRÃO DOS OMEGAS PROJETADOS NO ESPAÇO DE FACES")
+        plt.xlabel("INDICE DE OMEGA")
+        plt.ylabel("DESVIO PADRÃO S")
+        plt.plot(s_project,"ob")
+        plt.show()
+        print("DESVIO PADRÂO DE CADA ERRO OMEGA_PROJETADO - OMEGA: "+str(s_erk))
+        plt.title("DESVIO PADRÃO DO ERRO")
+        plt.xlabel("INDICE DE ERROS")
+        plt.ylabel("DESVIO PADRÃO S")
+        plt.plot(s_erk,"ob")
+        plt.show()
+        #Cálculo de Media,Mediana,Desvio Padrão, Variância
+
+        #VALOR MÉDIO DO MIN_ERROR
+        # media = []
+        # with open("norms70.json","r") as med:
+        #     med_read = json.loads(med.read())
+        #     for b in range(0,len(med_read)):
+        #         media.append(float(med_read[b]["MIN_ERROR"]))
+        #     # media = np.array(media)
+        #     # print(media)
+        #     media_aux = np.mean(media)
+        #     print("VALOR MEDIO DO ERRO MINIMO DE TODAS AS IMAGENS DE TESTE: "+str(media_aux))
+        #VALOR MÉDIO DO MIN_ERROR
+
+        #Geração de gráficos
+        with open("med.json","r") as graph:
+            graph_read = json.loads(graph.read())
+            x_line = []
+            y_line = []
+            for a in range(0,len(graph_read)):
+                x_line.append(graph_read[a]["K"])
+                y_line.append(graph_read[a]["WIN"])
+            # plt.subplot(2,1,1)
+            plt.title("K x ACERTOS")
+            plt.xlabel("VALOR DE K")
+            plt.ylabel("VALOR DE ACERTOS")
+            plt.plot(x_line,y_line)
+            plt.show()
+            x_line = []
+            y_line = []
+            for a in range(0,len(graph_read)):
+                x_line.append(graph_read[a]["K"])
+                y_line.append(graph_read[a]["LOSE"])
+            # plt.subplot(2,1,2)
+            # plt.clf()
+            plt.title("K x ERROS")
+            plt.xlabel("VALOR DE K")
+            plt.ylabel("VALOR DE ERROS")
+            plt.plot(x_line,y_line)
+            plt.show()
+        #Geração de gráficos
+
+        # Geração de tabelas de diferença de erros
+        # with open("med.txt","w") as write_txt:
+        #     for a in range(61,80):
+        #         with open("norms"+str(a)+".json") as read_json:
+        #             norms = json.loads(read_json.read())
+        #             val_med_0 = 0
+        #             val_med_1 = 0
+        #             for b in range(0,len(norms)):
+        #                 if (norms[b]["REC"] == "0"):
+        #                     print("SO PRA TESTAR QUE TA 0 - VALOR DO A: "+str(a))
+        #                     val_med_0 += 1
+        #                 else:
+        #                     print("SO PRA TESTAR QUE TA 1 - VALOR DO A: "+str(a))
+        #                     val_med_1 += 1
+        #             write_txt.writelines("VALOR DE K = "+str(a)+" Quantidade de ACERTOS: "+str(val_med_1) + " Quantidade de ERROS: "+str(val_med_0)+"\n")
+        #         read_json.close()
+        # write_txt.close()      
+        #Geração de tabelas de diferença de erros
         
         #Salvar as Eigenfaces
         # sv_name = "eigen"
@@ -241,27 +561,12 @@ class eigenfaces:
         #Salvar Psi
         
         #Salvar Phi
-        for x in range(0,10):
-            norm = cv.normalize(phi_aux[x].reshape(TAM_IMG), None, alpha=0, beta=1,norm_type=cv.NORM_MINMAX, dtype=cv.CV_32F)
-            norm = norm*255.0
-            cv.imwrite("phi"+str(x)+".jpg",phi_aux[x].reshape(TAM_IMG))
+        # for x in range(0,10):
+            # norm = cv.normalize(phi_aux[x].reshape(TAM_IMG), None, alpha=0, beta=1,norm_type=cv.NORM_MINMAX, dtype=cv.CV_32F)
+            # norm = norm*255.0
+            # cv.imwrite("phi"+str(x)+".jpg",phi_aux[x].reshape(TAM_IMG))
         #Salvar Phi
         #Não faz parte da obtenção das Eigenfaces, somente utilizada para a documentação.
-
-        # Comentado pois não é necessário salvar no banco no momento
-        # Fazer uma função a parte depois
-        # Teste com a função de salvar no banco e drive
-        # client = db.conecta(self)
-        # GDA = gd.connect()
-        # y = 1
-        # for x in range(0,phi_aux.shape[0]):
-        #     phi_list = phi_aux[x].tolist()
-        #     omega_list = omega[x].tolist()
-        #     if (x % 2 == 0):
-        #         nome_arq = "pessoa"+str(y)
-        #         y += 1
-        #     img_json = {"PHI":phi_list,"OMEGA":omega_list}
-        #     eigenfaces.img2json(self,nome_arq,img_json,GDA,client,nome_arq)
         
         #Comentado, pois é necessário fazer uma função própria para reconhecimento, porém esta funcionando
         # images = ai.openImg(self,DIRA_MOD)
@@ -914,7 +1219,7 @@ class eigenfaces:
         GDA = gd.connect()
         psi = psi.tolist()
         nome_arq = "face_media"
-        save_json = {"PSI":psi}
+        save_json = '{"PSI":'+str(psi)+'}'
         eigenfaces.img2json(self,nome_arq,save_json,GDA,client,nome_arq)
 
 
