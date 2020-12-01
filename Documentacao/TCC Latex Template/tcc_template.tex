@@ -316,12 +316,13 @@ A aplicação será desenvolvida utilizando a linguagem de programação Python, send
 
 Para o tratamento e requisições das imagens, será utilizado a biblioteca OpenCV, devido ao seu alto grau de conceituação na literatura atual além de ser de código aberto e com uma ampla disponibilidade de documentação.
 
-Para o armazenamento das informações necessária para gerar as presenças dentro da aplicação, será utilizado o banco de dados não relacional MongoDB, devido a não necessidade de relação entre as informações inseridas nas tabelas do banco criado, assim como a inserção das informações das imagens. Além de possuir conexão com a linguagem escolhida para a criação da aplicação.
-Para o desenvolvimento da interface gráfica, será utilizado o framework de desenvolvimento gráfico PyQt, gerando uma interface ?amigável? para todos os tipos de usuários, além de disponibilizar mais facilmente as opções de gerência do banco de dados utilizado.
+Para o tratamento dos vetores das imagens, será utilizado a biblioteca Numpy, sendo esta uma das bibliotecas que possui uma grande gama de operações que serão utilizadas para o tratamento e cálculo de cada imagem, além de ser difundida para o uso científico possui uma boa gama de documentação.
 
-O banco de imagens para o treinamento e o teste dos métodos previamente descritos, são o banco FEI face database, YALE face database e um banco de dados criado manualmente. O banco FEI é um banco de imagens faciais brasileiro que possui 14 imagens de 200 indivíduos, totalizando 2800 imagens. O banco YALE possui 165 imagens de 15 indivíduos, totalizando 2475 imagens.
+Para o armazenamento das informações necessária para gerar as presenças dentro da aplicação, será utilizado o banco de dados não relacional MongoDB, devido a não necessidade de relação entre as informações inseridas nas tabelas do banco criado, assim como a inserção das informações das imagens. Além de possuir conexão com a linguagem escolhida para a criação da aplicação. Para o desenvolvimento da interface gráfica, será utilizado a biblioteca de desenvolvimento de interfaces Tkinter.
 
-Os testes serão realizados em uma Raspberry Pi 3, que possui um processador ARMv8 CORTEX A53 QUADCORE com velocidade de operação de 1.2GHz e 1GB de memória RAM. Utilizando o sistema operacional Linux para executar a aplicação desenvolvida.
+O banco de imagens para o treinamento e o teste dos métodos previamente descritos, será o banco FEI face database, sendo este um banco de imagens desenvolvido pelo Laboratório de Processamento de Imagens do Departamento de Engenharia Elétrica do Centro Universitário da FEI. Esse banco contém 14 imagens diferentes de 200 indivíduos diferentes, obtendo um total de 2800 imagens. Deste banco somente as imagens de face frontal foram utilizadas para o formar um conjunto de treinamento e teste, além de ser necessário cortar somente o rosto de cada indivíduo e transformar a imagem em um único canal de escala de cinza (as imagens originais possuem três canais).
+
+O sistema proposto foi desenvolvido e testado em uma máquina que possui um processador AMD Ryzen 5 3400G de 3,7GHz, memória RAM de 16GB e uma placa de vídeo Radeon RX 590 de 8GB de VRAM, mas para a aplicação final será utilizado uma Raspberry Pi 3, que possui um processador ARMv8 CORTEX A53 QUADCORE com velocidade de operação de 1.2GHz e 1GB de memória RAM. Utilizando o sistema operacional Linux para executar a aplicação desenvolvida.
 
 \section{PYTHON}
 
@@ -485,8 +486,6 @@ Calculando o vetor $\Omega$ da nova face, é necessário achar o menor erro euclid
 	e_r = min_l \hspace{1mm} \| \Omega - \Omega^l \| 
 \end{equation}
 
- 
-
 O valor de \textit{Threshold} pode ser escolhido arbitrário ou perante um critério de cada aplicação, segundo \cite{marijeta}, não há uma formula para o cálculo de um valor de \textit{Threshold},o que se pode fazer é calcular o erro mínimo da imagem de teste com o treinamento, obtido a partir da fórmula \ref{error}, e pode-se calcular utilizando a equação \ref{thresh}. Contudo este valor máximo acaba sendo um valor distante dos demais valores de erros da fórmula \ref{error}, não podendo ser utilizado para a comparação.
 
 \begin{equation}
@@ -494,7 +493,7 @@ O valor de \textit{Threshold} pode ser escolhido arbitrário ou perante um critér
 	\theta = 0,8 * max(rast) 
 \end{equation}
 
-Com o valor de erro de cada face obtido, foi necessário procurar qual a face que havia obtido o menor erro, os resultdos podem ser observados na Figura \ref{erro_face}
+Nesta etapa do reconhecimento foram utilizadas 50 imagens (100 imagens totais, devido ao espelhamento de cada imagem)de faces diferentes que são pertencentes as da base de treinamento, porém possuem um distúrbio em cada imagem (o distúrbio da imagem são as modificações do rosto de cada pessoa, pois estão sorrindo). Para a classificação a fórmula \ref{error} foi utilizada, obtendo um acerto de 80\% das faces testadas, utilizando somente o erro mínimo para a seleção da face. Assim com o valor de erro de cada face obtido, foi necessário procurar qual a face que havia obtido o menor erro, os resultdos podem ser observados na Figura \ref{erro_face}
 
 \begin{figure}[htb]
         \centering
@@ -546,6 +545,111 @@ Este efeito pode ser notado também no desvio padrão das imagens utilizadas no co
 	\caption{Desvio Padrão dos Omegas no espaço de faces.}
 	\label{s_omega}
 \end{figure}
+
+Contudo durante os testes para obter o melhor valor de \textit{K}, notou-se que algumas faces estavam sendo comparadas e obtido o menor valor mas o rosto correto não estava dentro do menor valor da fórmula \ref{error}, sendo assim foi necessário utilizar outro valor para ser uma segunda forma de comparação e validação. Com isso a fórmula \ref{erro_phi} foi utilizada como forma de validação, onde o menor valor foi utilizado.
+
+\begin{equation}
+\label{erro_phi}
+	e_\Phi = \| \Phi_{mod} - \Phi_i \|
+\end{equation}
+
+Com a utilização da fórmula \ref{erro_phi}, notou-se que houve um aumento de 10\% de acertos do teste anterior, este teste foi feito olhando cada imagem do teste comparada com a imagem do treinamento, validando manualmente, mas se fez necessário utilizar uma forma de fazer este reconhecimento automaticamente, utilizando os valores de \textit{Erro mínimo de $\Omega$} e o \textit{Erro mínimo de $\Phi$}, sendo assim a Figura \ref{erro_phi30_def} possui uma comparação das faces reconhecidas manualmente com as faces reconhecidas sem nenhum tipo de verificação.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/erro_phi30_def.png}
+	\caption{Faces reconhecidas do treinamento utilizando Erro $\Phi = 30$.}
+	\label{erro_phi30_def}
+\end{figure}
+
+Cada valor de \textit{Threshold de Phi} foi testado reconhecendo cada face novamente, para poder obter um resultado mais próximo do valor que foi reconhecido manualmente. Pode-se notar que em cada figura, existe uma diferença de erro entra a o reconhecimento manual e o sem supervisão, pode-se dizer que este efeito de falso e verdadeiro negativo.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/erro_phi31_def.png}
+	\caption{Faces reconhecidas do treinamento utilizando Erro $\Phi = 31$.}
+	\label{erro_phi31_def}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/erro_phi32_def.png}
+	\caption{Faces reconhecidas do treinamento utilizando Erro $\Phi = 32$.}
+	\label{erro_phi32_def}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/erro_phi33_def.png}
+	\caption{Faces reconhecidas do treinamento utilizando Erro $\Phi = 33$.}
+	\label{erro_phi33_def}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/erro_phi34_def.png}
+	\caption{Faces reconhecidas do treinamento utilizando Erro $\Phi = 34$.}
+	\label{erro_phi34_def}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/erro_phi35_def.png}
+	\caption{Faces reconhecidas do treinamento utilizando Erro $\Phi = 35$.}
+	\label{erro_phi35_def}
+\end{figure}
+
+Com os gráficos das Figuras \ref{erro_phi30_def}, \ref{erro_phi31_def}, \ref{erro_phi32_def}, \ref{erro_phi33_def}, \ref{erro_phi34_def} e \ref{erro_phi35_def} pode-se notar que as imagens possuem um valor de \textit{Erro Phi} abaixo de 30. Para poder obter uma confirmação neste valor, o teste que foi feito para garantir este valor é tentar reconhecer faces que estão fora das faces de treinamento. Os gráficos dos teste estão referenciados nas Figuras \ref{erro_phi30_des}, \ref{erro_phi31_des}, \ref{erro_phi32_des}, \ref{erro_phi33_des}, \ref{erro_phi34_des} e \ref{erro_phi35_des}. Analisando cada gráfico pode-se notar que faces que são desconhecidas do sistema possuem um valor de \textit{Erro Phi} acima de 30. Com isso é possível utilizar um valor entre 30 e 35 como \textit{Threshold}.
+
+A decisão foi feita com base em minimizar o efito de falsos e verdadeiros negativos, já que com o aumento do valor, existe mais possibilidade de uma face ser atribuida erroneamente com outra, sendo assim o valor 30 foi escolhido para ser utilizado.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/erro_phi30_des.png}
+	\caption{Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 30$.}
+	\label{erro_phi30_des}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/erro_phi31_des.png}
+	\caption{Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 31$.}
+	\label{erro_phi31_des}
+\end{figure}
+
+O valor utilizado de trinta obtem também um erro atrelado as faces desconhecidas do sistema, onde erroneamente acaba considerando algumas faces como pertecentes ao conjunto de treinamento. A quantidade de erros diminui juntamente com a diminuição do valor de menor erro de $\Phi$, assim isto mostra que a fórmula \ref{erro_phi} reproduz a diferença de cada face uma das outras, tendo a diferença de PCA de cada face. 
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/erro_phi32_des.png}
+	\caption{Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 32$.}
+	\label{erro_phi32_des}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/erro_phi33_des.png}
+	\caption{Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 33$.}
+	\label{erro_phi33_des}
+\end{figure}
+
+Pode-se elencar que algumas faces acabam sendo consideradas como pertencentes ao conjunto de treinamento devido a igualdade de certas características humanas, sendo este um fator que deve ser levado em consideração para fazer uma análise de grupos de faces.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/erro_phi34_des.png}
+	\caption{Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 34$.}
+	\label{erro_phi34_des}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/erro_phi35_des.png}
+	\caption{Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 35$.}
+	\label{erro_phi35_des}
+\end{figure}
+
+
 
 \section{Armazenamento}
 Dentro do desenvolvimento do trabalho proposto, foi necessário criar um meio de armazenar e recuperar as imagens e valores utilizados pelo sistema. No inicio da aplicação foram utilizadas as imagens localmente, sendo armazenadas e utilizadas somente durante a execução do sistema. Contudo este tipo de solução pode acabar esgotando o armazenamento interno do dispositivo que roda o sistema, sendo assim para que este problema fosse sanado, a forma de armazenamento das informações foi dividdo em duas formas, sendo uma delas para o armazenamento das informações e outra para o armazenamento dos arquivos.

@@ -22,6 +22,7 @@ DIRA_MOD = "C://Users//Dymytry//Desktop//TCC Alleff//git-TCC//IMAGENS//TESTE_FT"
 DIRA_TESTE = "C://Users//Dymytry//Desktop//TCC Alleff//git-TCC//IMAGENS//TESTE2_FT"
 DIRA_TESTE2 = "C://Users//Dymytry//Desktop//TCC Alleff//git-TCC//IMAGENS//TESTE3_FT"
 PATH_SAVE = "C://Users//Dymytry//Desktop//TCC Alleff//git-TCC//IMAGENS//EIGEN"
+PATH_METRI = "C://Users//Dymytry//Desktop//TCC Alleff//git-TCC//METRICAS//"
 MAX_SLIDER_VALUE = 255
 avgFace = 0
 # eface = []
@@ -289,7 +290,7 @@ class eigenfaces:
         s_project = []
         s_erk = []
         # GDA = gd.connect()
-        with open("erros"+str(K)+".json","w") as json_file:
+        with open(PATH_METRI+"erros"+str(K)+".json","w") as json_file:
             for y in range(0,qnt_gamma_mod):
                 w_aux = 0
                 omega_project = []
@@ -357,7 +358,7 @@ class eigenfaces:
 
                 for z in range(0,phi_aux.shape[0]):
                     if op_thresh == z:
-                        # teste2((phi_mod[y] + psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG))
+                        teste2((phi_mod[y] + psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG))
                         # teste3((phi_mod[y] + psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG),(phi_aux[sigma1] + psi).reshape(TAM_IMG))
                         print("O OMEGA É: "+str(z))
                         print("O VALOR É: "+str(erk[z]))
@@ -372,8 +373,9 @@ class eigenfaces:
                             op = 0
                         else:
                             op = 1
-                        # op2 = input("Certo - 1  Errado - 0 : ")
-                        # flag_rec.append({"MIN_ERROR":str(min_erk),"NORM_OMEGA":str(np.linalg.norm(omega[z])),"NORM_PROJECT":str(np.linalg.norm(omega_project)),"PROJECT_OMEGA":str((np.linalg.norm(omega_project))-(np.linalg.norm(omega[z]))),"NORM_ERRO_PHI":str(np.linalg.norm(err_phi)),"MEDIA_ERRO_PHI":str(np.mean(err_phi)),"MIN_ERRO_PHI":str(np.amin(err_phi,axis=0)),"REC_SOLO":str(op),"REC":str(op2)})
+                        op2 = input("Certo - 1  Errado - 0 : ")
+                        # op2 = 0
+                        flag_rec.append({"MIN_ERROR":str(min_erk),"NORM_OMEGA":str(np.linalg.norm(omega[z])),"NORM_PROJECT":str(np.linalg.norm(omega_project)),"PROJECT_OMEGA":str((np.linalg.norm(omega_project))-(np.linalg.norm(omega[z]))),"NORM_ERRO_PHI":str(np.linalg.norm(err_phi)),"MEDIA_ERRO_PHI":str(np.mean(err_phi)),"MIN_ERRO_PHI":str(np.amin(err_phi,axis=0)),"REC_SOLO":str(op),"REC":str(op2)})
                         
                 #TESTE PARA VER SE O ERRO MINIMO DE PHI AJUDA
 
@@ -409,13 +411,13 @@ class eigenfaces:
 
                 omega_json.append({"ERRO_OMEGA":erk.tolist(),"MIN_ERRO_OMEGA":str(min_erk),"ERRO_PHI":err_phi.tolist(),"NORM_ERRO_PHI":str(np.linalg.norm(err_phi)),"MEDIA_ERRO_PHI":str(np.mean(err_phi)),"MIN_ERRO_PHI":str(np.amin(err_phi,axis=0)),"Media":str(np.mean(erk)),"Desvio":str(np.std(erk))}) 
             json.dump(omega_json,json_file,indent=4)
-        # with open("norms"+str(K)+".json","w") as norm_json:
-            # json.dump(flag_rec,norm_json,indent=4)
+        with open(PATH_METRI + "norms"+str(K)+".json","w") as norm_json:
+            json.dump(flag_rec,norm_json,indent=4)
 
         #Geração da tabela de erros euclidianos
 
         #GERAÇÃO DO GRAFICO DE ACERTOS NOVOS
-        with open("norms70.json","r") as e_phi:
+        with open(PATH_METRI + "norms70.json","r") as e_phi:
             val = json.loads(e_phi.read())
             win = []
             win_val = []
@@ -446,16 +448,22 @@ class eigenfaces:
         plt.title("ERRO PHI = "+str(E_PHI))
         plt.plot(win,win,"ob")
         plt.plot(lose_val,lose_val,"dy")
+        plt.legend(['Acertos S/ Supervisão',"Erros C/ Supervisão"],loc='best')
+        plt.text(40,35,"Quantidade de Acertos S/ Supervisão: "+str(len(win)))
+        plt.text(40,30,"Quantidade de Erros C/ Supervisão: "+str(len(lose_val)))
         plt.subplot(2,1,2)
         plt.plot(win_val,win_val,"og")
         plt.plot(lose,lose,"dr")
+        plt.legend(['Acertos C/ Supervisão',"Erros S/ Supervisão"],loc='best')
+        plt.text(44,40,"Quantidade de Acertos C/ Supervisão: "+str(len(win_val)))
+        plt.text(44,38,"Quantidade de Erros S/ Supervisão: "+str(len(lose)))
         plt.show()
 
         #GERAÇÃO DO GRAFICO DE ACERTOS NOVOS
 
         #Cálculo de Media,Mediana,Desvio Padrão, Variância
         s = []
-        with open("omega70.json","r") as calc:
+        with open(PATH_METRI+"omega70.json","r") as calc:
             valores = json.loads(calc.read())
             for qnt in range(0,len(valores)):
                 print("NUMERO DO OMEGA: "+str(qnt))

@@ -18,11 +18,11 @@
 \contentsline {section}{\numberline {3.4}MONGODB}{17}%
 \contentsline {section}{\numberline {3.5}EIGENFACES}{17}%
 \contentsline {section}{\numberline {3.6}METODOLOGIA}{17}%
-\contentsline {chapter}{\numberline {4}Resultados e discuss\~oes}{19}%
-\contentsline {section}{\numberline {4.1}Obten\c c\~ao das Eigenfaces}{19}%
-\contentsline {subsection}{\numberline {4.1.1}Reconhecimento utilizando as Eigenfaces}{22}%
-\contentsline {section}{\numberline {4.2}Armazenamento}{25}%
+\contentsline {chapter}{\numberline {4}Resultados e discuss\~oes}{20}%
+\contentsline {section}{\numberline {4.1}Obten\c c\~ao das Eigenfaces}{20}%
+\contentsline {subsection}{\numberline {4.1.1}Reconhecimento utilizando as Eigenfaces}{23}%
+\contentsline {section}{\numberline {4.2}Armazenamento}{26}%
 \contentsline {section}{\numberline {4.3}Interface}{27}%
-\contentsline {chapter}{\numberline {5}Conclus\~ao}{28}%
-\contentsline {chapter}{\numberline {6}Trabalhos Futuros}{29}%
-\contentsline {chapter}{Refer{\^e}ncias}{30}%
+\contentsline {chapter}{\numberline {5}Conclus\~ao}{36}%
+\contentsline {chapter}{\numberline {6}Trabalhos Futuros}{37}%
+\contentsline {chapter}{Refer{\^e}ncias}{38}%

@@ -1,13 +1,19 @@
 # Lista TO DO do TCC
-
-    1. Pegar as imagens a partir do Drive para a função do Eigenface;
-    2. Criar a função que lê o JSON da imagem e transforma no vetor Gamma;
-    3. Escrever no texto o que já foi feito até o momento e estruturar os materiais e métodos utilizados referenciando os autores necessários;
-    5. Organizar funções na Tela_principal.py para realizar os testes dos resultados necesários no documento.
-    6. Fazer o cálculo dos pesos a partir da face média previamente obtida com a face cropada do HaarLike.py.
-    10. Fazer os cálculos euclidianos das faces perante as faces de fora do treinamento.
+ 
+    1. Organizar funções na Tela_principal.py para realizar os testes dos resultados necesários no documento.
+    2. Fazer o cálculo dos pesos a partir da face média previamente obtida com a face cropada do HaarLike.py. 
 
 # Changelog
+
+## 01/12/2020
+
+    1.  Modificações na Documentação
+    2.  Criados novos meios de reconhecimento automático na função Eigen.py
+    3.  Tarefas feitas do TO DO:
+        1.  Pegar as imagens a partir do Drive para a função do Eigenface;
+        2.  Criar a função que lê o JSON da imagem e transforma no vetor Gamma;
+        3.  Escrever no texto o que já foi feito até o momento e estruturar os materiais e métodos utilizados referenciando os autores necessários;
+        4.  Fazer os cálculos euclidianos das faces perante as faces de fora do treinamento.
 
 ## 07/11/2020
 
