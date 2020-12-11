@@ -28,6 +28,60 @@ class connect_drive:
                 info = cont_file.GetContentString()
                 print(info)
                 break
+    def get_psi(GA):
+        # GA = connect_drive.connect()
+        drive = GoogleDrive(GA)
+        fileList = drive.ListFile({'q': "'root' in parents and trashed=false"}).GetList()
+        # print(fileList)
+        for files in fileList:
+            if (files['title'] == "IMAGES_TCC"):
+                fileID = files['id']
+                break
+        fileList = drive.ListFile({'q': "'"+fileID+"' in parents and trashed=false"}).GetList()
+        for files in fileList:
+            # print(files['title'])
+            if (files['title'] == "face_media.json"):
+                # down_file = drive.CreateFile({'id':files['id']})
+                # down_file.GetContentFile('95-11.jpg')
+                cont_file = drive.CreateFile({'id':files['id']})
+                info = cont_file.GetContentString()
+                tst = json.loads(info)
+                return tst
+                # aux = np.array(info["PSI"])
+                # info = cont_file.GetContentString()
+                # print(info)
+                # break
+    def get_cov(GA,K):
+        # GA = connect_drive.connect()
+        drive = GoogleDrive(GA)
+        fileList = drive.ListFile({'q': "'root' in parents and trashed=false"}).GetList()
+        # print(fileList)
+        for files in fileList:
+            if (files['title'] == "IMAGES_TCC"):
+                fileID = files['id']
+                break
+        fileList = drive.ListFile({'q': "'"+fileID+"' in parents and trashed=false"}).GetList()
+        for files in fileList:
+            # print(files['title'])
+            if (files['title'] == "covariancia_"+str(K)+".json"):
+                # down_file = drive.CreateFile({'id':files['id']})
+                # down_file.GetContentFile('95-11.jpg')
+                cont_file = drive.CreateFile({'id':files['id']})
+                info = cont_file.GetContentString()
+                tst = json.loads(info)
+                return tst
+                # aux = np.array(info["PSI"])
+                # info = cont_file.GetContentString()
+                # print(info)
+                # break
+    def get_teste(GA,id):
+        drive = GoogleDrive(GA)
+        c_file = drive.CreateFile({'id':id})
+        data = c_file.GetContentString()
+        tst = json.loads(data)
+        return tst
+
+
     def get_json2img(GA,erro):
         # GA = connect_drive.connect()
         drive = GoogleDrive(GA)

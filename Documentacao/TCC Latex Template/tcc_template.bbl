@@ -1,26 +1,26 @@
 \begin{thebibliography}{\hspace{\parindent}}
 
-\bibitem[COIFMAN; WICKERHAUSER(1995)COIFMAN; WICKERHAUSER]{coif} COIFMAN,
-  R.~R.; WICKERHAUSER, M.~V\@. LOL Experiments with Adapted Wavelet De-Noising
-  for Medical Signals and Images. In: TIME FREQUENCY AND WAVELETS IN BIOMEDICAL
-  SIGNAL PROCESSING, SER. IEEE PRESS SERIES IN BIOMEDICAL ENGINEERING, 1995.
-  \textbf{Anais{\ldots}} [S.l.:~s.n.], 1995. p.323--346.
+\bibitem[FOUNDATION(2001)FOUNDATION]{Python:2001} FOUNDATION, P.~S\@.
+  \textbf{Python}. (Acesso em 11 de Dezembro, 2020),
+  \url{https://www.python.org}.
 
-\bibitem[OPPENHEIM(2009)OPPENHEIM]{Opp} OPPENHEIM, A.~V\@.
-  \textbf{Discrete-Time Signal Processing}. F. Watts, London, England: Prentice
-  Hall, 2009.
+\bibitem[GONZALEZ(2010)GONZALEZ]{Gonza} GONZALEZ, R.~C\@. \textbf{Processamento
+  Digital de Imagens}. Av. Ermano Marchetti, 1453, São Paulo, São Paulo:
+  Pearson Prentice Hall, 2010.
 
-\bibitem[PARRAGA(2002)PARRAGA]{parraga} PARRAGA, A\@. \textbf{Aplicação da
-  transformada Wavelet Packet na análise e classificação de sinais de vozes
-  patológicas}. [S.l.]: Dissertação UFRGS, 2002.
+\bibitem[MISHRA et~al.(2017)MISHRA; SARKAR; TARAPHDER; DATTA; SWAIN; SAIKHOM;
+  PANDA; LAISHRAM]{pca} MISHRA, S.~P.; SARKAR, U.; TARAPHDER, S.; DATTA, S.;
+  SWAIN, D.~P.; SAIKHOM, R.; PANDA, S.; LAISHRAM, M\@. \textbf{Multivariate
+  Statistical Data Analysis- Principal Component Analysis (PCA)}. 2017.
+
+\bibitem[SIROVICH; KIRBY(1987)SIROVICH; KIRBY]{kirby} SIROVICH, L.; KIRBY, M\@.
+  \textbf{Low-dimensional procedure for the characterization of human faces}.
+  1987.
 
 \bibitem[SLAVKOVIC; JEVTIC(2012)SLAVKOVIC; JEVTIC]{marijeta} SLAVKOVIC, M.;
   JEVTIC, D\@. \textbf{Face Recognition Using Eigenfaces Approach}. 2012.
 
-\bibitem[TURK; PENTLAND(1991a)TURK; PENTLAND]{turk} TURK, M.; PENTLAND, A.~P\@.
-  \textbf{Face Recognition Using Eigenfaces}. 1991.
-
-\bibitem[TURK; PENTLAND(1991b)TURK; PENTLAND]{turk2} TURK, M.; PENTLAND,
-  A.~P\@. \textbf{Eigenfaces for Recognition}. 1991.
+\bibitem[TURK; PENTLAND(1991)TURK; PENTLAND]{turk2} TURK, M.; PENTLAND, A.~P\@.
+  \textbf{Eigenfaces for Recognition}. 1991.
 
 \end{thebibliography}

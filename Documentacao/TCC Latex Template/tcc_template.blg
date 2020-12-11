@@ -5,53 +5,53 @@ Reallocating 'name_of_file' (item size: 1) to 5 items.
 The style file: abnt.bst
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 Database file #1: tcc_template.bib
-Warning--entry type for "parraga" isn't style-file defined
---line 20 of file tcc_template.bib
-Warning--entry type for "turk" isn't style-file defined
---line 29 of file tcc_template.bib
 Warning--entry type for "turk2" isn't style-file defined
 --line 36 of file tcc_template.bib
 Warning--entry type for "marijeta" isn't style-file defined
 --line 44 of file tcc_template.bib
+Warning--entry type for "pca" isn't style-file defined
+--line 78 of file tcc_template.bib
+Warning--entry type for "kirby" isn't style-file defined
+--line 87 of file tcc_template.bib
 You've used 6 entries,
             2364 wiz_defined-function locations,
-            607 strings with 5042 characters,
-and the built_in function-call counts, 7009 in all, are:
-= -- 828
-> -- 17
-< -- 87
-+ -- 461
-- -- 15
-* -- 263
-:= -- 594
-add.period$ -- 22
+            612 strings with 5371 characters,
+and the built_in function-call counts, 6134 in all, are:
+= -- 648
+> -- 10
+< -- 104
++ -- 423
+- -- 6
+* -- 298
+:= -- 540
+add.period$ -- 19
 call.type$ -- 6
-change.case$ -- 63
-chr.to.int$ -- 15
+change.case$ -- 85
+chr.to.int$ -- 0
 cite$ -- 6
-duplicate$ -- 993
+duplicate$ -- 886
 empty$ -- 287
-format.name$ -- 70
-if$ -- 1542
-int.to.chr$ -- 1
+format.name$ -- 106
+if$ -- 1250
+int.to.chr$ -- 0
 int.to.str$ -- 0
 missing$ -- 0
 newline$ -- 15
 num.names$ -- 30
-pop$ -- 118
+pop$ -- 95
 preamble$ -- 1
 purify$ -- 6
 quote$ -- 0
-skip$ -- 444
+skip$ -- 338
 stack$ -- 0
-substring$ -- 429
-swap$ -- 602
+substring$ -- 311
+swap$ -- 582
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 46
+type$ -- 38
 warning$ -- 0
-while$ -- 40
+while$ -- 36
 width$ -- 0
 write$ -- 8
 (There were 4 warnings)

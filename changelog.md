@@ -1,9 +1,29 @@
 # Lista TO DO do TCC
  
     1. Organizar funções na Tela_principal.py para realizar os testes dos resultados necesários no documento.
-    2. Fazer o cálculo dos pesos a partir da face média previamente obtida com a face cropada do HaarLike.py. 
+    2. Fazer o cálculo dos pesos a partir da face média previamente obtida com a face cropada do HaarLike.py.
+    3. Receber da Tela_principal.py um vetor(tamanho 10) com a face já selecionada.
+    4. Escrever sobre as modificações feitas na Tela_principal.py no TCC.
+    5. Colocar a matriz de covariância no drive, para a função get_omegaface() do arquivo Eigen.py possa utilizar a partir da Tela_principal.py.
 
 # Changelog
+
+## 11/12/2020
+
+    1.  Modificação na Documentação em relação as mudanças sugeridas pela orientadora.
+
+## 10/12/2020
+
+    1.  Modificação no arquivo Eigen.py para calcular o tempo que leva para buscar os arquivos do drive;
+    2.  Criação de funções para obter os arquivos do drive a partir de seus ids;
+    3.  Modificação dos arquivos Database.py e Google_drive.py para que a função de busca com id pudesse funcionar;
+    4.  Refatoração do Banco do Mongo, onde os arquivos foram separados no seguinte esquema: {Images,Cov e Mean};
+    5.  Reinserção dos arquivos no Drive;
+
+## 07/12/2020
+
+    1.  Modificação no arquivo Google_Drive.py para que possa pegar a face Psi diretamente do Drive;
+    2.  Modificação no arquivo Eigen.py para receber a face Psi do arquivo Google_Drive.py;
 
 ## 01/12/2020
 

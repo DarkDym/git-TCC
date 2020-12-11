@@ -5,6 +5,7 @@ import time
 import cv2 as cv
 from matplotlib import pyplot as plt
 import json
+import time
 
 import gc
 
@@ -27,7 +28,7 @@ MAX_SLIDER_VALUE = 255
 avgFace = 0
 # eface = []
 K = 70
-E_PHI = 30
+E_PHI = 35
 # THETA = 
 TAM_IMG = (300,300)
 
@@ -72,31 +73,230 @@ class eigenfaces:
         cv.waitKey(0)
         cv.destroyAllWindows()
 
+    def testa_psi(self):
+        client = db.conecta(self)
+        time_start = time.time()
+        psi_mod = db.get_psiM(self,client)
+        time_end = time.time()
+        for data in psi_mod:
+            psi_id = data["Id_drive"]
+            print(psi_id)
+        GA = gd.connect()
+        total_time = time_end - time_start
+        print("TEMPO TOTAL DECORRIDO DO ACESSO AO MONGO(1 ARQUIVOS): EM Segundos:"+str(total_time)+" Em Minutos: "+str(total_time/60))
+        time_start = time.time()
+        data_drive = gd.get_teste(GA,psi_id)
+        time_end = time.time()
+        total_time = time_end - time_start
+        print("TEMPO TOTAL DECORRIDO DO ACESSO AO DRIVE(1 ARQUIVOS): EM Segundos:"+str(total_time)+" Em Minutos: "+str(total_time/60))
+        # print(data_drive["PSI"])
+
+    def teste_cov(self):
+        client = db.conecta(self)
+        time_start = time.time()
+        cov_mod = db.get_covM(self,client)
+        time_end = time.time()
+        cov_id = []
+        for data in cov_mod:
+            cov_id.append(data["Id_drive"])
+        GA = gd.connect()
+        data_drive = []
+        total_time = time_end - time_start
+        print("TEMPO TOTAL DECORRIDO DO ACESSO AO MONGO(70 ARQUIVOS): EM Segundos:"+str(total_time)+" Em Minutos: "+str(total_time/60))
+        print("ACABEI DE PEGAR DO MONGO.")
+        time_start = time.time()
+        for x in range(0,len(cov_id)):
+            data_drive_aux = gd.get_teste(GA,cov_id[x])
+            data_drive.append(data_drive_aux["COV"])
+            # print(data_drive["COV"])
+            print("ACABEI DE PEGAR O PRIMEIRO ARQUIVO - "+str(x))
+        time_end = time.time()
+        total_time = time_end - time_start
+        print("TEMPO TOTAL DECORRIDO DO ACESSO AO DRIVE(70 ARQUIVOS): EM Segundos:"+str(total_time)+" Em Minutos: "+str(total_time/60))
+
+    def teste_phi(self):
+        client = db.conecta(self)
+        time_start = time.time()
+        phi_mod = db.get_phiM(self,client)
+        time_end = time.time()
+        phi_id = []
+        for data in phi_mod:
+            phi_id.append(data["Id_drive"])
+        GA = gd.connect()
+        data_drive = []
+        total_time = time_end - time_start
+        print("TEMPO TOTAL DECORRIDO DO ACESSO AO MONGO(196 ARQUIVOS): EM Segundos:"+str(total_time)+" Em Minutos: "+str(total_time/60))
+        print("ACABEI DE PEGAR DO MONGO.")
+        time_start = time.time()
+        for x in range(0,len(phi_id)):
+            data_drive_aux = gd.get_teste(GA,phi_id[x])
+            data_drive.append(data_drive_aux["PHI"])
+            # print(data_drive["COV"])
+            print("ACABEI DE PEGAR O PRIMEIRO ARQUIVO - "+str(x))
+        time_end = time.time()
+        total_time = time_end - time_start
+        print("TEMPO TOTAL DECORRIDO DO ACESSO AO DRIVE(196 ARQUIVOS): EM Segundos:"+str(total_time)+" Em Minutos: "+str(total_time/60))
+
     def get_omegaface(self,gamma_frm):
         # Função que recebe a face cropada da Tela_principal a partir do HaarLike, a imagem já vem cortada no valor de TAM_IMG (Obs: pode ser BGR ou GRAY)
         # necessário calcular os omegas e phi da imagem recebida, para cálculo euclidiano.
-        # images = ai.openImg(self,DIRA_MOD)
-        # for i in range(0,len(images)):
-        #     images[i] = cv.cvtColor(images[i],cv.COLOR_BGR2GRAY)
-        # [gamma_mod, qnt_gamma_mod] = ai.createDataMatrix(self,images)
-        phi_mod = gamma_frm - psi
-        w_aux = 0
-        omega_project = []
-        for x in range(0,K):
-            w = np.dot(u_cov[x],phi_mod)
-            w_aux = (w*u_cov[x]) + w_aux
-            omega_project.append(w)
-        omega_project = np.array(omega_project)
-        phi_project = w_aux
-        erk = []
-        for x in range(0,K):
-            aux_erk2 = np.linalg.norm(omega_project - omega[x])
-            erk.append(aux_erk2)
-        erk = np.array(erk)
-        err_phi = np.linalg.norm(phi_mod - phi_project)
-        min_erk = np.amin(erk,axis=0)
+        frm_mod = np.resize(gamma_frm,TAM_IMG)
+        sz = frm_mod.shape
+        data = np.zeros(sz[0] * sz[1],dtype=np.float32)
+        gamma_flat = frm_mod.flatten()
+        
+        client = db.conecta()
+        GA = gd.connect()
+        psi = gd.get_psi(GA)
+        phi_mod = gamma_flat - psi["PSI"]
 
-    def img2json(self,name_arq,img_json,GDA,client,obj_name):
+        #   Preciso pegar as covariancia do drive
+        cov = []
+        for z in range(0,K):
+            cov_aux = gd.get_cov(GA,z)
+            cov.append(cov_aux["COV"])
+        cov = np.array(cov)
+        print("SÓ PRA SABER O SHAPE DE COV PEGO DO DRIVE: "+str(cov.shape))
+        #   Preciso pegar as covariancia do drive
+
+        # omega_json = []
+        # flag_rec = []
+        # s_project = []
+        # s_erk = []
+        # w_aux = 0
+        # omega_project = []
+        # for x in range(0,K):
+        #     w = np.dot(u_cov[x],phi_mod[y])
+        #     w_aux = (w*u_cov[x]) + w_aux
+        #     omega_project.append(w)
+        # omega_project = np.array(omega_project)
+        # s_project.append(np.std(omega_project))
+        # phi_project = w_aux
+        # erk = []
+        # err_phi = []
+        # for x in range(0,phi_aux.shape[0]):
+        #     aux_erk2 = np.linalg.norm(omega_project - omega[x])
+        #     aux_err_phi = np.linalg.norm(phi_mod[y] - phi_aux[x])
+        #     # aux_erk2 = np.sqrt(aux_erk2)
+        #     erk.append(aux_erk2)
+        #     err_phi.append(aux_err_phi)
+        # erk = np.array(erk)
+        # err_phi = np.array(err_phi)
+        # s_erk.append(np.std(erk))
+        # # err_phi = np.linalg.norm(phi_mod[y] - phi_project)
+        # min_erk = np.amin(erk,axis=0)
+
+        #        #TESTE
+        #         teste_gamma = 0
+        #         for x in range(0,K):
+        #             teste_gamma = np.dot(u_cov[x],omega_project[x]) + teste_gamma
+        #         teste_gamma = np.array(teste_gamma)
+        #         # print("SHAPE DO TESTE GAMA "+str(teste_gamma.shape))
+        #         teste_gamma = teste_gamma + psi
+        #         # teste(teste_gamma.reshape(TAM_IMG))
+        #         epsilon = np.sqrt(np.linalg.norm(phi_mod[y] - teste_gamma))
+        #         print("VALOR DO EPSILON: "+str(epsilon))
+
+        #         #Cálculo do Threshold
+        #         theta_aux_i = []
+        #         # theta_aux_j = []
+        #         for i in range(0,phi_aux.shape[0]):
+        #             for j in range(0,phi_aux.shape[0]):
+        #                 theta_aux_i.append(np.linalg.norm(omega[i] - omega[j]))
+        #         theta_aux_i = np.array(theta_aux_i)
+        #         max_theta = np.amax(theta_aux_i,axis=0)
+        #         max_theta = max_theta / 2
+        #         # max_theta = max_theta * 0.3
+        #         print("VALOR MÁXIMO DE THETA: "+str(max_theta))                
+        #         #Cálculo do Threshold
+
+        #         #TESTE PARA VER SE O ERRO MINIMO DE PHI AJUDA
+        #         sigma1 = 0
+        #         sigma2 = 0
+        #         op_thresh = 0
+        #         for z in range(0,phi_aux.shape[0]):
+        #             if erk[z] == min_erk:
+        #                 sigma1 = z
+        #             if err_phi[z] == np.amin(err_phi,axis=0):
+        #                 sigma2 = z
+                
+        #         if sigma1 == sigma2:
+        #             op_thresh = sigma1
+        #             print("NESSA SITUAÇÃO AMBOS SÃO IGUAIS E REINAM JUNTOS")
+        #         else:
+        #             op_thresh = sigma2
+        #             print("NESSA SITUAÇÃO SIGMA 2 REINA SOZINHO, POIS SEMPRE ESTA CERTO")
+
+        #         for z in range(0,phi_aux.shape[0]):
+        #             if op_thresh == z:
+        #                 # teste2((phi_mod[y] + psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG))
+        #                 # teste3((phi_mod[y] + psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG),(phi_aux[sigma1] + psi).reshape(TAM_IMG))
+        #                 print("O OMEGA É: "+str(z))
+        #                 print("O VALOR É: "+str(erk[z]))
+        #                 print("O ERRO MINIMO É: "+str(min_erk))
+        #                 # print("VALOR DE OMEGA[z]: "+str(omega[z]))
+        #                 print("VALOR NORMALIZADO: "+str(np.linalg.norm(omega[z])))
+        #                 # print("VALOR DO OMEGA_PROJECT: "+str(omega_project))
+        #                 print("VALOR NORMALIZADO: "+str(np.linalg.norm(omega_project)))
+        #                 print("VALOR DO ERRO PHI: "+str(err_phi[z]))
+        #                 print("VALOR MINIMO DO ERRO PHI: "+str(np.amin(err_phi,axis=0)))
+        #                 if np.amin(err_phi,axis=0) >= E_PHI:
+        #                     op = 0
+        #                 else:
+        #                     op = 1
+        #                 # op2 = input("Certo - 1  Errado - 0 : ")
+        #                 # op2 = 0
+        #                 # flag_rec.append({"MIN_ERROR":str(min_erk),"NORM_OMEGA":str(np.linalg.norm(omega[z])),"NORM_PROJECT":str(np.linalg.norm(omega_project)),"PROJECT_OMEGA":str((np.linalg.norm(omega_project))-(np.linalg.norm(omega[z]))),"NORM_ERRO_PHI":str(np.linalg.norm(err_phi)),"MEDIA_ERRO_PHI":str(np.mean(err_phi)),"MIN_ERRO_PHI":str(np.amin(err_phi,axis=0)),"REC_SOLO":str(op),"REC":str(op2)})
+                        
+        #         #TESTE PARA VER SE O ERRO MINIMO DE PHI AJUDA
+
+
+
+        #         # for z in range(0,phi_aux.shape[0]):
+                    
+        #         #     # if flag_rec != 0:    
+        #         #     # print()
+        #         #     if erk[z] == min_erk:
+        #         #         # if (min_erk < max_theta) and (epsilon < max_theta) :
+        #         #         #     print("A IMAGEM ESTA NOS PADROES")
+        #         #         #     teste2((phi_mod[y] + psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG))
+        #         #         print("O OMEGA É: "+str(z))
+        #         #         print("O VALOR É: "+str(erk[z]))
+        #         #         print("O ERRO MINIMO É: "+str(min_erk))
+        #         #         print("VALOR DE OMEGA[z]: "+str(omega[z]))
+        #         #         print("VALOR NORMALIZADO: "+str(np.linalg.norm(omega[z])))
+        #         #         print("VALOR DO OMEGA_PROJECT: "+str(omega_project))
+        #         #         print("VALOR NORMALIZADO: "+str(np.linalg.norm(omega_project)))
+        #         #         print("SÓ PRA DESCARGO: "+str(np.linalg.norm(omega_project - omega[z])))
+        #         #         # teste((phi_mod[y] + psi).reshape(TAM_IMG))
+        #         #         # conte = gd.get_json2img(GDA,omega[z])
+        #         #         # print(conte)
+        #         #         print("Valor do Y: "+str(y)+" Valor do Z: "+str(z))
+        #         #         teste2((phi_mod[y] + psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG))
+        #         #         op = input("Certo - 1  Errado - 0 : ")
+        #         #         flag_rec.append({"MIN_ERROR":str(min_erk),"NORM_OMEGA":str(np.linalg.norm(omega[z])),"NORM_PROJECT":str(np.linalg.norm(omega_project)),"PROJECT_OMEGA":str((np.linalg.norm(omega_project))-(np.linalg.norm(omega[z]))),"NORM_ERRO_PHI":str(np.linalg.norm(err_phi)),"MEDIA_ERRO_PHI":str(np.mean(err_phi)),"MIN_ERRO_PHI":str(np.amin(err_phi,axis=0)),"REC":str(op)})
+        #         #         # flag_rec.append(input("0(errado) OU 1(certo)"))
+        #         #         # teste3((phi_mod[y] + psi).reshape(TAM_IMG),(conte["PHI"]+psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG))
+        #         #         # break
+        #         # #TESTE
+
+        # # w_aux = 0
+        # # omega_project = []
+        # # for x in range(0,K):
+        # #     w = np.dot(u_cov[x],phi_mod)
+        # #     w_aux = (w*u_cov[x]) + w_aux
+        # #     omega_project.append(w)
+        # # omega_project = np.array(omega_project)
+        # # phi_project = w_aux
+        # # erk = []
+        # # for x in range(0,K):
+        # #     aux_erk2 = np.linalg.norm(omega_project - omega[x])
+        # #     erk.append(aux_erk2)
+        # # erk = np.array(erk)
+        # # err_phi = np.linalg.norm(phi_mod - phi_project)
+        # # min_erk = np.amin(erk,axis=0)
+
+    def img2json(self,name_arq,img_json,GDA,client,obj_name,tipo):
         # Seria certo salvar para cada pessoa o seu phi e omega, pois assim teria as métricas gerada de cada pessoa quando forem cadastradas no sistema,
         # pensando nisso, esse método salva o arquivo em um json e envia pro drive.
         # A função deve receber Phi_i , Omega_i e i.
@@ -112,7 +312,7 @@ class eigenfaces:
 
         id_img = gd.create_img2json(name_arq,img_json,GDA)
         obj_json = {"Nome":obj_name,"Id_drive":id_img}
-        db.gamma2db(self,client,obj_json)
+        db.gamma2db(self,client,obj_json,tipo)
 
 
 
@@ -221,6 +421,7 @@ class eigenfaces:
         for x in range(0,eg_vec.shape[0]):
             u_cov.append(np.dot(A_T,eg_vec[x]))
         u_cov = np.array(u_cov)
+        # eigenfaces.save_cov(self,u_cov)
         #Geração dos Eigenvectors de A A_T
 
         #Geração dos pesos de treino Omega
@@ -248,7 +449,7 @@ class eigenfaces:
         #         nome_arq = "pessoa"+str(y)
         #         y += 1
         #     img_json = '{"PHI":'+str(phi_list)+',"OMEGA":'+str(omega_list)+'}'
-        #     eigenfaces.img2json(self,nome_arq,img_json,GDA,client,nome_arq)
+        #     eigenfaces.img2json(self,nome_arq,img_json,GDA,client,nome_arq,"PHI")
 
         #Não faz parte da obtenção das Eigenfaces, somente utilizada para a documentação.
 
@@ -289,6 +490,7 @@ class eigenfaces:
         flag_rec = []
         s_project = []
         s_erk = []
+        diff = []
         # GDA = gd.connect()
         with open(PATH_METRI+"erros"+str(K)+".json","w") as json_file:
             for y in range(0,qnt_gamma_mod):
@@ -356,9 +558,11 @@ class eigenfaces:
                     op_thresh = sigma2
                     print("NESSA SITUAÇÃO SIGMA 2 REINA SOZINHO, POIS SEMPRE ESTA CERTO")
 
+                #PARTE MODIFICADA PARA PODER ANALISAR OS PESOS DOS ERROS DE CADA FACE INDIVIDUALMENTE
+                
                 for z in range(0,phi_aux.shape[0]):
                     if op_thresh == z:
-                        teste2((phi_mod[y] + psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG))
+                        # teste2((phi_mod[y] + psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG))
                         # teste3((phi_mod[y] + psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG),(phi_aux[sigma1] + psi).reshape(TAM_IMG))
                         print("O OMEGA É: "+str(z))
                         print("O VALOR É: "+str(erk[z]))
@@ -373,9 +577,37 @@ class eigenfaces:
                             op = 0
                         else:
                             op = 1
-                        op2 = input("Certo - 1  Errado - 0 : ")
-                        # op2 = 0
-                        flag_rec.append({"MIN_ERROR":str(min_erk),"NORM_OMEGA":str(np.linalg.norm(omega[z])),"NORM_PROJECT":str(np.linalg.norm(omega_project)),"PROJECT_OMEGA":str((np.linalg.norm(omega_project))-(np.linalg.norm(omega[z]))),"NORM_ERRO_PHI":str(np.linalg.norm(err_phi)),"MEDIA_ERRO_PHI":str(np.mean(err_phi)),"MIN_ERRO_PHI":str(np.amin(err_phi,axis=0)),"REC_SOLO":str(op),"REC":str(op2)})
+                        # op2 = input("Certo - 1  Errado - 0 : ")
+                            # op2 = 0
+                        if op == 0:
+                            with open(PATH_METRI + "diff_erro"+str(z)+".json","w") as save_diff:            
+                                diff.append({"INDICE":str(z),"OMEGA_PROJECT":omega_project.tolist(),"OMEGA":omega[z].tolist(),"DIFFA_OMEGA":(omega_project-omega[z]).tolist(),"DIFFB_OMEGA":(omega_project-omega[sigma1]).tolist(),"PHI_AUX":phi_aux[z].tolist(),"PHI_MOD":phi_mod.tolist(),"DIFFA_PHI":(phi_mod-phi_aux[z]).tolist(),"DIFFB_PHI":(phi_mod-phi_aux[z]).tolist()})
+                                json.dump(diff,save_diff,indent=4)
+                                diff.clear()
+                    
+                #PARTE MODIFICADA PARA PODER ANALISAR OS PESOS DOS ERROS DE CADA FACE INDIVIDUALMENTE
+
+
+                # for z in range(0,phi_aux.shape[0]):
+                #     if op_thresh == z:
+                #         # teste2((phi_mod[y] + psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG))
+                #         teste3((phi_mod[y] + psi).reshape(TAM_IMG),(phi_aux[z] + psi).reshape(TAM_IMG),(phi_aux[sigma1] + psi).reshape(TAM_IMG))
+                #         print("O OMEGA É: "+str(z))
+                #         print("O VALOR É: "+str(erk[z]))
+                #         print("O ERRO MINIMO É: "+str(min_erk))
+                #         # print("VALOR DE OMEGA[z]: "+str(omega[z]))
+                #         print("VALOR NORMALIZADO: "+str(np.linalg.norm(omega[z])))
+                #         # print("VALOR DO OMEGA_PROJECT: "+str(omega_project))
+                #         print("VALOR NORMALIZADO: "+str(np.linalg.norm(omega_project)))
+                #         print("VALOR DO ERRO PHI: "+str(err_phi[z]))
+                #         print("VALOR MINIMO DO ERRO PHI: "+str(np.amin(err_phi,axis=0)))
+                #         if np.amin(err_phi,axis=0) >= E_PHI:
+                #             op = 0
+                #         else:
+                #             op = 1
+                #         op2 = input("Certo - 1  Errado - 0 : ")
+                #         # op2 = 0
+                #         flag_rec.append({"MIN_ERROR":str(min_erk),"NORM_OMEGA":str(np.linalg.norm(omega[z])),"NORM_PROJECT":str(np.linalg.norm(omega_project)),"PROJECT_OMEGA":str((np.linalg.norm(omega_project))-(np.linalg.norm(omega[z]))),"NORM_ERRO_PHI":str(np.linalg.norm(err_phi)),"MEDIA_ERRO_PHI":str(np.mean(err_phi)),"MIN_ERRO_PHI":str(np.amin(err_phi,axis=0)),"REC_SOLO":str(op),"REC":str(op2)})
                         
                 #TESTE PARA VER SE O ERRO MINIMO DE PHI AJUDA
 
@@ -411,8 +643,9 @@ class eigenfaces:
 
                 omega_json.append({"ERRO_OMEGA":erk.tolist(),"MIN_ERRO_OMEGA":str(min_erk),"ERRO_PHI":err_phi.tolist(),"NORM_ERRO_PHI":str(np.linalg.norm(err_phi)),"MEDIA_ERRO_PHI":str(np.mean(err_phi)),"MIN_ERRO_PHI":str(np.amin(err_phi,axis=0)),"Media":str(np.mean(erk)),"Desvio":str(np.std(erk))}) 
             json.dump(omega_json,json_file,indent=4)
-        with open(PATH_METRI + "norms"+str(K)+".json","w") as norm_json:
-            json.dump(flag_rec,norm_json,indent=4)
+        
+        # with open(PATH_METRI + "norms"+str(K)+".json","w") as norm_json:
+            # json.dump(flag_rec,norm_json,indent=4)
 
         #Geração da tabela de erros euclidianos
 
@@ -424,8 +657,18 @@ class eigenfaces:
             lose = []
             lose_val = []
             valores = []
+            FN = 0
+            FP = 0
+            EQ = 0
             for ind in range(0,len(val)):
                 # win_val.append(float(val[ind]["MIN_ERRO_PHI"]))
+                if val[ind]["REC"] > val[ind]["REC_SOLO"]:
+                    FN += 1
+                elif val[ind]["REC"] < val[ind]["REC_SOLO"]:
+                    FP += 1
+                else:
+                    EQ += 1
+
                 if val[ind]["REC_SOLO"] == "1":
                     # win.append("1")
                     # valores.append(ind)
@@ -534,6 +777,8 @@ class eigenfaces:
             plt.plot(x_line,y_line)
             plt.show()
         #Geração de gráficos
+
+        print("VALOR DOS FALSOS POSITIVOS: "+str(FP)+" E NEGATIVOS: "+str(FN)+" QNT DE IGUAIS: "+str(EQ))
 
         # Geração de tabelas de diferença de erros
         # with open("med.txt","w") as write_txt:
@@ -1228,7 +1473,19 @@ class eigenfaces:
         psi = psi.tolist()
         nome_arq = "face_media"
         save_json = '{"PSI":'+str(psi)+'}'
-        eigenfaces.img2json(self,nome_arq,save_json,GDA,client,nome_arq)
+        eigenfaces.img2json(self,nome_arq,save_json,GDA,client,nome_arq,"PSI")
+    
+    def save_cov(self,cov):
+        # print("COV SHAPE: "+str(cov.shape))
+        client = db.conecta(self)
+        GDA = gd.connect()
+        # np.savetxt("TESTE.csv", cov, delimiter=",")
+        for x in range(0,K):
+            cov_list = cov[x].tolist()
+        # jteste = json.dumps(cov)
+            nome_arq = "covariancia_"+str(x)
+            save_json = '{"COV":'+str(cov_list)+'}'
+            eigenfaces.img2json(self,nome_arq,save_json,GDA,client,nome_arq,"COV")
 
 
 tst = eigenfaces()
@@ -1236,4 +1493,7 @@ tst = eigenfaces()
 # tst.eigNovo()
 # tst.eig_mod()
 tst.get_eigenfaces()
+# tst.testa_psi()
+# tst.teste_cov()
+# tst.teste_phi()
 # tst.img2db()

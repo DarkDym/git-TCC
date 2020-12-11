@@ -14,6 +14,8 @@
 \usepackage{threeparttable}
 \usepackage{float}
 \usepackage{color}
+\usepackage{url}
+\usepackage{enumitem}
 \restylefloat{table}
 
 \bibliographystyle{abnt}
@@ -160,11 +162,47 @@ O processo de funcionamento do presente trabalho segue a ordem indicada na figur
 \end{itemize}
 %Na seção \ref{r1} é feita uma breve abordagem sobre...
 
-\section{EIGENFACES}\label{r1}
-No contexto de análise de imagens, existe um problema em qualquer tipo de classificação, sendo ele o tamanho das dimensões da imagem, onde um problema simples pode se tornar complexo, já que uma imagem em escala de cinza de 300 pixels por 300 pixels irá possuir um total de 90000 valores diferentes $(m = i \times j)$.
-Sendo assim é necessário retirar das imagens somente o que interessa, para isso é utilizado o método de análise de componentes principais (PCA), onde serão extraídas das imagens as partes que possuem as maiores relevâncias dentro do espaço de distribuição de dados.
+\section{PROCESSAMENTO DIGITAL DE IMAGENS}
+Para poder abordar como são feitos os processamentos a cerca de imagens, primeiramente é necessário se fundamentar o que são imagens.
 
-O PCA é feito pela decomposição em autovetores de uma matriz de covariância, sendo o autovetor o maior autovalor associado correspondente do da componente principal de cada conjunto.
+\subsection{Imagens}
+Uma imagem pode ser descrita como uma função bidimensional, que pode possuir dimensões de tamanhos diferentes. As coordenadas da imagem formam um plano e sua amplitude pode ser descrita como a intensidade do conjunto de coordenadas. As intensidades de uma imagem são processos físicos relacionados a energia irradiada pela fonte. Uma imagem pode ser captada a partir de sensores que conseguem traduzir a energia irradiada pela fonte em uma saída de tensão. Segundo \cite{Gonza}, um dos sensores mais conhecidos para tal utilização, são os fotodiodos, sendo estes sensores construídos com materiais semicondutores que possuem uma saída de tensão proporcional a intensidade luminosa. Pode-se caracterizar uma imagem como digital, quando os valores dos elementos de coordenadas e amplitude são finitas. Os elemntos que compoem uma imagem digitsal são comumente chamados de \textit{Pixels}.
+
+
+\section{Análise de Componentes Principais}
+A Análise de Componentes Principais (Principal Component Analysis - PCA) é uma técnica matemática utilizada para a análise de dados de multivariáveis. Primeiramente concebido por Karl Pearson em 1901 e posteriormente desenvolvida por Harold Hotelling em 1930. O PCA não era utilizado tão comumente até os avanços na área da computação, se baseia na utilização de princípios matemáticos para transformar um número de variáveis correlacionais em quantidades menores de variáveis, sendo estas as principais componentes das variáveis.
+A principal transformação é a redução da dimensionalidade do conjunto de dados, fazendo com que seja resaltado as similaridades e diferenças dentro do conjunto de dados. Segundo \cite{pca} os autovetores e autovalores são os principios fundamentais para a determinação dos PCAs, decorrido da decomposição da matriz de covariância.
+O processo de obtenção dos PCAs pode ser feito através dos seguintes passos:
+
+\begin{enumerate}
+\item \textbf{Subtração da Média} 
+\end{enumerate}
+
+Para que o cálculo do PCA funcione devidamente, é necessário realizar a subtração do conjunto dos dados de sua média em ambos os eixos, para que possa ser produzido uma média dos dados de valor zero;
+
+\begin{enumerate}[resume]
+\item \textbf{Calcular a Matriz de Covariância} 
+\end{enumerate}
+
+É necessário obter a matriz de covariância do conjunto de dados que já foram subtraídos da média;
+
+\begin{enumerate}[resume]
+\item \textbf{Cálculo dos eigenvectors e eigenvalues} 
+\end{enumerate}
+
+Calcular os eigenvectors e eigenvalues da matriz de covariância, sendo os eigenvectors uma parte muito importante para o PCA;
+
+\begin{enumerate}[resume]
+\item \textbf{Escolher as componentes} 
+\end{enumerate}
+
+Deve-se escolher os maiores eigenvalues dos quais serão obtidos os maiores eigenvectors como consequência, sendo estes os valores que mais representam as componentes principais do conjunto de dados.
+
+Ainda segundo \cite{pca}, o PCA pode ser considerado como a projeção do conjunto de dados em uma direção do espaço onde os dados tem uma grande variação, onde a direção é dada pelos eigenvectors da matriz de covariância correspondendo aos maiores eigenvalues.
+
+\section{EIGENFACES}\label{r1}
+Dentro dos algoritmos e cálculos de reconhecimento facial, um desses modelos de reconhecimento é o Eigenfaces, que consiste na obtenção de eigenvectors que melhor representam a face de cada indivíduo. A utilização do termo \textit{Eigenface} foi apresentado por \cite{turk2}, onde consiste "faces fantasmas" que possuem os maiores eigenvectors e eigenvalues do PCA do conjunto de dados. Segundo \cite{turk2} a ideia de se utilizar eigenfaces foi motivado na pesquisa de \cite{kirby}, que utilizavam as melhores coordenadas para representar uma face, sendo denominado de \textit{Eigenpictures}. Com isso podia-se reconhecer uma face com uma pequena componente, no caso de \cite{kirby} utilizava-se a parte dos olhos para se fazer o reconhecimento, contudo se pensou que poderiam utilizar uma pequena quantidade de características diferentes para reconhecer cada indivíduo, formando assim uma Eigenface.
+Sendo assim a utilização das eigenfaces é feito por meio da obtenção das PCAs da face de cada indivíduo de um conjunto de imagens previamente separado, onde os melhores eigenvectors serão a projeção dessas faces no conjunto de componentes denominado "espaço de faces". 
  
 \subsection{Reconhecimento Utilizando Eigenfaces}
 
@@ -176,13 +214,11 @@ Pode-se utilizar eigenfaces para reconhecimento facial, alguns passos devem ser 
 \item Deixar as imagens no tamanho desejado, cortando somente a face como objeto de insteresse;
 \item Transformar o vetor de imagens I ($I = N \times N$) em um vetor gamma $\Gamma$ ($\Gamma = N^{2} \times 1$);
 \item Calcular a face média $\Psi$ do vetor $\Gamma$;
-\item Calcular o PCA ($\Phi$) de cada face do conjunto $\Gamma$;
 \item Obter a matriz de covariância $C$;
-
-%Arrumar depois
-\item Obter os Autovalores(Eigenvalues) e Autovetores(Eigenvectors) da matriz de Covariância $C$;
-\item Selecionar os melhores M autovetores; 
-\item Manter somente os K melhores autovetores(K com maiores autovalores)%Treshold
+\item Obter os Eigenvalues e Eigenvectors da matriz de Covariância $C$;
+\item Selecionar os melhores M eigenvectors; 
+\item Manter somente os K melhores eigenvectors (K com maiores eigenvalues);%Treshold
+\item Calcular os pesos $\Omega$ de cada face $\Phi$ pelas eigenfaces.
 
 \end{itemize}
 
@@ -190,18 +226,9 @@ A segunda etapa sendo a de reconhecimento, se utiliza uma face que esta fora do 
 
 \begin{itemize}
 
-\item Normalizar a imagem $\Gamma$ : $\Phi = \Gamma - \Psi$
-
-
-\end{itemize}
-
-
-
-\begin{itemize}
-
-\item Calcular um conjunto de pesos baseados na imagem de entrada e as M Eigenfaces projetando a imagem de entrada em cada uma das Eigenfaces;
-\item Determinar se a imagem de entrada é uma face, calculando se a imagem está suficientemente próxima do espaço facial;
-\item Se for uma face, classificar os padrões de peso para saber se é uma pessoa conhecida ou desconhecida;
+\item Normalizar a imagem de teste $\Phi = \Gamma - \Psi$
+\item Calcular pesos $\Omega$ da imagem de teste pelas eigenfaces do conjunto de treinamento;
+\item Determinar se a imagem de entrada é uma face pertencente ao conjunto de treinamento pela distância Euclidiana;
 
 \end{itemize}
 
@@ -212,27 +239,6 @@ Atualmente a tecnologia está cada vez mais popular e acessível, sendo assim poss
 Os sistemas embarcados podem normalmente desempenhar processos simples, que não geram nenhum tipo de risco para os usuários (exemplo de calculadoras, controles de videogames, telefones, etc.), contudo também podem ser utilizados para tarefas mais complexas que apresentam certos riscos se não forem projetados com um maior rigor (exemplo controle em aviões, controles industriais, monitoramento de saúde, etc.).
 
 Neste âmbito um sistema desenvolvido para um hardware específico pode ser considerado um sistema embarcado, neste tipo de aplicação um hardware muito utilizado atualmente são as RaspberryPi, que são microprocessadores que rodam sistemas operacionais de diversos tipos.
-
-
-\begin{table}[ht]
-\begin{center}
-    \begin{tabular}{ | l | l | p{6.5cm} |}
-    \hline
-    Tipo & Intensidade & Descrição \\ \hline
-
-    Vesicular & Suave  & Formado pela passagem do ar pelo parênquima pulmonar. \\ \hline
-
-    Bronquial & Alta  & Som traqueal audível na zona de projeção de brônquios de maior calibre. \\ \hline
-
-    Broncovesicular  & Intermediária  & Somam-se as características do som bronquial com o som vesicular. \\ \hline
-
-    Traqueal & Muito alta & Som produzido na traqueia pela passagem do ar. \\  \hline
-    \end{tabular}
-    \caption{Tipos de sons normais.} % title of Table
-\label{tsonsnormais}
-
-\end{center}
-\end{table}
 
 
 \begin{equation}
@@ -282,33 +288,9 @@ w_i \rightarrow 1 \times 1
 \end{equation}
 
 
-\begin{equation}
-{y[n]} = x[n] * h[n] = \sum \limits _{k=-\infty}^{\infty} {x[k].h[n-k]} \label{conv}
-\end{equation}
-
-
-\begin{figure}[htb]
-        \centering
-        \subfloat[]{
-            \begin{minipage}{0.338\linewidth}
-              \includegraphics[width=0.98\linewidth, height = 0.2\textheight, keepaspectratio=true]{Figuras/8.png}             
-            \end{minipage}} 
-        \subfloat[]{
-            \begin{minipage}{0.324\linewidth}
-             \includegraphics[width=0.98\linewidth, height = 0.2\textheight, keepaspectratio=true]{Figuras/8.png}
-            \end{minipage}}
-        \subfloat[]{
-            \begin{minipage}{0.338\linewidth}
-              \includegraphics[width=0.98\linewidth, height = 0.2\textheight, keepaspectratio=true]{Figuras/8.png}
-            \end{minipage}}
-             
-           \caption{Espectros dos sinais: (a) sinal $X(f)$, (b) trem de impulsos, (c) sinal $X(f)$ multiplicado pelo trem de impulsos.}
-           \label{samp2} 
-    \end{figure}
-
 \chapter{Materiais e métodos}
 
-Neste capítulo serão abordados os materiais utilizados para a construção e desenvolvimento do presente trabalho, bem como os métodos discutidos anteriormente. 
+Neste capítulo serão abordados os materiais e os métodos utilizados para a construção e desenvolvimento do presente trabalho. 
 
 \section{MATERIAIS}\label{mm1}
 
@@ -327,6 +309,7 @@ O sistema proposto foi desenvolvido e testado em uma máquina que possui um proce
 \section{PYTHON}
 
 Python é uma linguagem de programação considerada de alto nível, tendo o seu funcionamento interpretado, onde o programa é executado por um interpretador e após pelo sistema operacional ou processador. A linguagem também é orientada a objetos e funcional. Foi criada em 1991. Possui uma grande comunidade, já que a linguagem possui um modelo de desenvolvimento comunitário, onde várias pessoas podem ajudar a desenvolver novas bibliotecas para que toda a comunidade posso utilizar.
+Possui versões para vários sistemas operacionais, tendo suporte para as mais diversas operações, possuindo uma grande gama de bibliotecas desenvolvidas pela própria comunidade que utiliza a linguagem. \cite{Python:2001}
 
 \section{OPENCV}
 
@@ -350,6 +333,13 @@ Nesta seção serão apresentadas as etapas de desenvolvimento do presente trabalho
 	\caption{Diagrama das etapas de desenvolvimento.}
 	\label{diagrama}
 \end{figure}
+
+\subsection{Aquisição da Imagem}
+\subsection{Segmentação Facial}
+\subsection{Classificação Eigenfaces}
+\subsection{Desenvolvimento da Interface}
+\subsection{Integração Banco de Dados}
+\subsection{Atestado de Presença}
 
 O desenvolvimento do presente trabalho possuí uma construção paralela das funções para que se possa ir integrando cada parte do sistema, afim de chegar no final do desenvolvimento com todas as funções funcionando integralmente, sendo assim o início do desenvolvimento segue a etapa de aquisição das imagens, tendo em paralelo o desenvolvimento de uma interface que seja de simples acesso e o mais claro possível para o usuário final. As imagens serão adquiridas utilizando um algoritmo, contendo a biblioteca OpenCV, sendo executado na Raspberry Pi juntamente com uma câmera (podendo ser um webcam ou uma Raspicam).
  
@@ -376,7 +366,7 @@ A primeira etapa para o processo de obtenção das eigenfaces é obter um conjunto 
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=0.7\textwidth]{figuras/faces.jpg}
+	\includegraphics[width=0.5\textwidth]{figuras/faces.jpg}
 	\caption{Faces sem tratamento pertencentes ao treino.}
 	\label{faces}
 \end{figure}
@@ -413,7 +403,7 @@ Cada face $\Gamma$ pode ser subtraida da face média $\Psi$ para assim formar um 
  
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figuras/phi.jpg}
+	\includegraphics[width=0.45\textwidth]{figuras/phi.jpg}
 	\caption{Faces $\Phi$.}
 	\label{phi_face}
 \end{figure} 
@@ -439,7 +429,7 @@ Sendo assim é possível encontrar os autovetores da matriz de covariância $AA^T$,
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figuras/eigen.jpg}
+	\includegraphics[width=0.45\textwidth]{figuras/eigen.jpg}
 	\caption{Eigenfaces.}
 	\label{eigenface}
 \end{figure}
@@ -515,14 +505,14 @@ Dentro dos testes de reconhecimento realizados com o algoritmo, foram utilizados
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=1\textwidth]{figuras/k_win.png}
+	\includegraphics[width=0.85\textwidth]{figuras/k_win.png}
 	\caption{Gráfico K x Acertos.}
 	\label{k_win}
 \end{figure}
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=1\textwidth]{figuras/k_lose.png}
+	\includegraphics[width=0.85\textwidth]{figuras/k_lose.png}
 	\caption{Gráfico K x Erros.}
 	\label{k_lose}
 \end{figure}
@@ -532,7 +522,7 @@ Os valores dos omegas de cada imagem de teste projetada no espaço de faces, poss
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=1\textwidth]{figuras/s_omegap.png}
+	\includegraphics[width=0.85\textwidth]{figuras/s_omegap.png}
 	\caption{Desvio Padrão dos Omegas projetados no espaço de faces.}
 	\label{s_omegap}
 \end{figure}
@@ -541,7 +531,7 @@ Este efeito pode ser notado também no desvio padrão das imagens utilizadas no co
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=1\textwidth]{figuras/s_omega.png}
+	\includegraphics[width=0.85\textwidth]{figuras/s_omega.png}
 	\caption{Desvio Padrão dos Omegas no espaço de faces.}
 	\label{s_omega}
 \end{figure}
@@ -550,10 +540,10 @@ Contudo durante os testes para obter o melhor valor de \textit{K}, notou-se que 
 
 \begin{equation}
 \label{erro_phi}
-	e_\Phi = \| \Phi_{mod} - \Phi_i \|
+	e_\Phi = \| \widehat{\Phi} - \Phi_i \|
 \end{equation}
 
-Com a utilização da fórmula \ref{erro_phi}, notou-se que houve um aumento de 10\% de acertos do teste anterior, este teste foi feito olhando cada imagem do teste comparada com a imagem do treinamento, validando manualmente, mas se fez necessário utilizar uma forma de fazer este reconhecimento automaticamente, utilizando os valores de \textit{Erro mínimo de $\Omega$} e o \textit{Erro mínimo de $\Phi$}, sendo assim a Figura \ref{erro_phi30_def} possui uma comparação das faces reconhecidas manualmente com as faces reconhecidas sem nenhum tipo de verificação.
+Com a utilização da fórmula \ref{erro_phi}, notou-se que houve um aumento de 10\% de acertos em comparação com o teste anterior, este teste foi feito olhando cada imagem do teste comparada com a imagem do treinamento, validando manualmente, mas se fez necessário utilizar uma forma de fazer este reconhecimento automaticamente, utilizando os valores de \textit{Erro mínimo de $\Omega$} e o \textit{Erro mínimo de $\Phi$}, sendo assim a Figura \ref{erro_phi30_def} possui uma comparação das faces reconhecidas manualmente com as faces reconhecidas sem nenhum tipo de verificação.
 
 \begin{figure}[htb]
 	\centering
@@ -599,9 +589,9 @@ Cada valor de \textit{Threshold de Phi} foi testado reconhecendo cada face novam
 	\label{erro_phi35_def}
 \end{figure}
 
-Com os gráficos das Figuras \ref{erro_phi30_def}, \ref{erro_phi31_def}, \ref{erro_phi32_def}, \ref{erro_phi33_def}, \ref{erro_phi34_def} e \ref{erro_phi35_def} pode-se notar que as imagens possuem um valor de \textit{Erro Phi} abaixo de 30. Para poder obter uma confirmação neste valor, o teste que foi feito para garantir este valor é tentar reconhecer faces que estão fora das faces de treinamento. Os gráficos dos teste estão referenciados nas Figuras \ref{erro_phi30_des}, \ref{erro_phi31_des}, \ref{erro_phi32_des}, \ref{erro_phi33_des}, \ref{erro_phi34_des} e \ref{erro_phi35_des}. Analisando cada gráfico pode-se notar que faces que são desconhecidas do sistema possuem um valor de \textit{Erro Phi} acima de 30. Com isso é possível utilizar um valor entre 30 e 35 como \textit{Threshold}.
+Com os gráficos das Figuras \ref{erro_phi30_def} a \ref{erro_phi35_def} pode-se notar que as imagens possuem um valor de \textit{Erro Phi} abaixo de 30. Para poder obter uma confirmação neste valor, o teste que foi feito para garantir este valor é tentar reconhecer faces que estão fora das faces de treinamento. Os gráficos dos teste estão referenciados nas Figuras \ref{erro_phi30_des} a \ref{erro_phi35_des}. Analisando cada gráfico pode-se notar que faces que são desconhecidas do sistema possuem um valor de \textit{Erro Phi} acima de 30. Com isso é possível utilizar um valor entre 30 e 35 como \textit{Threshold}.
 
-A decisão foi feita com base em minimizar o efito de falsos e verdadeiros negativos, já que com o aumento do valor, existe mais possibilidade de uma face ser atribuida erroneamente com outra, sendo assim o valor 30 foi escolhido para ser utilizado.
+A decisão foi feita com base em minimizar o efito de falsos e verdadeiros negativos, já que com o aumento do valor, existe mais possibilidade de uma face ser atribuida erroneamente com outra.
 
 \begin{figure}[htb]
 	\centering
@@ -649,7 +639,43 @@ Pode-se elencar que algumas faces acabam sendo consideradas como pertencentes ao
 	\label{erro_phi35_des}
 \end{figure}
 
+Para se fazer uma análise dos valores de falsos e positivos negativos que podem ocorrer com o aumento do valor de \textit{Erro Phi}, esses valor podem ser notados na tabela \ref{tab:tabela1}, onde \textbf{FN} é a quantidade de valores de \textit{"Falsos Negativos"}, \textbf{FP} é a quantidade de valores de \textit{"Falsos Positivos"}, \textbf{Iguais} é a quantidade de valores que são iguais ao valores comparados com o valor de acertos supervisionados, \textbf{Acertos} é a quantidade de valores que o sistema acertou de faces sem supervisão e \textbf{Erros} é a quantidade de valores que o sistema errou de faces sem a supervisão do sistema.
 
+\begin{table}[h!]
+	\begin{center}
+		\caption{Falsos positivos e negativos}
+		\label{tab:tabela1}
+		\begin{tabular}{c|c|c|c|c}
+		\textbf{FN} & \textbf{FP} & \textbf{Iguais} & \textbf{Acertos} & \textbf{Erros}\\
+		\hline		
+		\multicolumn{5}{c}{$e_\Phi$ = 30}\\
+		\hline
+		14 & 2 & 84 & 76 & 24\\
+		\hline
+		\multicolumn{5}{c}{$e_\Phi$ = 31}\\
+		\hline
+		12 & 2 & 86 & 78 & 22\\
+		\hline
+		\multicolumn{5}{c}{$e_\Phi$ = 32}\\
+		\hline
+		10 & 2 & 88 & 80 & 20\\
+		\hline
+		\multicolumn{5}{c}{$e_\Phi$ = 33}\\
+		\hline
+		8 & 2 & 90 & 82 & 18\\
+		\hline
+		\multicolumn{5}{c}{$e_\Phi$ = 34}\\
+		\hline
+		8 & 4 & 88 & 84 & 16\\		
+		\hline
+		\multicolumn{5}{c}{$e_\Phi$ = 35}\\
+		\hline
+		4 & 4 & 92 & 88 & 12\\
+		\end{tabular}
+	\end{center}
+\end{table}
+
+Pode-se notar que conforme o valor de $e_\Phi$ vai aumentando, a quantidade de falsos negativos tende a diminuir, sendo assim pode-se notar que escolher somente um valor de \textit{Threshold} é uma limitação, pode utilizar ao invés de somente um valor ser uma faixa, sendo assim a faixa vai de 30 a 35. Com todos os valores de \textit{Threshold}, face $\Psi$ e eigenfaces, pode-se utilizar isto para a veriicação no sistema.
 
 \section{Armazenamento}
 Dentro do desenvolvimento do trabalho proposto, foi necessário criar um meio de armazenar e recuperar as imagens e valores utilizados pelo sistema. No inicio da aplicação foram utilizadas as imagens localmente, sendo armazenadas e utilizadas somente durante a execução do sistema. Contudo este tipo de solução pode acabar esgotando o armazenamento interno do dispositivo que roda o sistema, sendo assim para que este problema fosse sanado, a forma de armazenamento das informações foi dividdo em duas formas, sendo uma delas para o armazenamento das informações e outra para o armazenamento dos arquivos.
@@ -703,6 +729,8 @@ Para a utilização das eigenfaces, foi desenvolvido uma interface utilizando a bi
 \chapter{Conclusão} 
 
 \chapter{Trabalhos Futuros}
+
+Como trabalhos futuros, existe a possibilidade de utilizar Redes Neurais para poder modificar cada valor de $\Omega$, podendo assim reconhecer uma face diretamente pelo seu peso atrelado, sem necessidade de utilizar somento o valor de um \textit{Threshold} mínimo e recalcular para cada pessoa o seu peso da face.
 
 \bibliography{tcc_template}
 

@@ -15,8 +15,12 @@ from Eigen import eigenfaces as eg
 WIDTH = 640
 HEIGHT = 480
 
+FACE_COUNT = 0
+FACE_VECTOR = []
+
 class Application:
     def __init__(self, window, master=None):
+        FACE_COUNT = 0
         #db.conecta(self)
         #pdf.tabela(self,"teste")
         print("OI")
@@ -87,11 +91,26 @@ class Application:
         self.btn_eigen['command'] = self.get_eigen
         self.btn_eigen.pack()
 
+        self.tabela_master = Frame(master)
+        self.tabela_master.pack()
+
+        for a in range(0,5):
+            for b in range(0,1):
+                self.tabela = Entry(self.tabela_master, width=10, fg="blue", font=('Arial',16,'bold'))
+                self.tabela.grid(row=a,column=b)
+                self.tabela.insert(END,"")
+
+
         self.sc_cam() #Com cam descomenta | sem cam comenta
 
     def sc_cam(self):
         self.update()
         self.window.mainloop()
+
+    # def update_table(self):
+    #     for a in range(0,5):
+    #         for b in range(0,1):
+    #             self.tabela.insert()
 
     def tira_foto(self):
         #cam = cv.VideoCapture(0)
@@ -144,13 +163,14 @@ class Application:
     
     def get_eigen(self):
         print("COÉ")
+            
 
     def update(self):
         ret, frm = self.cam.read()
         tst = cv.cvtColor(frm, cv.COLOR_BGR2GRAY) #Com cam descomenta | sem cam comenta 
         if ret :
             # frmhr = hr.detecta(self,frm)
-            frmhr = hr.detect4eigen(self,frm)
+            frmhr = hr.detect4eigen(self,frm) #Descomentar depois de arrumar a Tela
             #self.photo = ImageTk.PhotoImage(image = Image.fromarray(tst))
             self.photo = ImageTk.PhotoImage(image = Image.fromarray(frmhr))
             self.cnvs_cont.create_image(0,0, image=self.photo, anchor=NW)

@@ -1,28 +1,37 @@
 \babel@toc {brazilian}{}
-\contentsline {chapter}{Lista de Abreviaturas e Siglas}{6}%
-\contentsline {chapter}{Lista de Figuras}{7}%
-\contentsline {chapter}{Lista de Tabelas}{8}%
-\contentsline {chapter}{Resumo}{9}%
+\contentsline {chapter}{Lista de Abreviaturas e Siglas}{7}%
+\contentsline {chapter}{Lista de Figuras}{8}%
+\contentsline {chapter}{Lista de Tabelas}{9}%
+\contentsline {chapter}{Resumo}{10}%
 \babel@toc {english}{}
-\contentsline {chapter}{Abstract}{10}%
+\contentsline {chapter}{Abstract}{11}%
 \babel@toc {brazilian}{}
-\contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{11}%
-\contentsline {chapter}{\numberline {2}Fundamentos Te\'oricos}{12}%
-\contentsline {section}{\numberline {2.1}EIGENFACES}{12}%
-\contentsline {subsection}{\numberline {2.1.1}Reconhecimento Utilizando Eigenfaces}{13}%
-\contentsline {section}{\numberline {2.2}SISTEMAS EMBARCADOS}{13}%
-\contentsline {chapter}{\numberline {3}Materiais e m\'etodos}{16}%
-\contentsline {section}{\numberline {3.1}MATERIAIS}{16}%
-\contentsline {section}{\numberline {3.2}PYTHON}{16}%
-\contentsline {section}{\numberline {3.3}OPENCV}{17}%
-\contentsline {section}{\numberline {3.4}MONGODB}{17}%
-\contentsline {section}{\numberline {3.5}EIGENFACES}{17}%
-\contentsline {section}{\numberline {3.6}METODOLOGIA}{17}%
-\contentsline {chapter}{\numberline {4}Resultados e discuss\~oes}{20}%
-\contentsline {section}{\numberline {4.1}Obten\c c\~ao das Eigenfaces}{20}%
-\contentsline {subsection}{\numberline {4.1.1}Reconhecimento utilizando as Eigenfaces}{23}%
-\contentsline {section}{\numberline {4.2}Armazenamento}{26}%
-\contentsline {section}{\numberline {4.3}Interface}{27}%
-\contentsline {chapter}{\numberline {5}Conclus\~ao}{36}%
-\contentsline {chapter}{\numberline {6}Trabalhos Futuros}{37}%
-\contentsline {chapter}{Refer{\^e}ncias}{38}%
+\contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{12}%
+\contentsline {chapter}{\numberline {2}Fundamentos Te\'oricos}{13}%
+\contentsline {section}{\numberline {2.1}PROCESSAMENTO DIGITAL DE IMAGENS}{13}%
+\contentsline {subsection}{\numberline {2.1.1}Imagens}{13}%
+\contentsline {section}{\numberline {2.2}An\'alise de Componentes Principais}{14}%
+\contentsline {section}{\numberline {2.3}EIGENFACES}{15}%
+\contentsline {subsection}{\numberline {2.3.1}Reconhecimento Utilizando Eigenfaces}{15}%
+\contentsline {section}{\numberline {2.4}SISTEMAS EMBARCADOS}{16}%
+\contentsline {chapter}{\numberline {3}Materiais e m\'etodos}{17}%
+\contentsline {section}{\numberline {3.1}MATERIAIS}{17}%
+\contentsline {section}{\numberline {3.2}PYTHON}{18}%
+\contentsline {section}{\numberline {3.3}OPENCV}{18}%
+\contentsline {section}{\numberline {3.4}MONGODB}{18}%
+\contentsline {section}{\numberline {3.5}EIGENFACES}{18}%
+\contentsline {section}{\numberline {3.6}METODOLOGIA}{19}%
+\contentsline {subsection}{\numberline {3.6.1}Aquisi\c c\~ao da Imagem}{19}%
+\contentsline {subsection}{\numberline {3.6.2}Segmenta\c c\~ao Facial}{19}%
+\contentsline {subsection}{\numberline {3.6.3}Classifica\c c\~ao Eigenfaces}{19}%
+\contentsline {subsection}{\numberline {3.6.4}Desenvolvimento da Interface}{19}%
+\contentsline {subsection}{\numberline {3.6.5}Integra\c c\~ao Banco de Dados}{19}%
+\contentsline {subsection}{\numberline {3.6.6}Atestado de Presen\c ca}{19}%
+\contentsline {chapter}{\numberline {4}Resultados e discuss\~oes}{21}%
+\contentsline {section}{\numberline {4.1}Obten\c c\~ao das Eigenfaces}{21}%
+\contentsline {subsection}{\numberline {4.1.1}Reconhecimento utilizando as Eigenfaces}{24}%
+\contentsline {section}{\numberline {4.2}Armazenamento}{30}%
+\contentsline {section}{\numberline {4.3}Interface}{33}%
+\contentsline {chapter}{\numberline {5}Conclus\~ao}{35}%
+\contentsline {chapter}{\numberline {6}Trabalhos Futuros}{36}%
+\contentsline {chapter}{Refer{\^e}ncias}{37}%
