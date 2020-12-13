@@ -15,43 +15,43 @@ Warning--entry type for "kirby" isn't style-file defined
 --line 87 of file tcc_template.bib
 You've used 6 entries,
             2364 wiz_defined-function locations,
-            612 strings with 5371 characters,
-and the built_in function-call counts, 6134 in all, are:
-= -- 648
-> -- 10
-< -- 104
-+ -- 423
-- -- 6
-* -- 298
-:= -- 540
-add.period$ -- 19
+            607 strings with 5303 characters,
+and the built_in function-call counts, 5900 in all, are:
+= -- 626
+> -- 9
+< -- 94
++ -- 402
+- -- 5
+* -- 277
+:= -- 508
+add.period$ -- 16
 call.type$ -- 6
-change.case$ -- 85
+change.case$ -- 79
 chr.to.int$ -- 0
 cite$ -- 6
-duplicate$ -- 886
-empty$ -- 287
-format.name$ -- 106
-if$ -- 1250
+duplicate$ -- 846
+empty$ -- 297
+format.name$ -- 99
+if$ -- 1242
 int.to.chr$ -- 0
 int.to.str$ -- 0
 missing$ -- 0
 newline$ -- 15
-num.names$ -- 30
+num.names$ -- 25
 pop$ -- 95
 preamble$ -- 1
 purify$ -- 6
 quote$ -- 0
-skip$ -- 338
+skip$ -- 326
 stack$ -- 0
-substring$ -- 311
-swap$ -- 582
+substring$ -- 298
+swap$ -- 546
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 38
 warning$ -- 0
-while$ -- 36
+while$ -- 30
 width$ -- 0
 write$ -- 8
 (There were 4 warnings)

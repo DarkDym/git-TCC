@@ -6,6 +6,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\addvspace {10\p@ }
 \babel@toc {english}{}
 \addvspace {10\p@ }
 \babel@toc {brazilian}{}
@@ -13,7 +14,8 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Falsos positivos e negativos\relax }}{33}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Falsos positivos e negativos\relax }}{34}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Tempo de recupera\c c\~ao das imagens\relax }}{34}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

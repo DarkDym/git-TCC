@@ -106,6 +106,14 @@ Aos meus...
 	\item[STFT] \textit{Short Time Fourier Transform} (Transformada de Fourier de Tempo Reduzido)
 \end{listofabbrv}
 
+%lista de símbolos
+\begin{listofsymbols}{SPMD}
+	\item[$\Gamma$] Vetor unidimensional da Face
+	\item[$\Psi$] Face Média do conjunto de faces
+	\item[$\Phi$] Face com principais componentes ressaltadas
+	\item[$\Omega$] Conjunto de pesos de cada Eigenface para determinada face $\Phi$
+\end{listofsymbols}
+
 % lista de figuras
 \listoffigures
 
@@ -168,6 +176,7 @@ Para poder abordar como são feitos os processamentos a cerca de imagens, primeir
 \subsection{Imagens}
 Uma imagem pode ser descrita como uma função bidimensional, que pode possuir dimensões de tamanhos diferentes. As coordenadas da imagem formam um plano e sua amplitude pode ser descrita como a intensidade do conjunto de coordenadas. As intensidades de uma imagem são processos físicos relacionados a energia irradiada pela fonte. Uma imagem pode ser captada a partir de sensores que conseguem traduzir a energia irradiada pela fonte em uma saída de tensão. Segundo \cite{Gonza}, um dos sensores mais conhecidos para tal utilização, são os fotodiodos, sendo estes sensores construídos com materiais semicondutores que possuem uma saída de tensão proporcional a intensidade luminosa. Pode-se caracterizar uma imagem como digital, quando os valores dos elementos de coordenadas e amplitude são finitas. Os elemntos que compoem uma imagem digitsal são comumente chamados de \textit{Pixels}.
 
+\section{Haar Like Features}
 
 \section{Análise de Componentes Principais}
 A Análise de Componentes Principais (Principal Component Analysis - PCA) é uma técnica matemática utilizada para a análise de dados de multivariáveis. Primeiramente concebido por Karl Pearson em 1901 e posteriormente desenvolvida por Harold Hotelling em 1930. O PCA não era utilizado tão comumente até os avanços na área da computação, se baseia na utilização de princípios matemáticos para transformar um número de variáveis correlacionais em quantidades menores de variáveis, sendo estas as principais componentes das variáveis.
@@ -291,41 +300,7 @@ w_i \rightarrow 1 \times 1
 \chapter{Materiais e métodos}
 
 Neste capítulo serão abordados os materiais e os métodos utilizados para a construção e desenvolvimento do presente trabalho. 
-
-\section{MATERIAIS}\label{mm1}
-
-A aplicação será desenvolvida utilizando a linguagem de programação Python, sendo ela a linguagem escolhida devido ao seu maior acervo bibliográfico referente as funções necessárias para a o desenvolvimento de presente trabalho.
-
-Para o tratamento e requisições das imagens, será utilizado a biblioteca OpenCV, devido ao seu alto grau de conceituação na literatura atual além de ser de código aberto e com uma ampla disponibilidade de documentação.
-
-Para o tratamento dos vetores das imagens, será utilizado a biblioteca Numpy, sendo esta uma das bibliotecas que possui uma grande gama de operações que serão utilizadas para o tratamento e cálculo de cada imagem, além de ser difundida para o uso científico possui uma boa gama de documentação.
-
-Para o armazenamento das informações necessária para gerar as presenças dentro da aplicação, será utilizado o banco de dados não relacional MongoDB, devido a não necessidade de relação entre as informações inseridas nas tabelas do banco criado, assim como a inserção das informações das imagens. Além de possuir conexão com a linguagem escolhida para a criação da aplicação. Para o desenvolvimento da interface gráfica, será utilizado a biblioteca de desenvolvimento de interfaces Tkinter.
-
-O banco de imagens para o treinamento e o teste dos métodos previamente descritos, será o banco FEI face database, sendo este um banco de imagens desenvolvido pelo Laboratório de Processamento de Imagens do Departamento de Engenharia Elétrica do Centro Universitário da FEI. Esse banco contém 14 imagens diferentes de 200 indivíduos diferentes, obtendo um total de 2800 imagens. Deste banco somente as imagens de face frontal foram utilizadas para o formar um conjunto de treinamento e teste, além de ser necessário cortar somente o rosto de cada indivíduo e transformar a imagem em um único canal de escala de cinza (as imagens originais possuem três canais).
-
-O sistema proposto foi desenvolvido e testado em uma máquina que possui um processador AMD Ryzen 5 3400G de 3,7GHz, memória RAM de 16GB e uma placa de vídeo Radeon RX 590 de 8GB de VRAM, mas para a aplicação final será utilizado uma Raspberry Pi 3, que possui um processador ARMv8 CORTEX A53 QUADCORE com velocidade de operação de 1.2GHz e 1GB de memória RAM. Utilizando o sistema operacional Linux para executar a aplicação desenvolvida.
-
-\section{PYTHON}
-
-Python é uma linguagem de programação considerada de alto nível, tendo o seu funcionamento interpretado, onde o programa é executado por um interpretador e após pelo sistema operacional ou processador. A linguagem também é orientada a objetos e funcional. Foi criada em 1991. Possui uma grande comunidade, já que a linguagem possui um modelo de desenvolvimento comunitário, onde várias pessoas podem ajudar a desenvolver novas bibliotecas para que toda a comunidade posso utilizar.
-Possui versões para vários sistemas operacionais, tendo suporte para as mais diversas operações, possuindo uma grande gama de bibliotecas desenvolvidas pela própria comunidade que utiliza a linguagem. \cite{Python:2001}
-
-\section{OPENCV}
-
-O OpenCV é uma biblioteca de visão computacional e aprendizagem de máquina com código livre, possuindo mais 2500 algoritmos otimizados para uso de todos. Os algoritmos vão desde detectar objetos até extração de modelos 3D. A biblioteca pode ser utilizada nas linguagens de programação Python, C++, Java e MatLab, tendo seus códigos escritos nativamente em C++.
-
-\section{MONGODB}
-
-O MongoDB é um banco de dados não relacional que utiliza documentos para armazenar informações, utilizando informações na linguagem JSON. Podendo se conectar com as mais diversas linguagens de programação (como por exemplo: Java, Python, Ruby, C++, etc). Pode ser utilizado com repositórios locais ou até mesmo com repositórios armazenados em nuvem de forma gratuita (conforme utilização do armazenamento e acesso repetidos dos dados). Dentro de algumas de suas vantegens, pode-se elencar a relação de não ser necessário as condições relacionais para começar a armazenar dados, obtendo melhor performace em relação as suas consultas, já que tudo esta dentro de um único documento. Contudo isso acaba sendo uma desvantagem também, pois caso seja necessário a modificação de algum atributo para todos as entradas, cada valor deve ser tratado um a um.
-
-\section{EIGENFACES}
-
-Eigenface é um classificador de faces utilizado em visão computacional, utiliza autovetores para poder fazer a aproximação do valor de rosto médio com o rosto em questão. A criação do conceito de eigenfaces foi criada em 1987 por Sirovich e Kirby, tendo como primeira intenção de uma aproximação de uma representação de imagens em dimensões menores. As eigenfaces podem ser geradas a partir de um processo matemático chamado de Análise de Componente Principal (PCA) em um banco de imagens de faces consideravelmente grande. Pode-se utilizar as Eigenfaces para a classificação e reconhecimento facial, como feito por \citep{turk2}, onde foram utilizadas para reconhecer faces de pessoas da equipe de pesquisa. Foram elencados certos problemas da utilização das mesmas, onde a iluminação, orientação e obstrução das imagens podem afetar diretamente no reconhecimento de cada face.
-
-\section{METODOLOGIA}
-
-Nesta seção serão apresentadas as etapas de desenvolvimento do presente trabalho seguindo o caminho da fig. \ref{diagrama}.
+O desenvolvimento do presente trabalho possuí uma construção paralela das funções para que se possa ir integrando cada parte do sistema, afim de chegar no final do desenvolvimento com todas as funções funcionando integralmente, sendo assim o início do desenvolvimento segue a etapa de aquisição das imagens, tendo em paralelo o desenvolvimento de uma interface que seja de simples acesso e o mais claro possível para o usuário final.
 
 \begin{figure}[htb]
 	\centering
@@ -334,19 +309,47 @@ Nesta seção serão apresentadas as etapas de desenvolvimento do presente trabalho
 	\label{diagrama}
 \end{figure}
 
-\subsection{Aquisição da Imagem}
-\subsection{Segmentação Facial}
-\subsection{Classificação Eigenfaces}
-\subsection{Desenvolvimento da Interface}
-\subsection{Integração Banco de Dados}
-\subsection{Atestado de Presença}
+A aplicação será desenvolvida utilizando a linguagem de programação Python, sendo esta uma linguagem de programação considerada de alto nível, tendo o seu funcionamento interpretado, onde o programa é executado por um interpretador e após pelo sistema operacional ou processador. A linguagem também é orientada a objetos e funcional. Foi criada em 1991. Possui uma grande comunidade, já que a linguagem possui um modelo de desenvolvimento comunitário, onde várias pessoas podem ajudar a desenvolver novas bibliotecas para que toda a comunidade posso utilizar. O sistema proposto foi desenvolvido e testado em uma máquina que possui um processador AMD Ryzen 5 3400G de 3,7GHz, memória RAM de 16GB e uma placa de vídeo Radeon RX 590 de 8GB de VRAM, mas para a aplicação final será utilizado uma Raspberry Pi 3, que possui um processador ARMv8 CORTEX A53 QUADCORE com velocidade de operação de 1.2GHz e 1GB de memória RAM. Utilizando o sistema operacional Linux para executar a aplicação desenvolvida.
 
-O desenvolvimento do presente trabalho possuí uma construção paralela das funções para que se possa ir integrando cada parte do sistema, afim de chegar no final do desenvolvimento com todas as funções funcionando integralmente, sendo assim o início do desenvolvimento segue a etapa de aquisição das imagens, tendo em paralelo o desenvolvimento de uma interface que seja de simples acesso e o mais claro possível para o usuário final. As imagens serão adquiridas utilizando um algoritmo, contendo a biblioteca OpenCV, sendo executado na Raspberry Pi juntamente com uma câmera (podendo ser um webcam ou uma Raspicam).
- 
-Após a obtenção das imagens é necessário fazer a segmentação do rosto encontrado, considerando somente a face (do queixo até início da cabeça), em paralelo será construído e integrado o banco de dados com a interface, já que será necessário analisar como os dados das imagens adquiridas serão armazenadas no banco de dados (para que não seja necessário armazenar nenhum tipo de informação na RaspberryPi, devido ao seu espaço limitado de armazenamento). 
 
-Assim que a face estiver segmentada, poderá ser aplicado o classificador Eigenfaces (a segmentação se faz necessária para que o fundo da imagem e qualquer outro objeto não influencie na classificação do indivíduo) para o reconhecimento do indivíduo em questão, como dito anteriormente, em paralelo será testado funções de frequência/presença no sistema, para que o objetivo final do sistema, que seria de por meio do reconhecimento facial a presença do indivíduo, da qual quer ser reconhecido, receberá presença dentro do sistema.
- 
+\section{Aquisição da Imagem}
+As imagens utilizadas no presente trabalho foram adquiridadas do banco de imagens FEI face database, sendo este um banco de imagens desenvolvido pelo Laboratório de Processamento de Imagens do Departamento de Engenharia Elétrica do Centro Universitário da FEI. Esse banco contém 14 imagens diferentes de 200 indivíduos diferentes, obtendo um total de 2800 imagens.
+Segundo \cite{turk2}, existem problemas significantes de se possuir fundo nas imagens das faces, já que as eigenfaces não fazem distinção do que é ou não uma face. Sendo assim deste banco somente as imagens de face frontal foram utilizadas para o formar um conjunto de treinamento e teste. Contudo é necessário recortar somente o rosto de cada indivíduo, para esta tarefa a proxima seção elucida o processo decorrido.
+
+\section{Segmentação Facial}
+Para se obter somente a face de cada indivíduo, foi utilizado o Haar Like feature para faces frontais e realizar um processamento na imagem para se obter somente um único canal de escala de cinza (as imagens originais possuem três canais RGB). O tratamento e manuseio das imagens é feito utilizando a biblioteca de visão computacional e aprendizagem de máquina com código livre OpenCV, possuindo mais 2500 algoritmos otimizados para uso de todos. Os algoritmos vão desde detectar objetos até extração de modelos 3D. A biblioteca pode ser utilizada nas linguagens de programação Python, C++, Java e MatLab, tendo seus códigos escritos nativamente em C++. As imagens tratadas são salvas localmente para posteriormente armazenar no banco de dados. Assim que as faces são separadas da imagem original, as imagens resultantes passam por dois processos antes dos cálculos das eigenfaces, sendo eles o processo de retirar canais da imagem transformando em uma imagem com um canal de escala de cinza e a unidimensionalização da imagem em um vetor $\Gamma$.
+
+\section{Classificação Eigenfaces}
+Para os cálculos e processos para classificação das eigenfaces, a biblioteca Numpy foi utilizada, sendo esta uma biblioteca de código aberto que consegue processar os mais diversos tipos de processos de computação numérica. Criada em 2005 e utilizada amplamente na comunidade científica para os mais diversos cálculos matemáticos e manipulação de dados. As imagens obtidas previamente são tratadas como vetores numéricos, para poder ser utilizado pela Numpy. Com isso é necessário obter a nova imagem para teste e refazer todos os processos anteriores para normalizar (segmentar a face da imagem, tranformar em um canal de escala de cinza, transformar em um vetor $\Gamma$) a imagem para estar igualmente com as imgens do conjunto de treinamento.
+
+\section{Desenvolvimento da Interface}
+A interface do sistema foi desenvolvida utilizando a biblioteca Tkinter, sendo esta uma das bibliotecas padrões para desenvolvimento de insterfaces, possui integração com a maioria dos sistemas operacionais Unix e Windows. A interface possui em sua tela principal a visualização da visão da câmera integrada ao sistema, quando uma face é encontrada pelo sistema, a mesma é resaltada na tela principal além das informações do indivíduo da qual a face o sistema reconheceu.
+
+\section{Integração Banco de Dados}
+Dentro do desenvolvimento do trabalho proposto, foi necessário criar um meio de armazenar e recuperar as imagens e valores utilizados pelo sistema. No inicio da aplicação foram utilizadas as imagens localmente, sendo armazenadas e utilizadas somente durante a execução do sistema. Contudo este tipo de solução pode acabar esgotando o armazenamento interno do dispositivo que roda o sistema, sendo assim para que este problema fosse sanado, a forma de armazenamento das informações foi dividdo em duas formas, sendo uma delas para o armazenamento das informações e outra para o armazenamento dos arquivos.
+
+As imagens que são utilizadas pelo sistema projetado deve ser alocado em um local que seja fácil buscar e armazenar, sendo assim foi pensado em utilizar um banco que tivesse uma liberdade de inserir as informações das imagens sem a necessidade de um banco complexo. Sendo assim o banco de dados MongoDB foi tutilizado, sendo o MongoDB um banco de dados não relacional que utiliza documentos para armazenar informações, utilizando informações na linguagem JSON. Podendo se conectar com as mais diversas linguagens de programação (como por exemplo: Java, Python, Ruby, C++, etc). Pode ser utilizado com repositórios locais ou até mesmo com repositórios armazenados em nuvem de forma gratuita (conforme utilização do armazenamento e acesso repetidos dos dados). Dentro de algumas de suas vantegens, pode-se elencar a relação de não ser necessário as condições relacionais para começar a armazenar dados, obtendo melhor performace em relação as suas consultas, já que tudo esta dentro de um único documento. Contudo isso acaba sendo uma desvantagem também, pois caso seja necessário a modificação de algum atributo para todos as entradas, cada valor deve ser tratado um a um. Devido a quantidade de arquivos que são necessários para o funcionamento do projeto, as informações dos arquivos foram salvos no MongoDB e os arquivos propriamente ditos foram armazenados no Google Drive, sendo este um serviço de armazenamento e sicronização de arquivos desenvolvido pela empresa Google.
+
+Para o acesso de ambos os bancos é necessário a configuração e utilização de arquivos de configuração, que contenham os usuários e senhas para acesso. Para o acesso do repositório do MongoDB é necessário repassar a linha de conexão do repositório. Para a conexão do Google Drive é necessário a configuração e o aceite na conta do usuário que irá hospedar os arquivos, neste caso foi configurado o arquivo \textit{settings.yaml} para que não fosse necessário abrir uma janela de aceite a cada vez que o sistema fosse executado.
+
+Para o armazenamento das informações no MongoDB, o seu acesso é feito a partir da biblioteca \textit{Pymongo}, onde cada face tem as seguintes informações armazenadas: 
+\begin{enumerate}
+\item ID do Mongo;
+\item Nome da Pessoa;
+\item ID do Google Drive.
+\end{enumerate}
+
+O \textit{ID do Mongo} é um identificador que é gerado automaticamente, sendo uma chave primária igual a de um banco de dados relacional, onde este é um identificador único. O \textit{ID do Google Drive} é o identificador único que é gerado automaticamente quando o arquivo com as informações da imagem da face são salvos.
+Para o armazenamento dos arquivos no Google Drive, o seu acesso é feito a partir da biblioteca \textit{Pydrive}, onde cada arquivo tem as seguintes infromações armazenadas:
+\begin{itemize}
+\item Valor de $\Phi$ da face ou valor de $\Psi$ da face ou valor das eigenfaces;
+\end{itemize}
+Os valores são armazenados em um arquivo \textit{JSON}, podendo ser utilizadas outras formas de salvar o arquivo, porém foi escolhido o arquivo \textit{JSON} para a facilitação ao acesso das informações, já que as mesmas são armazenadas em formato de lista, sendo mais fácil de fazer a transformação para vetores da biblioteca \textit{Numpy}.
+
+\section{Atestado de Presença}
+
+
+\section{Finalização do Sistema}
 Na sua etapa final, todas as partes desenvolvidas serão integradas em uma versão final, já que ao longo do desenvolvimento do sistema as partes serão testadas para não ter nenhum tipo de problema na integração dos mesmos. O funcionamento do sistema pode ser visto na fig. \ref{sistema}.
 
 \begin{figure}[htb]
@@ -356,7 +359,7 @@ Na sua etapa final, todas as partes desenvolvidas serão integradas em uma versão
 	\label{sistema}
 \end{figure}
 
-\chapter{Resultados e discussões}
+\chapter{Resultados e Experimentos}
 
 Nesta seção serão discutidos os resultados obtidos a partir da aplicação construida e das eigenfaces obtidas.
 
@@ -678,23 +681,32 @@ Para se fazer uma análise dos valores de falsos e positivos negativos que podem 
 Pode-se notar que conforme o valor de $e_\Phi$ vai aumentando, a quantidade de falsos negativos tende a diminuir, sendo assim pode-se notar que escolher somente um valor de \textit{Threshold} é uma limitação, pode utilizar ao invés de somente um valor ser uma faixa, sendo assim a faixa vai de 30 a 35. Com todos os valores de \textit{Threshold}, face $\Psi$ e eigenfaces, pode-se utilizar isto para a veriicação no sistema.
 
 \section{Armazenamento}
-Dentro do desenvolvimento do trabalho proposto, foi necessário criar um meio de armazenar e recuperar as imagens e valores utilizados pelo sistema. No inicio da aplicação foram utilizadas as imagens localmente, sendo armazenadas e utilizadas somente durante a execução do sistema. Contudo este tipo de solução pode acabar esgotando o armazenamento interno do dispositivo que roda o sistema, sendo assim para que este problema fosse sanado, a forma de armazenamento das informações foi dividdo em duas formas, sendo uma delas para o armazenamento das informações e outra para o armazenamento dos arquivos.
-Para o armazenamento das informações foi utilizado o MongoDB com um repositório em nuvem, o seu acesso é feito a partir da biblioteca \textit{Pymongo}, onde cada face tem as seguintes informações armazenadas: 
-\begin{itemize}
-\item ID do Mongo
-\item Nome da Pessoa
-\item ID do Google Drive
-\end{itemize}
-O \textit{ID do Mongo} é um identificador que é gerado automaticamente, sendo uma chave primária igual a de um banco de dados relacional, onde este é um identificador único. O \textit{ID do Google Drive} é o identificador que é gerado automaticamente quando o arquivo com as informações da imagem da face são salvos.
+Dentro do desenvolvimento do trabalho proposto, foi necessário criar um meio de armazenar e recuperar as imagens e valores utilizados pelo sistema. O acesso das imagens feito localmente não possui um atraso para a obtenção de cada imagem, contudo caso exista algum tipo de perda do sistema por meios físicos, as imagens serão perdidas e será necessário reconfigurar o sistema. Com isso em mente o armazenamento externo foi pensado, sendo esta uma forma mais prática de salvar as informações do sistema, contudo existe o atraso para a recuperação das informações que foram salvas externamente.
 
-Para o armazenamento de cada imagem foi utilizado o Google Drive, o seu acesso é feito a partir da biblioteca \textit{Pydrive}, onde cada face tem as seguintes infromações armazenadas:
-\begin{itemize}
-\item Valor de $\Phi$ da face;
-\item Valor de $\Omega$ da face.
-\end{itemize}
-Os valores são armazenados em um arquivo \textit{JSON}, podendo ser utilizadas outras formas de salvar o arquivo, porém foi escolhido o arquivo \textit{JSON} para a facilitação ao acesso das informações, já que as mesmas são armazenadas em formato de lista, sendo mais fácil de fazer a transformação para vetores da biblioteca \textit{Numpy}.
+Para poder demonstrar que existe um atraso para a recuperação das imagens armazenadas o seguinte experimento foi feito: as imagens são armazenadas no Google Drive e o identificador único atrelado ao arquivo é gerado, este identificador é salvo posteriormente no banco de dados do MongoDB. Os arquivos foram divididos em três classes sendo elas, a face média $\Psi$ (contém somente um arquivo), as eigenfaces (contém setenta arquivos diferentes) e as faces $\Phi$ (contém cento e noventa e seis arquivos diferentes). O sistema recupera cada imagem a partir de seu identificador, com isso a tabela \ref{tab:time} foi gerada.
 
-Para o acesso de ambos os bancos é necessário a configuração e utilização de arquivos de configuração, que contenham os usuários e senhas para acesso. Para o acesso do repositório do MongoDB é necessário repassar a linha de conexão do repositório. Para a conexão do Google Drive é necessário a configuração e o aceite na conta do usuário que irá hospedar os arquivos, neste caso foi configurado o arquivo \textit{settings.yaml} para que não fosse necessário abrir uma janela de aceite a cada vez que o sistema fosse executado.
+\begin{table}[h!]
+	\begin{center}
+		\caption{Tempo de recuperação das imagens}
+		\label{tab:time}
+		\begin{tabular}{ |c|c|c|c| }	
+		\hline		
+		 & \textbf{$\Psi$} & \textbf{Eigenfaces} & \textbf{$\Phi$}\\
+		\hline
+		Qnt Arquivos & 1 & 70 & 196\\		
+		\hline		
+		Tempo Gasto & 2,2s & 157s & 475s\\
+		\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+Os tempos de aquisições dos arquivos estão diretamente atrelado ao acesso ao Google Drive, devido que o tempo para a obtenção de todos os identificadores que estão armazenados no MongoDB acaba não levando mais do que um segundo. Com um total de 635 segundos para obter todos os arquivos necessários para o funcionamento do sistema, estes arquivos devem ser carregados na inicialização do sistema e ser utilizado localmente, devido a esta quantidade de tempo necessária para fazer a requisição dos arquivos, pois para cada face que irá ser reconhecida é necessário todos os arquivos armazenados, sendo assim o tempo total mais o tempo para o reconhecimento seria o tempo total que o usuário deve esperar pra poder ser reconhecido.
+
+
+
+
+
 
 O processo de armazenamento em ambos os bancos ocorre em três etapas, sendo elas: Gerar as informações da face (valores de $\Phi$ e $\Omega$ de cada face individualmente), salvar essas informações no Google Drive e devolver o ID que foi salvo e salvar no Mongo o ID do Gogle Drive juntamente com o nome de cada pessoa. Um exemplo deste processo pode ser notado na Figura \ref{fluxo_banco}.
 
