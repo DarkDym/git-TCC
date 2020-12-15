@@ -92,18 +92,8 @@ Aos meus...
 
 % lista de abreviaturas e siglas
 \begin{listofabbrv}{SPMD}
-        \item[PCA] Principal Component Analisys
-        \item[PDS] Processamento Digital de Sinais
-	\item[RNA] Rede Neural Artificial
-	\item[SLIT] Sistemas Lineares e Invariantes no Tempo
-	\item[FPA] Filtro Passa-Alta
-	\item[FPB] Filtro Passa-Baixa
-	\item[FIR] \textit{Finite Impulse Response} (Resposta ao Impulso Finita)
-	\item[IIR] \textit{Infinite Impulse Response} (Resposta ao Impulso Infinita)
-	\item[ADC] \textit{Analog-to-digital converter} (Conversor Analógico-Digital)
-	\item[TF] Transformada de Fourier
-	\item[TDF] Transformada Discreta de Fourier
-	\item[STFT] \textit{Short Time Fourier Transform} (Transformada de Fourier de Tempo Reduzido)
+	\item[PCA] Principal Component Analisys
+	\item[ROI] Region Object Interest
 \end{listofabbrv}
 
 %lista de símbolos
@@ -112,6 +102,10 @@ Aos meus...
 	\item[$\Psi$] Face Média do conjunto de faces
 	\item[$\Phi$] Face com principais componentes ressaltadas
 	\item[$\Omega$] Conjunto de pesos de cada Eigenface para determinada face $\Phi$
+	\item[$e_{\Omega}$] Erro das diferenças dos pesos $\Omega$
+	\item[$e_{\Phi}$] Erro das diferenças das faces $\Phi$
+	\item[$\theta_{\Omega}$] Valor de Threshold dos pesos $\Omega$
+	\item[$\theta_{\Phi}$] Valor de Threshold das faces $\Phi$
 \end{listofsymbols}
 
 % lista de figuras
@@ -141,6 +135,9 @@ Segundo a ANSA, no carnaval de 2019, a polícia do Rio de Janeiro e do Salvador, 
 
 O reconhecimento facial pode ser empregado nas mais diferentes áreas, sem ser a da segurança, com isso pode-se empregar o reconhecimento para verificar sentimentos, expressões, executar comandos configurados, check-in em eventos, entre outras aplicações.
 
+%Escrever aqui sobre as outras aplicações de reconhecimento facial.
+Com a popularização dos meios de reconhecimento facial, algumas técnicas foram desenvolvidas conforme o tempo e a tecnologia se desenvolveu. Algumas das técnicas que são utilizadas, são elas: Eigenfaces, Fisherfaces, Kernel Direct Discriminant Analysis, K Nearest Neighboors, Local Binary Pattern.
+
 Com esses avanços nas técnicas de reconhecimento facial, pode-se utilizar tais avanços para o reconhecimento de alunos em sala de aulas, já que os mesmos querem ter seus rostos reconhecidos para obter a presença em sala de aula, fazendo que o método tradicional de folha de chamada posso ser substituído e todo o sistema de presença seja diretamente integrado em um único sistema.
 
 Desta forma, a construção de um sistema de reconhecimento facial integrado com um controle de presença se faz necessário para sanar o problema de ainda hoje, em um tempo de integração e avanço tecnológico, utilizar chamadas impressas para marcar se o aluno estava ou não em aula ou em um determinado evento.
@@ -148,27 +145,6 @@ Desta forma, a construção de um sistema de reconhecimento facial integrado com u
 
 \chapter{Fundamentos Teóricos}
 Neste capítulo serão abordados os conhecimentos necessários para a contextualização do presente trabalho, bem como seus métodos de desenvolvimento e funcionalidades específicas.
-O processo de funcionamento do presente trabalho segue a ordem indicada na figura \ref{aquisicao}
-
-\begin{figure}[htb]
-   \centering
-   \includegraphics[width=0.8\textwidth]{figuras/metodologia.png}
-   \caption{Esquemático do método de classificação.}
-   \label{aquisicao}
-\end{figure}
-
-\begin{itemize}
-\item AQUISIÇÃO: O processo de aquisição se refere ao momento em que o usuário tem sua face adquirida por um dispositivo de captura (câmera, filmadora, webcam, etc.);
-
-\item LOCALIZAÇÃO: O processo de localização tem por funcionamento encontrar uma face na imagem adquirida no processo anterior;
-
-\item SEGMENTAÇÃO: O processo de segmentação por sua vez retira para o sistema somente a face localizada no processo anterior, facilitando a próxima etapa do sistema;
-
-\item CLASSIFICAÇÃO: O processo de classificação consiste em utilizar a face para o reconhecimento de qual usuário está no sistema;
-
-\item INSERÇÃO: O processo de inserção finaliza o sistema, inserindo qual usuário que foi reconhecido pelos processos anteriores.
-\end{itemize}
-%Na seção \ref{r1} é feita uma breve abordagem sobre...
 
 \section{PROCESSAMENTO DIGITAL DE IMAGENS}
 Para poder abordar como são feitos os processamentos a cerca de imagens, primeiramente é necessário se fundamentar o que são imagens.
@@ -176,9 +152,10 @@ Para poder abordar como são feitos os processamentos a cerca de imagens, primeir
 \subsection{Imagens}
 Uma imagem pode ser descrita como uma função bidimensional, que pode possuir dimensões de tamanhos diferentes. As coordenadas da imagem formam um plano e sua amplitude pode ser descrita como a intensidade do conjunto de coordenadas. As intensidades de uma imagem são processos físicos relacionados a energia irradiada pela fonte. Uma imagem pode ser captada a partir de sensores que conseguem traduzir a energia irradiada pela fonte em uma saída de tensão. Segundo \cite{Gonza}, um dos sensores mais conhecidos para tal utilização, são os fotodiodos, sendo estes sensores construídos com materiais semicondutores que possuem uma saída de tensão proporcional a intensidade luminosa. Pode-se caracterizar uma imagem como digital, quando os valores dos elementos de coordenadas e amplitude são finitas. Os elemntos que compoem uma imagem digitsal são comumente chamados de \textit{Pixels}.
 
-\section{Haar Like Features}
+\section{HAAR LIKE FEATURES}
+Os Haar Like Features são características de imagens digitais utilizadas para o reconhecimento de objetos,
 
-\section{Análise de Componentes Principais}
+\section{ANÁLISE DE COMPONENTES PRINCIPAIS}
 A Análise de Componentes Principais (Principal Component Analysis - PCA) é uma técnica matemática utilizada para a análise de dados de multivariáveis. Primeiramente concebido por Karl Pearson em 1901 e posteriormente desenvolvida por Harold Hotelling em 1930. O PCA não era utilizado tão comumente até os avanços na área da computação, se baseia na utilização de princípios matemáticos para transformar um número de variáveis correlacionais em quantidades menores de variáveis, sendo estas as principais componentes das variáveis.
 A principal transformação é a redução da dimensionalidade do conjunto de dados, fazendo com que seja resaltado as similaridades e diferenças dentro do conjunto de dados. Segundo \cite{pca} os autovetores e autovalores são os principios fundamentais para a determinação dos PCAs, decorrido da decomposição da matriz de covariância.
 O processo de obtenção dos PCAs pode ser feito através dos seguintes passos:
@@ -196,10 +173,10 @@ Para que o cálculo do PCA funcione devidamente, é necessário realizar a subtraçã
 É necessário obter a matriz de covariância do conjunto de dados que já foram subtraídos da média;
 
 \begin{enumerate}[resume]
-\item \textbf{Cálculo dos eigenvectors e eigenvalues} 
+\item \textbf{Cálculo dos autovetores e autovalores} 
 \end{enumerate}
 
-Calcular os eigenvectors e eigenvalues da matriz de covariância, sendo os eigenvectors uma parte muito importante para o PCA;
+Calcular os autovetores e autovalores da matriz de covariância, sendo os autovetores uma parte muito importante para o PCA;
 
 \begin{enumerate}[resume]
 \item \textbf{Escolher as componentes} 
@@ -224,9 +201,9 @@ Pode-se utilizar eigenfaces para reconhecimento facial, alguns passos devem ser 
 \item Transformar o vetor de imagens I ($I = N \times N$) em um vetor gamma $\Gamma$ ($\Gamma = N^{2} \times 1$);
 \item Calcular a face média $\Psi$ do vetor $\Gamma$;
 \item Obter a matriz de covariância $C$;
-\item Obter os Eigenvalues e Eigenvectors da matriz de Covariância $C$;
+\item Obter os autovalores e autovetores da matriz de Covariância $C$;
 \item Selecionar os melhores M eigenvectors; 
-\item Manter somente os K melhores eigenvectors (K com maiores eigenvalues);%Treshold
+\item Manter somente os K melhores autovetores (K com maiores autovalores);%Treshold
 \item Calcular os pesos $\Omega$ de cada face $\Phi$ pelas eigenfaces.
 
 \end{itemize}
@@ -241,7 +218,6 @@ A segunda etapa sendo a de reconhecimento, se utiliza uma face que esta fora do 
 
 \end{itemize}
 
-
 \section{SISTEMAS EMBARCADOS}\label{r2}
 Atualmente a tecnologia está cada vez mais popular e acessível, sendo assim possui-se diversos tipos diferentes de tecnologias para os mais diversos fins, sendo assim um conceito para que essas tecnologias possam ser classificadas e separadas para os seus específicos fins, pode-se utilizar o conceito de sistemas embarcados. Os sistemas embarcados são tecnologias que são construídas para devidos fins específicos com hardware específico que acaba não podendo ser reutilizado em outras aplicações que não possuam o mesmo hardware utilizado em seu desenvolvimento original.
 
@@ -250,77 +226,111 @@ Os sistemas embarcados podem normalmente desempenhar processos simples, que não 
 Neste âmbito um sistema desenvolvido para um hardware específico pode ser considerado um sistema embarcado, neste tipo de aplicação um hardware muito utilizado atualmente são as RaspberryPi, que são microprocessadores que rodam sistemas operacionais de diversos tipos.
 
 
-\begin{equation}
-N = 300
-\end{equation}
-\begin{equation}
-N^2 = 90000
-\end{equation}
-\begin{equation}
-M = 196
-\end{equation}
-\begin{equation}
-K = 50
-\end{equation}
-\begin{equation}
-I \rightarrow N \times N
-\end{equation}
-\begin{equation}
-\Gamma \rightarrow N^2 \times 1
-\end{equation}
-\begin{equation}
-\Psi \rightarrow N^2 \times 1
-\end{equation}
-\begin{equation}
-\Phi_i \rightarrow N^2 \times 1
-\end{equation}
-\begin{equation}
-C \rightarrow N^2 \times N^2
-\end{equation}
-\begin{equation}
-A \rightarrow M \times N^2
-\end{equation}
-\begin{equation}
-C_{mod} \rightarrow M \times M
-\end{equation}
-\begin{equation}
-u \rightarrow M \times N^2
-\end{equation}
-\begin{equation}
-w_i \rightarrow 1 \times 1
-\end{equation}
-\begin{equation}
-\Omega_i \rightarrow K \times 1
-\end{equation}
-\begin{equation}
-\Omega_i = \lceil w_1 \rceil \\ \vert w_2 \vert
-\end{equation}
-
+%\begin{equation}
+%N = 300
+%\end{equation}
+%\begin{equation}
+%N^2 = 90000
+%\end{equation}
+%\begin{equation}
+%M = 196
+%\end{equation}
+%\begin{equation}
+%K = 50
+%\end{equation}
+%\begin{equation}
+%I \rightarrow N \times N
+%\end{equation}
+%\begin{equation}
+%\Gamma \rightarrow N^2 \times 1
+%\end{equation}
+%\begin{equation}
+%\Psi \rightarrow N^2 \times 1
+%\end{equation}
+%\begin{equation}
+%\Phi_i \rightarrow N^2 \times 1
+%\end{equation}
+%\begin{equation}
+%C \rightarrow N^2 \times N^2
+%\end{equation}
+%\begin{equation}
+%A \rightarrow M \times N^2
+%\end{equation}
+%\begin{equation}
+%C_{mod} \rightarrow M \times M
+%\end{equation}
+%\begin{equation}
+%u \rightarrow M \times N^2
+%\end{equation}
+%\begin{equation}
+%w_i \rightarrow 1 \times 1
+%\end{equation}
+%\begin{equation}
+%\Omega_i \rightarrow K \times 1
+%\end{equation}
+%\begin{equation}
+%\Omega_i = \lceil w_1 \rceil \\ \vert w_2 \vert
+%\end{equation}
 
 \chapter{Materiais e métodos}
-
 Neste capítulo serão abordados os materiais e os métodos utilizados para a construção e desenvolvimento do presente trabalho. 
 O desenvolvimento do presente trabalho possuí uma construção paralela das funções para que se possa ir integrando cada parte do sistema, afim de chegar no final do desenvolvimento com todas as funções funcionando integralmente, sendo assim o início do desenvolvimento segue a etapa de aquisição das imagens, tendo em paralelo o desenvolvimento de uma interface que seja de simples acesso e o mais claro possível para o usuário final.
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figuras/diagrama.png}
+	\includegraphics[width=0.5\textwidth]{figuras/diagrama.jpg}
 	\caption{Diagrama das etapas de desenvolvimento.}
 	\label{diagrama}
 \end{figure}
 
 A aplicação será desenvolvida utilizando a linguagem de programação Python, sendo esta uma linguagem de programação considerada de alto nível, tendo o seu funcionamento interpretado, onde o programa é executado por um interpretador e após pelo sistema operacional ou processador. A linguagem também é orientada a objetos e funcional. Foi criada em 1991. Possui uma grande comunidade, já que a linguagem possui um modelo de desenvolvimento comunitário, onde várias pessoas podem ajudar a desenvolver novas bibliotecas para que toda a comunidade posso utilizar. O sistema proposto foi desenvolvido e testado em uma máquina que possui um processador AMD Ryzen 5 3400G de 3,7GHz, memória RAM de 16GB e uma placa de vídeo Radeon RX 590 de 8GB de VRAM, mas para a aplicação final será utilizado uma Raspberry Pi 3, que possui um processador ARMv8 CORTEX A53 QUADCORE com velocidade de operação de 1.2GHz e 1GB de memória RAM. Utilizando o sistema operacional Linux para executar a aplicação desenvolvida.
 
+Neste trabalho o processo de reconhecimento facial segue os processos básicos para o reconhecimento, tendo somente a modificação de inserção dos dados obtidos no banco de dados, esta ordem pode ser notada na figura \ref{aquisicao}.
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics[width=0.8\textwidth]{figuras/metodologia2.jpg}
+   \caption{Esquemático do método de classificação.}
+   \label{aquisicao}
+\end{figure}
+
+\begin{itemize}
+\item AQUISIÇÃO: O processo de aquisição se refere ao momento em que o usuário tem sua face adquirida por um dispositivo de captura (câmera, filmadora, webcam, etc.);
+
+\item ROI: O processo de determinação de região de interesse tem por funcionamento encontrar uma face na imagem adquirida no processo anterior;
+
+\item SEGMENTAÇÃO: O processo de segmentação por sua vez retira para o sistema somente a face localizada no processo anterior, facilitando a próxima etapa do sistema;
+
+\item CLASSIFICAÇÃO: O processo de classificação consiste em utilizar a face para o reconhecimento de qual usuário está no sistema;
+
+\item INSERÇÃO: O processo de inserção finaliza o sistema, inserindo qual usuário que foi reconhecido pelos processos anteriores.
+\end{itemize}
+
+Cada fase do reconhecimento facial tem uma parte dentro do sistema que executa uma função necessária para poder obter as informações necessária para conseguir obter um valor(face) aceitável para o reconhecimento.
+
 
 \section{Aquisição da Imagem}
 As imagens utilizadas no presente trabalho foram adquiridadas do banco de imagens FEI face database, sendo este um banco de imagens desenvolvido pelo Laboratório de Processamento de Imagens do Departamento de Engenharia Elétrica do Centro Universitário da FEI. Esse banco contém 14 imagens diferentes de 200 indivíduos diferentes, obtendo um total de 2800 imagens.
-Segundo \cite{turk2}, existem problemas significantes de se possuir fundo nas imagens das faces, já que as eigenfaces não fazem distinção do que é ou não uma face. Sendo assim deste banco somente as imagens de face frontal foram utilizadas para o formar um conjunto de treinamento e teste. Contudo é necessário recortar somente o rosto de cada indivíduo, para esta tarefa a proxima seção elucida o processo decorrido.
+Segundo \cite{turk2}, existem problemas significantes de se possuir fundo nas imagens das faces, já que as eigenfaces não fazem distinção do que é ou não uma face. Sendo assim deste banco somente as imagens de face frontal foram utilizadas para o formar um conjunto de treinamento e teste. Contudo é necessário recortar somente o rosto de cada indivíduo, para esta tarefa a proxima seção elucida o processo decorrido. As imagens do banco de faces possuem uma diversidade de indivíduos, tendo diferenças de idade, diferenças de sexo, diferenças de etnias e etc, com isso é possível gerar uma diversidade de PCAs.
 
 \section{Segmentação Facial}
 Para se obter somente a face de cada indivíduo, foi utilizado o Haar Like feature para faces frontais e realizar um processamento na imagem para se obter somente um único canal de escala de cinza (as imagens originais possuem três canais RGB). O tratamento e manuseio das imagens é feito utilizando a biblioteca de visão computacional e aprendizagem de máquina com código livre OpenCV, possuindo mais 2500 algoritmos otimizados para uso de todos. Os algoritmos vão desde detectar objetos até extração de modelos 3D. A biblioteca pode ser utilizada nas linguagens de programação Python, C++, Java e MatLab, tendo seus códigos escritos nativamente em C++. As imagens tratadas são salvas localmente para posteriormente armazenar no banco de dados. Assim que as faces são separadas da imagem original, as imagens resultantes passam por dois processos antes dos cálculos das eigenfaces, sendo eles o processo de retirar canais da imagem transformando em uma imagem com um canal de escala de cinza e a unidimensionalização da imagem em um vetor $\Gamma$.
 
+\section{Obtenção Eigenfaces}
+Para os cálculos de obtenção da eigenfaces a biblioteca Numpy foi utilizada, sendo esta uma biblioteca de código aberto que consegue processar os mais diversos tipos de processos de computação numérica. Criada em 2005 e utilizada amplamente na comunidade científica para os mais diversos cálculos matemáticos e manipulação de dados. Assim com as imagens previamente tratadas, é necessário calcular a imagem da face média $\Psi$, sendo este o valor médio do vetor $\Gamma$. Após este cálculo é necessário fazer a diferença da face média $\Psi$ com o vetor $\Gamma$ gerando o vetor de componentes principais $\Phi$, com isso é possível calcular a matriz de covariância e seus autovalores e autovetores. Os maiores autovetores da matriz de covariância são as eigenfaces do sistema. Um processo que serve para o reconhecimento é o cálculo dos pesos referentes as eigenfaces, esses pesos são colocados em um vetor $\Omega$.
+
 \section{Classificação Eigenfaces}
-Para os cálculos e processos para classificação das eigenfaces, a biblioteca Numpy foi utilizada, sendo esta uma biblioteca de código aberto que consegue processar os mais diversos tipos de processos de computação numérica. Criada em 2005 e utilizada amplamente na comunidade científica para os mais diversos cálculos matemáticos e manipulação de dados. As imagens obtidas previamente são tratadas como vetores numéricos, para poder ser utilizado pela Numpy. Com isso é necessário obter a nova imagem para teste e refazer todos os processos anteriores para normalizar (segmentar a face da imagem, tranformar em um canal de escala de cinza, transformar em um vetor $\Gamma$) a imagem para estar igualmente com as imgens do conjunto de treinamento.
+Para os cálculos e processos para classificação das eigenfaces, a biblioteca Numpy foi utilizada. As imagens obtidas previamente são tratadas como vetores numéricos, para poder ser utilizado pela Numpy. Com isso é necessário obter a nova imagem para teste e refazer todos os processos anteriores para normalizar (segmentar a face da imagem, tranformar em um canal de escala de cinza, transformar em um vetor $\Gamma$) a imagem para estar igualmente com as imgens do conjunto de treinamento. A nova face não possui os pesos calculados em relação as eigenfaces do sistema, sendo assim é necessário fazer este cálculo dos pesos $\Omega$ para fazer o reconhecimento se a face pertence ou não ao sistema.
+
+Para o reconhecimento de uma face, as seguintes considerações foram feitas utilizando os valores de \textit{Threshold} obtidos a partir de experimentação:
+\begin{itemize}
+\item Se o menor valor de $e_{\Omega}$ < $\theta_{\Omega}$ a face pode pertencer ao sistema;
+\item Se o menor valor de $e_{\Phi}$ < $\theta_{\Phi}$ a face é pertencente ao sistema;
+\item Se o valor de $e_{\Omega}$ considera uma face diferente de $e_{\Phi}$, o valor de $e_{\Phi}$ é levado em consideração;
+\item Se o menor valor de $e_{\Omega}$ >= $\theta_{\Omega}$ a face não pertencer ao sistema;
+\end{itemize}
+
+As faces que são reconhecidas como não pertencentes ao sistema, podem ser adicionadas posteriormente ao sistema, recalculando a face $\Psi$ e as eigenfaces com esta face nova.
 
 \section{Desenvolvimento da Interface}
 A interface do sistema foi desenvolvida utilizando a biblioteca Tkinter, sendo esta uma das bibliotecas padrões para desenvolvimento de insterfaces, possui integração com a maioria dos sistemas operacionais Unix e Windows. A interface possui em sua tela principal a visualização da visão da câmera integrada ao sistema, quando uma face é encontrada pelo sistema, a mesma é resaltada na tela principal além das informações do indivíduo da qual a face o sistema reconheceu.
@@ -344,12 +354,12 @@ Para o armazenamento dos arquivos no Google Drive, o seu acesso é feito a partir
 \begin{itemize}
 \item Valor de $\Phi$ da face ou valor de $\Psi$ da face ou valor das eigenfaces;
 \end{itemize}
-Os valores são armazenados em um arquivo \textit{JSON}, podendo ser utilizadas outras formas de salvar o arquivo, porém foi escolhido o arquivo \textit{JSON} para a facilitação ao acesso das informações, já que as mesmas são armazenadas em formato de lista, sendo mais fácil de fazer a transformação para vetores da biblioteca \textit{Numpy}.
+Os valores são armazenados em um arquivo \textit{JSON}, sendo o JSON uma notação de objetos JavaScript, onde é um formato de texto independente de linguagem de programação, pode ser interpretado pelas mais diversas linguagens. Para o armazenamento dos valores poderiam ser utilizadas outras formas de salvar o arquivo, contudo foi escolhido o arquivo JSON para a facilitação ao acesso das informações, já que as mesmas são armazenadas em formato de lista, sendo mais fácil de fazer a transformação para vetores da biblioteca \textit{Numpy}.
 
 \section{Atestado de Presença}
+Assim que o sistema reconhece a face do indivíduo como sendo parte do sistema, a sua presença é computada no banco de dados, sendo assinalado na tela principal do sistema. Para salvar a presença para futuras pesquisas, são salvos no MongoDB, em uma tabela própria, o nome do indivíduo, o nome do evento ou cadeira da qual ele está participando.
 
-
-\section{Finalização do Sistema}
+\section{Integração do Sistema}
 Na sua etapa final, todas as partes desenvolvidas serão integradas em uma versão final, já que ao longo do desenvolvimento do sistema as partes serão testadas para não ter nenhum tipo de problema na integração dos mesmos. O funcionamento do sistema pode ser visto na fig. \ref{sistema}.
 
 \begin{figure}[htb]
@@ -358,6 +368,13 @@ Na sua etapa final, todas as partes desenvolvidas serão integradas em uma versão
 	\caption{Diagrama do sistema.}
 	\label{sistema}
 \end{figure}
+
+O sistema final possui as seguintes funções para utilização do usuário:
+\begin{itemize}
+\item Reconhecimento facial;
+\item Inserção dos dados no Banco de Dados;
+\item Presença armazenada.
+\end{itemize}
 
 \chapter{Resultados e Experimentos}
 
@@ -476,7 +493,7 @@ Calculando o vetor $\Omega$ da nova face, é necessário achar o menor erro euclid
 
 \begin{equation}
 \label{error}
-	e_r = min_l \hspace{1mm} \| \Omega - \Omega^l \| 
+	e_{\Omega} = min_l \hspace{1mm} \| \Omega - \Omega^l \| 
 \end{equation}
 
 O valor de \textit{Threshold} pode ser escolhido arbitrário ou perante um critério de cada aplicação, segundo \cite{marijeta}, não há uma formula para o cálculo de um valor de \textit{Threshold},o que se pode fazer é calcular o erro mínimo da imagem de teste com o treinamento, obtido a partir da fórmula \ref{error}, e pode-se calcular utilizando a equação \ref{thresh}. Contudo este valor máximo acaba sendo um valor distante dos demais valores de erros da fórmula \ref{error}, não podendo ser utilizado para a comparação.
@@ -543,7 +560,7 @@ Contudo durante os testes para obter o melhor valor de \textit{K}, notou-se que 
 
 \begin{equation}
 \label{erro_phi}
-	e_\Phi = \| \widehat{\Phi} - \Phi_i \|
+	e_\Phi = min \| \widehat{\Phi} - \Phi_i \|
 \end{equation}
 
 Com a utilização da fórmula \ref{erro_phi}, notou-se que houve um aumento de 10\% de acertos em comparação com o teste anterior, este teste foi feito olhando cada imagem do teste comparada com a imagem do treinamento, validando manualmente, mas se fez necessário utilizar uma forma de fazer este reconhecimento automaticamente, utilizando os valores de \textit{Erro mínimo de $\Omega$} e o \textit{Erro mínimo de $\Phi$}, sendo assim a Figura \ref{erro_phi30_def} possui uma comparação das faces reconhecidas manualmente com as faces reconhecidas sem nenhum tipo de verificação.
@@ -683,6 +700,24 @@ Pode-se notar que conforme o valor de $e_\Phi$ vai aumentando, a quantidade de f
 \section{Armazenamento}
 Dentro do desenvolvimento do trabalho proposto, foi necessário criar um meio de armazenar e recuperar as imagens e valores utilizados pelo sistema. O acesso das imagens feito localmente não possui um atraso para a obtenção de cada imagem, contudo caso exista algum tipo de perda do sistema por meios físicos, as imagens serão perdidas e será necessário reconfigurar o sistema. Com isso em mente o armazenamento externo foi pensado, sendo esta uma forma mais prática de salvar as informações do sistema, contudo existe o atraso para a recuperação das informações que foram salvas externamente.
 
+O processo de armazenamento em ambos os bancos ocorre em três etapas, sendo elas: Gerar as informações da face (valores de $\Phi$ e $\Omega$ de cada face individualmente), salvar essas informações no Google Drive e devolver o ID que foi salvo e salvar no Mongo o ID do Gogle Drive juntamente com o nome de cada pessoa. Um exemplo deste processo pode ser notado na Figura \ref{fluxo_banco}.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/fluxo_arm.jpg}
+	\caption{Armazenamento das imagens a partir dos Bancos de Dados.}
+	\label{fluxo_banco}
+\end{figure}
+
+
+Para a análise de um nova face, é necessário buscar os valores de cada face no banco de imagens, a forma de busca é feita a partir dos valors de $\Omega$, que foram armazenados previamente, e devolvido o valor de $\Phi$ da face reconhecida (deve-se após receber o valor de $\Phi$ somar o valor de $\Psi$ que também está armazenado no banco de imagens). O método de utilização de ambos os bancos pode ser notado na Figura \ref{recupera_img}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figuras/recupera_img.jpg}
+	\caption{Recuperação das imagens a partir dos Bancos de Dados.}
+	\label{recupera_img}
+\end{figure}
+
 Para poder demonstrar que existe um atraso para a recuperação das imagens armazenadas o seguinte experimento foi feito: as imagens são armazenadas no Google Drive e o identificador único atrelado ao arquivo é gerado, este identificador é salvo posteriormente no banco de dados do MongoDB. Os arquivos foram divididos em três classes sendo elas, a face média $\Psi$ (contém somente um arquivo), as eigenfaces (contém setenta arquivos diferentes) e as faces $\Phi$ (contém cento e noventa e seis arquivos diferentes). O sistema recupera cada imagem a partir de seu identificador, com isso a tabela \ref{tab:time} foi gerada.
 
 \begin{table}[h!]
@@ -702,30 +737,6 @@ Para poder demonstrar que existe um atraso para a recuperação das imagens armaze
 \end{table}
 
 Os tempos de aquisições dos arquivos estão diretamente atrelado ao acesso ao Google Drive, devido que o tempo para a obtenção de todos os identificadores que estão armazenados no MongoDB acaba não levando mais do que um segundo. Com um total de 635 segundos para obter todos os arquivos necessários para o funcionamento do sistema, estes arquivos devem ser carregados na inicialização do sistema e ser utilizado localmente, devido a esta quantidade de tempo necessária para fazer a requisição dos arquivos, pois para cada face que irá ser reconhecida é necessário todos os arquivos armazenados, sendo assim o tempo total mais o tempo para o reconhecimento seria o tempo total que o usuário deve esperar pra poder ser reconhecido.
-
-
-
-
-
-
-O processo de armazenamento em ambos os bancos ocorre em três etapas, sendo elas: Gerar as informações da face (valores de $\Phi$ e $\Omega$ de cada face individualmente), salvar essas informações no Google Drive e devolver o ID que foi salvo e salvar no Mongo o ID do Gogle Drive juntamente com o nome de cada pessoa. Um exemplo deste processo pode ser notado na Figura \ref{fluxo_banco}.
-
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=1\textwidth]{figuras/fluxo_arm.jpg}
-	\caption{Recuperação das imagens a partir dos Bancos de Dados.}
-	\label{fluxo_banco}
-\end{figure}
-
-
-Para a análise de um nova face, é necessário buscar os valores de cada face no banco de imagens, a forma de busca é feita a partir dos valors de $\Omega$, que foram armazenados previamente, e devolvido o valor de $\Phi$ da face reconhecida (deve-se após receber o valor de $\Phi$ somar o valor de $\Psi$ que também está armazenado no banco de imagens). O método de utilização de ambos os bancos pode ser notado na Figura \ref{recupera_img}
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.7\textwidth]{figuras/recupera_img.jpg}
-	\caption{Recuperação das imagens a partir dos Bancos de Dados.}
-	\label{recupera_img}
-\end{figure}
-
 
 \section{Interface}
 
