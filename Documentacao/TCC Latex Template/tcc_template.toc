@@ -17,19 +17,18 @@
 \contentsline {subsection}{\numberline {2.4.1}Reconhecimento Utilizando Eigenfaces}{16}%
 \contentsline {section}{\numberline {2.5}SISTEMAS EMBARCADOS}{16}%
 \contentsline {chapter}{\numberline {3}Materiais e m\'etodos}{18}%
-\contentsline {section}{\numberline {3.1}Aquisi\c c\~ao da Imagem}{19}%
-\contentsline {section}{\numberline {3.2}Segmenta\c c\~ao Facial}{20}%
-\contentsline {section}{\numberline {3.3}Obten\c c\~ao Eigenfaces}{20}%
-\contentsline {section}{\numberline {3.4}Classifica\c c\~ao Eigenfaces}{20}%
-\contentsline {section}{\numberline {3.5}Desenvolvimento da Interface}{21}%
-\contentsline {section}{\numberline {3.6}Integra\c c\~ao Banco de Dados}{21}%
-\contentsline {section}{\numberline {3.7}Atestado de Presen\c ca}{22}%
-\contentsline {section}{\numberline {3.8}Integra\c c\~ao do Sistema}{22}%
-\contentsline {chapter}{\numberline {4}Resultados e Experimentos}{24}%
-\contentsline {section}{\numberline {4.1}Obten\c c\~ao das Eigenfaces}{24}%
-\contentsline {subsection}{\numberline {4.1.1}Reconhecimento utilizando as Eigenfaces}{27}%
-\contentsline {section}{\numberline {4.2}Armazenamento}{33}%
-\contentsline {section}{\numberline {4.3}Interface}{35}%
-\contentsline {chapter}{\numberline {5}Conclus\~ao}{38}%
-\contentsline {chapter}{\numberline {6}Trabalhos Futuros}{39}%
-\contentsline {chapter}{Refer{\^e}ncias}{40}%
+\contentsline {section}{\numberline {3.1}Aquisi\c c\~ao da Imagem}{21}%
+\contentsline {section}{\numberline {3.2}Segmenta\c c\~ao Facial}{21}%
+\contentsline {section}{\numberline {3.3}Obten\c c\~ao Eigenfaces}{22}%
+\contentsline {section}{\numberline {3.4}Classifica\c c\~ao Eigenfaces}{25}%
+\contentsline {section}{\numberline {3.5}Desenvolvimento da Interface}{26}%
+\contentsline {section}{\numberline {3.6}Integra\c c\~ao Banco de Dados}{27}%
+\contentsline {section}{\numberline {3.7}Atestado de Presen\c ca}{28}%
+\contentsline {section}{\numberline {3.8}Integra\c c\~ao do Sistema}{29}%
+\contentsline {chapter}{\numberline {4}Resultados e Experimentos}{30}%
+\contentsline {section}{\numberline {4.1}Eigenfaces}{30}%
+\contentsline {section}{\numberline {4.2}Armazenamento}{35}%
+\contentsline {section}{\numberline {4.3}Interface}{37}%
+\contentsline {chapter}{\numberline {5}Conclus\~ao}{40}%
+\contentsline {chapter}{\numberline {6}Trabalhos Futuros}{41}%
+\contentsline {chapter}{Refer{\^e}ncias}{42}%

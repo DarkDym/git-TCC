@@ -51,10 +51,10 @@
 
 \begin{folhadeaprovacao}
 Monografia sob o título \textit{"Reconhecimento Facial para Classificação e Registro de Presença em Sala de Aula"}, defendida por Alleff Dymytry Pereira de Deus e aprovada em 3 de Julho de 2020, em Guaíba, estado do Rio Grande do Sul, pela banca examinadora constituída pelos professores:
-    \assinatura{Profa. Dra. Adriane Parraga \\ Orientadora}
+    \assinatura{Profa. Dra. Letícia Vieira Guimarães \\ Orientadora}
+    \assinatura{Profa. Dra. Adriane Parraga}
     \assinatura{Prof. Dr. João Leonardo Fragoso}
-        \assinatura{Profa. Dra. Letícia Vieira Guimarães}
-    \assinatura{Prof. Dr. Roberto Ribeiro Baldino}
+%    \assinatura{Prof. Dr. Roberto Ribeiro Baldino}
 
 \end{folhadeaprovacao}
 
@@ -273,8 +273,9 @@ Neste âmbito um sistema desenvolvido para um hardware específico pode ser consid
 %\end{equation}
 
 \chapter{Materiais e métodos}
-Neste capítulo serão abordados os materiais e os métodos utilizados para a construção e desenvolvimento do presente trabalho. 
-O desenvolvimento do presente trabalho possuí uma construção paralela das funções para que se possa ir integrando cada parte do sistema, afim de chegar no final do desenvolvimento com todas as funções funcionando integralmente, sendo assim o início do desenvolvimento segue a etapa de aquisição das imagens, tendo em paralelo o desenvolvimento de uma interface que seja de simples acesso e o mais claro possível para o usuário final.
+Neste capítulo serão abordados os materiais e os métodos utilizados para a construção e desenvolvimento do presente trabalho.
+%Já estava escrito
+O desenvolvimento do presente trabalho possuí uma construção paralela das funções para que se possa ser integrado cada parte do sistema, afim de chegar no final do desenvolvimento com todas as funções funcionando integralmente, sendo assim o início do desenvolvimento segue a etapa de aquisição das imagens, tendo em paralelo o desenvolvimento de uma interface que seja de simples acesso e o mais claro possível para o usuário final.
 
 \begin{figure}[htb]
 	\centering
@@ -283,7 +284,26 @@ O desenvolvimento do presente trabalho possuí uma construção paralela das funçõe
 	\label{diagrama}
 \end{figure}
 
-A aplicação será desenvolvida utilizando a linguagem de programação Python, sendo esta uma linguagem de programação considerada de alto nível, tendo o seu funcionamento interpretado, onde o programa é executado por um interpretador e após pelo sistema operacional ou processador. A linguagem também é orientada a objetos e funcional. Foi criada em 1991. Possui uma grande comunidade, já que a linguagem possui um modelo de desenvolvimento comunitário, onde várias pessoas podem ajudar a desenvolver novas bibliotecas para que toda a comunidade posso utilizar. O sistema proposto foi desenvolvido e testado em uma máquina que possui um processador AMD Ryzen 5 3400G de 3,7GHz, memória RAM de 16GB e uma placa de vídeo Radeon RX 590 de 8GB de VRAM, mas para a aplicação final será utilizado uma Raspberry Pi 3, que possui um processador ARMv8 CORTEX A53 QUADCORE com velocidade de operação de 1.2GHz e 1GB de memória RAM. Utilizando o sistema operacional Linux para executar a aplicação desenvolvida.
+%Estou adicionando agora para modificar para o segmento de duas partes do sistema
+O desenvolvimento do presente trabalho foi dividido em duas partes seguindo o modelo de metodologia da Figura \ref{diagrama}, sendo agrupadas em relação aos processos necessários para o funcionamento das funções desenvolvidas, sendo assim pode-se dividir entre o processo de supervisão do sistema e o processo de atribuição da presença do aluno. Algumas funções possuem características em comum, mudando somente a utilização final de seus resultados, como pode ser notado na Figura \ref{proc_super} e \ref{proc_atrib}. O processo de supervisão do sistema tem por objetivo conter todas as funções que somente o administrador do sistema poderá utilizar. O processo de atribuição de presença do aluno ocorre automaticamente dentro do sistema, sendo necessário ao administrador analisar os logs do sistema para caso seja necessário ajustar ou inserir o aluno na base de dados.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.2\textwidth]{figuras/proc_super.jpg}
+	\caption{Diagrama do processo de supervisão do sistema.}
+	\label{proc_super}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.2\textwidth]{figuras/proc_atrib.jpg}
+	\caption{Diagrama das etapas de desenvolvimento.}
+	\label{proc_atrib}
+\end{figure}
+
+A aplicação foi desenvolvida utilizando a linguagem de programação Python, sendo esta uma linguagem de programação considerada de alto nível, tendo o seu funcionamento interpretado, onde o programa é executado por um interpretador e após pelo sistema operacional ou processador. A linguagem também é orientada a objetos e funcional. Foi criada em 1991. Possui uma grande comunidade, já que a linguagem possui um modelo de desenvolvimento comunitário, onde várias pessoas podem ajudar a desenvolver novas bibliotecas para que toda a comunidade posso utilizar. O sistema proposto foi desenvolvido e testado em uma máquina que possui um processador AMD Ryzen 5 3400G de 3,7GHz, memória RAM de 16GB e uma placa de vídeo Radeon RX 590 de 8GB de VRAM, mas para a aplicação final será utilizado em uma Raspberry Pi 3, que possui um processador ARMv8 CORTEX A53 QUADCORE com velocidade de operação de 1.2GHz e 1GB de memória RAM. Utilizando o sistema operacional Linux para executar a aplicação desenvolvida.
+
+As imagens utilizadas para o treinamento no presente trabalho foram retiradas do banco de imagens FEI face database, sendo este um banco de imagens desenvolvido pelo Laboratório de Processamento de Imagens do Departamento de Engenharia Elétrica do Centro Universitário da FEI. Esse banco contém 14 imagens diferentes de 200 indivíduos diferentes, obtendo um total de 2800 imagens. Dos 200 indivíduos pertencentes ao banco, para o treinamento do presente trabalho somente 49 indivíduos foram utilizados, sendo 1/4 do valor total. As imagens do banco de faces possuem uma diversidade de indivíduos, tendo diferenças de idade, diferenças de sexo, diferenças de etnias e etc, com isso é possível gerar uma diversidade de PCAs. Segundo \cite{turk2}, existem problemas significantes de se possuir fundo nas imagens das faces, já que as eigenfaces não fazem distinção do que é ou não uma face. Sendo assim deste banco somente as imagens de face frontal foram utilizadas para o formar um conjunto de treinamento e teste. Sendo assim é necessário recortar somente o rosto de cada indivíduo. 
 
 Neste trabalho o processo de reconhecimento facial segue os processos básicos para o reconhecimento, tendo somente a modificação de inserção dos dados obtidos no banco de dados, esta ordem pode ser notada na figura \ref{aquisicao}.
 
@@ -308,81 +328,45 @@ Neste trabalho o processo de reconhecimento facial segue os processos básicos pa
 
 Cada fase do reconhecimento facial tem uma parte dentro do sistema que executa uma função necessária para poder obter as informações necessária para conseguir obter um valor(face) aceitável para o reconhecimento.
 
-
 \section{Aquisição da Imagem}
-As imagens utilizadas no presente trabalho foram adquiridadas do banco de imagens FEI face database, sendo este um banco de imagens desenvolvido pelo Laboratório de Processamento de Imagens do Departamento de Engenharia Elétrica do Centro Universitário da FEI. Esse banco contém 14 imagens diferentes de 200 indivíduos diferentes, obtendo um total de 2800 imagens.
-Segundo \cite{turk2}, existem problemas significantes de se possuir fundo nas imagens das faces, já que as eigenfaces não fazem distinção do que é ou não uma face. Sendo assim deste banco somente as imagens de face frontal foram utilizadas para o formar um conjunto de treinamento e teste. Contudo é necessário recortar somente o rosto de cada indivíduo, para esta tarefa a proxima seção elucida o processo decorrido. As imagens do banco de faces possuem uma diversidade de indivíduos, tendo diferenças de idade, diferenças de sexo, diferenças de etnias e etc, com isso é possível gerar uma diversidade de PCAs.
+Para a aquisição da imagem dentro do sistema é necessário a utilização de imagens adquiridas a partir de uma webcam para captura, para ser feito o acesso a webcam a biblioteca OpenCV foi utilizada, sendo o OpenCV uma biblioteca de visão computacional e aprendizagem de máquina com código livre, possuindo mais 2500 algoritmos otimizados para uso de todos. Os algoritmos vão desde detectar objetos até extração de modelos 3D. A biblioteca pode ser utilizada nas linguagens de programação Python, C++, Java e MatLab, tendo seus códigos escritos nativamente em C++. Com a utilização do OpenCV pode-se utilizar diversos tamanhos de imagens diferentes, no presente trabalho foi utilizado as seguintes dimensões: Altura - 480 pixels e Largura - 640 pixels, poderia se utilizar o tamanho da imagem necessária para a obtenção das eigenfaces diretamente, contudo se perderia resolução no momento de aquisição da imagem, reduzindo a chance de reconhecimento das eigenfaces.
+
+\begin{enumerate}
+\item Aquisição na Supervisão do Sistema
+\end{enumerate}
+A aquisição da imagem durante a supervisão do sistema ocorre de forma a se obter imagens para cadastrar um novo aluno ou alterar uma imagem já existente. Sendo assim o administrador do sistema pode adquirir uma imagem quando achar necessário, durante a aquisição o processo de salvar uma imagem só pode ser feito se uma face for encontrada pelas características haar, como na Figura \ref{segmentacao}, caso não seja detectado uma face o sistema não permite que seja adquirido uma imagem, assim protejendo o sistema de possíveis falhas. 
+
+\begin{enumerate}[resume]
+\item Aquisição na Atribuição da presença
+\end{enumerate}
+A aquisição da imagem durante o processo de atribuição da presença ocorre automaticamente, onde assim que uma face é encontrada, a imagem da mesma é adquirida e disponibilizada para o sistema, sem a supervisão de um usuário. A imagem adquirida é disponibilizada por um curto período de tempo para que o indivíduo possa ver que seu rosto foi adquirido pelo sistema e sua presença registrada.
 
 \section{Segmentação Facial}
-Para se obter somente a face de cada indivíduo, foi utilizado o Haar Like feature para faces frontais e realizar um processamento na imagem para se obter somente um único canal de escala de cinza (as imagens originais possuem três canais RGB). O tratamento e manuseio das imagens é feito utilizando a biblioteca de visão computacional e aprendizagem de máquina com código livre OpenCV, possuindo mais 2500 algoritmos otimizados para uso de todos. Os algoritmos vão desde detectar objetos até extração de modelos 3D. A biblioteca pode ser utilizada nas linguagens de programação Python, C++, Java e MatLab, tendo seus códigos escritos nativamente em C++. As imagens tratadas são salvas localmente para posteriormente armazenar no banco de dados. Assim que as faces são separadas da imagem original, as imagens resultantes passam por dois processos antes dos cálculos das eigenfaces, sendo eles o processo de retirar canais da imagem transformando em uma imagem com um canal de escala de cinza e a unidimensionalização da imagem em um vetor $\Gamma$.
+Para se obter somente a face de cada indivíduo, foi utilizado o Haar Like feature para faces frontais e realizar um processamento na imagem para se obter somente um único canal de escala de cinza (as imagens originais possuem três canais RGB), este tratamento e manuseio das imagens é feito utilizando o OpenCV. A segmentação das faces é dividida em duas situações:
 
-\section{Obtenção Eigenfaces}
-Para os cálculos de obtenção da eigenfaces a biblioteca Numpy foi utilizada, sendo esta uma biblioteca de código aberto que consegue processar os mais diversos tipos de processos de computação numérica. Criada em 2005 e utilizada amplamente na comunidade científica para os mais diversos cálculos matemáticos e manipulação de dados. Assim com as imagens previamente tratadas, é necessário calcular a imagem da face média $\Psi$, sendo este o valor médio do vetor $\Gamma$. Após este cálculo é necessário fazer a diferença da face média $\Psi$ com o vetor $\Gamma$ gerando o vetor de componentes principais $\Phi$, com isso é possível calcular a matriz de covariância e seus autovalores e autovetores. Os maiores autovetores da matriz de covariância são as eigenfaces do sistema. Um processo que serve para o reconhecimento é o cálculo dos pesos referentes as eigenfaces, esses pesos são colocados em um vetor $\Omega$.
-
-\section{Classificação Eigenfaces}
-Para os cálculos e processos para classificação das eigenfaces, a biblioteca Numpy foi utilizada. As imagens obtidas previamente são tratadas como vetores numéricos, para poder ser utilizado pela Numpy. Com isso é necessário obter a nova imagem para teste e refazer todos os processos anteriores para normalizar (segmentar a face da imagem, tranformar em um canal de escala de cinza, transformar em um vetor $\Gamma$) a imagem para estar igualmente com as imgens do conjunto de treinamento. A nova face não possui os pesos calculados em relação as eigenfaces do sistema, sendo assim é necessário fazer este cálculo dos pesos $\Omega$ para fazer o reconhecimento se a face pertence ou não ao sistema.
-
-Para o reconhecimento de uma face, as seguintes considerações foram feitas utilizando os valores de \textit{Threshold} obtidos a partir de experimentação:
-\begin{itemize}
-\item Se o menor valor de $e_{\Omega}$ < $\theta_{\Omega}$ a face pode pertencer ao sistema;
-\item Se o menor valor de $e_{\Phi}$ < $\theta_{\Phi}$ a face é pertencente ao sistema;
-\item Se o valor de $e_{\Omega}$ considera uma face diferente de $e_{\Phi}$, o valor de $e_{\Phi}$ é levado em consideração;
-\item Se o menor valor de $e_{\Omega}$ >= $\theta_{\Omega}$ a face não pertencer ao sistema;
-\end{itemize}
-
-As faces que são reconhecidas como não pertencentes ao sistema, podem ser adicionadas posteriormente ao sistema, recalculando a face $\Psi$ e as eigenfaces com esta face nova.
-
-\section{Desenvolvimento da Interface}
-A interface do sistema foi desenvolvida utilizando a biblioteca Tkinter, sendo esta uma das bibliotecas padrões para desenvolvimento de insterfaces, possui integração com a maioria dos sistemas operacionais Unix e Windows. A interface possui em sua tela principal a visualização da visão da câmera integrada ao sistema, quando uma face é encontrada pelo sistema, a mesma é resaltada na tela principal além das informações do indivíduo da qual a face o sistema reconheceu.
-
-\section{Integração Banco de Dados}
-Dentro do desenvolvimento do trabalho proposto, foi necessário criar um meio de armazenar e recuperar as imagens e valores utilizados pelo sistema. No inicio da aplicação foram utilizadas as imagens localmente, sendo armazenadas e utilizadas somente durante a execução do sistema. Contudo este tipo de solução pode acabar esgotando o armazenamento interno do dispositivo que roda o sistema, sendo assim para que este problema fosse sanado, a forma de armazenamento das informações foi dividdo em duas formas, sendo uma delas para o armazenamento das informações e outra para o armazenamento dos arquivos.
-
-As imagens que são utilizadas pelo sistema projetado deve ser alocado em um local que seja fácil buscar e armazenar, sendo assim foi pensado em utilizar um banco que tivesse uma liberdade de inserir as informações das imagens sem a necessidade de um banco complexo. Sendo assim o banco de dados MongoDB foi tutilizado, sendo o MongoDB um banco de dados não relacional que utiliza documentos para armazenar informações, utilizando informações na linguagem JSON. Podendo se conectar com as mais diversas linguagens de programação (como por exemplo: Java, Python, Ruby, C++, etc). Pode ser utilizado com repositórios locais ou até mesmo com repositórios armazenados em nuvem de forma gratuita (conforme utilização do armazenamento e acesso repetidos dos dados). Dentro de algumas de suas vantegens, pode-se elencar a relação de não ser necessário as condições relacionais para começar a armazenar dados, obtendo melhor performace em relação as suas consultas, já que tudo esta dentro de um único documento. Contudo isso acaba sendo uma desvantagem também, pois caso seja necessário a modificação de algum atributo para todos as entradas, cada valor deve ser tratado um a um. Devido a quantidade de arquivos que são necessários para o funcionamento do projeto, as informações dos arquivos foram salvos no MongoDB e os arquivos propriamente ditos foram armazenados no Google Drive, sendo este um serviço de armazenamento e sicronização de arquivos desenvolvido pela empresa Google.
-
-Para o acesso de ambos os bancos é necessário a configuração e utilização de arquivos de configuração, que contenham os usuários e senhas para acesso. Para o acesso do repositório do MongoDB é necessário repassar a linha de conexão do repositório. Para a conexão do Google Drive é necessário a configuração e o aceite na conta do usuário que irá hospedar os arquivos, neste caso foi configurado o arquivo \textit{settings.yaml} para que não fosse necessário abrir uma janela de aceite a cada vez que o sistema fosse executado.
-
-Para o armazenamento das informações no MongoDB, o seu acesso é feito a partir da biblioteca \textit{Pymongo}, onde cada face tem as seguintes informações armazenadas: 
 \begin{enumerate}
-\item ID do Mongo;
-\item Nome da Pessoa;
-\item ID do Google Drive.
+\item Segmentação na Supervisão do Sistema
 \end{enumerate}
 
-O \textit{ID do Mongo} é um identificador que é gerado automaticamente, sendo uma chave primária igual a de um banco de dados relacional, onde este é um identificador único. O \textit{ID do Google Drive} é o identificador único que é gerado automaticamente quando o arquivo com as informações da imagem da face são salvos.
-Para o armazenamento dos arquivos no Google Drive, o seu acesso é feito a partir da biblioteca \textit{Pydrive}, onde cada arquivo tem as seguintes infromações armazenadas:
-\begin{itemize}
-\item Valor de $\Phi$ da face ou valor de $\Psi$ da face ou valor das eigenfaces;
-\end{itemize}
-Os valores são armazenados em um arquivo \textit{JSON}, sendo o JSON uma notação de objetos JavaScript, onde é um formato de texto independente de linguagem de programação, pode ser interpretado pelas mais diversas linguagens. Para o armazenamento dos valores poderiam ser utilizadas outras formas de salvar o arquivo, contudo foi escolhido o arquivo JSON para a facilitação ao acesso das informações, já que as mesmas são armazenadas em formato de lista, sendo mais fácil de fazer a transformação para vetores da biblioteca \textit{Numpy}.
+A segmentação da face na supervisão do sistema utiliza as faces adquiridas previamente pelo administrador do sistema, sendo processadas utilizando as características haar para retirar somente a face frontal sendo esta a região de interesse. As faces segmentadas passam por um processamento para somente possuir um canal em escala de cinza, assim elas podem ser utilizadas para os cálculos necessários no sistema.
 
-\section{Atestado de Presença}
-Assim que o sistema reconhece a face do indivíduo como sendo parte do sistema, a sua presença é computada no banco de dados, sendo assinalado na tela principal do sistema. Para salvar a presença para futuras pesquisas, são salvos no MongoDB, em uma tabela própria, o nome do indivíduo, o nome do evento ou cadeira da qual ele está participando.
+\begin{enumerate}[resume]
+\item Segmentação na Atribuição de presença
+\end{enumerate}
 
-\section{Integração do Sistema}
-Na sua etapa final, todas as partes desenvolvidas serão integradas em uma versão final, já que ao longo do desenvolvimento do sistema as partes serão testadas para não ter nenhum tipo de problema na integração dos mesmos. O funcionamento do sistema pode ser visto na fig. \ref{sistema}.
+A segmentação da face durante a atribuição da presença, utiliza a face adquirida pelo sistema a partir da webcam, segmentando a face utilizando as características haar como na supervisão do sistema, contudo este processo ocorre sem que o administrador precise ter interação com o sistema. A face segmentada é encaminhada para as próximas funções necessárias para a atribuição da presença, um exemplo da segmentação na interface pode ser notado na Figura \ref{segmentacao}.
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=0.8\textwidth]{figuras/sistema.png}
-	\caption{Diagrama do sistema.}
-	\label{sistema}
+	\includegraphics[width=0.5\textwidth]{figuras/segmentacao.jpg}
+	\caption{Segmentação Facial.}
+	\label{segmentacao}
 \end{figure}
 
-O sistema final possui as seguintes funções para utilização do usuário:
-\begin{itemize}
-\item Reconhecimento facial;
-\item Inserção dos dados no Banco de Dados;
-\item Presença armazenada.
-\end{itemize}
+\section{Obtenção Eigenfaces}
+Para os cálculos de obtenção da eigenfaces a biblioteca Numpy foi utilizada, sendo esta uma biblioteca de código aberto que consegue processar os mais diversos tipos de processos de computação numérica. Criada em 2005 e utilizada amplamente na comunidade científica para os mais diversos cálculos matemáticos e manipulação de dados.
 
-\chapter{Resultados e Experimentos}
-
-Nesta seção serão discutidos os resultados obtidos a partir da aplicação construida e das eigenfaces obtidas.
-
-\section{Obtenção das Eigenfaces}
-
-A primeira etapa para o processo de obtenção das eigenfaces é obter um conjunto de imagens, estas imagens serão o grupo de treinamento um exemplo de algumas das imagens utilizadas nesta etapa pode ser notada na Figura \ref{faces}, as imagens foram utilizadas para o treinamento, tiveram a face cortada, pois somente é necessário utilizar uma parte menor do rosto para o reconhecimento, sendo assim após o corte e tranformação em um único canal de escala de cinza, para que a quantidade de cálculos diminuisse (Imagem sem modificar $I: (N \times N \times 3)$, imagem modificada $I: (N \times N \times 1)$)  após deve-se transformar cada imagem $I : (N \times N)$ em um vetor gama $\Gamma : (N^2 \times 1)$, onde é necessário tranformar o vetor em uma dimensão, para reduzir o tamanho dos cálculos as imagens foram redimensionadas no tamanho $N = 300 \times 300$ e possuem somente um canal em escala de cinza, um exemplo da imagem de treinamento pode ser vista na figura \ref{face}. As imagens podem ser normalizadas dividindo pelo valor máximo de 255 para facilitar os cálculos.
+Para os cálculos das eigenfaces deve-se considerar o tamanho das imagens que serão utilizadas no sistema, sendo assim, tanto as imagens do banco de faces e as imagens adquiridas pela webcam foram redimensionadas no tamanho $N = 300 \times 300$ e possuem somente um canal em escala de cinza para a minimização dos cálculos (Imagem sem modificar $I: (N \times N \times 3)$, imagem modificada $I: (N \times N \times 1)$)  após deve-se transformar cada imagem $I : (N \times N)$ em um vetor gama $\Gamma : (N^2 \times 1)$, onde é necessário tranformar o vetor em uma dimensão, um exemplo da imagem de treinamento pode ser vista na figura \ref{face}. As imagens podem ser normalizadas dividindo pelo valor máximo de 255 para facilitar os cálculos.
 
 \begin{figure}[htb]
 	\centering
@@ -470,9 +454,11 @@ Os pesos $w_j$ são distintos para cada face, esses pesos mais a face média $\Psi
 			\end{array} \right], \hspace{2cm} i = 1,2,\cdots,M	 
 \end{equation}
 
-\subsection{Reconhecimento utilizando as Eigenfaces}
 
-Para a fase de reconhecimento é necessário representar uma face nova, de fora do conjunto de treinamento, no "espaço de faces" normalizando ela com a face média $\Psi$ como na equação \ref{new_face} (a nova face já deve estar no formato de $\Gamma$ para ser representada).
+%Assim com as imagens previamente tratadas, é necessário calcular a imagem da face média $\Psi$, sendo este o valor médio do vetor $\Gamma$. Após este cálculo é necessário fazer a diferença da face média $\Psi$ com o vetor $\Gamma$ gerando o vetor de componentes principais $\Phi$, com isso é possível calcular a matriz de covariância e seus autovalores e autovetores. Os maiores autovetores da matriz de covariância são as eigenfaces do sistema. Um processo que serve para o reconhecimento é o cálculo dos pesos referentes as eigenfaces, esses pesos são colocados em um vetor $\Omega$.
+
+\section{Classificação Eigenfaces}
+Para os cálculos e processos para classificação das eigenfaces, a biblioteca Numpy foi utilizada. As imagens obtidas previamente são tratadas como vetores numéricos, para poder ser utilizado pela Numpy. Com isso é necessário obter a nova imagem para teste e refazer todos os processos anteriores para normalizar (segmentar a face da imagem, tranformar em um canal de escala de cinza, transformar em um vetor $\Gamma$) a imagem para estar igualmente com as imgens do conjunto de treinamento. A nova face não possui os pesos calculados em relação as eigenfaces do sistema, sendo assim é necessário fazer este cálculo dos pesos $\Omega$ para fazer o reconhecimento se a face pertence ou não ao sistema. Este processo é uma  representação da face nova, de fora do conjunto de treinamento, no "espaço de faces" normalizando ela com a face média $\Psi$ como na equação \ref{new_face} (a nova face já deve estar no formato de $\Gamma$ para ser representada).
 
 \begin{equation}
 \label{new_face}
@@ -503,7 +489,110 @@ O valor de \textit{Threshold} pode ser escolhido arbitrário ou perante um critér
 	\theta = 0,8 * max(rast) 
 \end{equation}
 
-Nesta etapa do reconhecimento foram utilizadas 50 imagens (100 imagens totais, devido ao espelhamento de cada imagem)de faces diferentes que são pertencentes as da base de treinamento, porém possuem um distúrbio em cada imagem (o distúrbio da imagem são as modificações do rosto de cada pessoa, pois estão sorrindo). Para a classificação a fórmula \ref{error} foi utilizada, obtendo um acerto de 80\% das faces testadas, utilizando somente o erro mínimo para a seleção da face. Assim com o valor de erro de cada face obtido, foi necessário procurar qual a face que havia obtido o menor erro, os resultdos podem ser observados na Figura \ref{erro_face}
+Para o reconhecimento de uma face, as seguintes considerações foram feitas utilizando os valores de \textit{Threshold} obtidos a partir de experimentação:
+\begin{itemize}
+\item Se o menor valor de $e_{\Omega}$ < $\theta_{\Omega}$ a face pode pertencer ao sistema;
+\item Se o menor valor de $e_{\Phi}$ < $\theta_{\Phi}$ a face é pertencente ao sistema;
+\item Se o valor de $e_{\Omega}$ considera uma face diferente de $e_{\Phi}$, o valor de $e_{\Phi}$ é levado em consideração;
+\item Se o menor valor de $e_{\Omega}$ >= $\theta_{\Omega}$ a face não pertencer ao sistema;
+\end{itemize}
+
+As faces que são reconhecidas como não pertencentes ao sistema, podem ser adicionadas posteriormente ao sistema, recalculando a face $\Psi$ e as eigenfaces com esta face nova.
+
+\section{Desenvolvimento da Interface}
+A interface do sistema foi desenvolvida utilizando a biblioteca Tkinter, sendo esta uma das bibliotecas padrões para desenvolvimento de insterfaces, possui integração com a maioria dos sistemas operacionais Unix e Windows, fazendo com que seja possível possuir uma interface compatível com uma grande gama de sistemas operacionais. A interface pode ser dividida dentro dos dois processos que o presente trabalho foi dividido.
+
+\begin{enumerate}
+\item Supervisão do Sistema
+\end{enumerate}
+
+A interface da Supervisão do Sistema possui o intuito de manter as funções necessárias para o funcionamento correto do sistema podendo ser acessado somente pelo administrador do sistema, devido ser necessário fazer um login de acesso a esta tela, com isto nesta parte do sistema pode-se cadastrar novas faces ao banco de faces, cadastrar novos aula/eventos, verificar os estados das presenças.
+
+\begin{itemize}
+\item Cadastro de faces
+\end{itemize}
+
+Dentro da fase do reconhecimento facial, existe a possibilidade que uma face não seja reconhecida como pertencente ao sistema, sendo assim se faz necessário cadastrar o indíduo no sistema, sendo assim a função para cadastro de novas faces possibilita a aquisição das imagens da face diretamente a partir da webcam integrada ao sistema, sendo necessário obter um segmento de imagens e escolher a melhor entre elas. A imagem escolhida passa por um processo de normalização, para ser armazenada no banco de dados junto com as suas informações.
+
+Devido ao cadastro de uma nova face ao banco de faces, se faz necessário recalcular a face $\Psi$ juntamente com os pesos $\Omega$ da conjunto de treinamento, o conjunto de treinamento é composto de todas as faces do sistema, onde é necessário sempre fazer os cálculos previamente para a utilização no reconhecimento, após os cálculos é necessário atualizar as informações no banco de dados e no Google drive.
+
+\begin{itemize}[resume]
+\item Cadastro de aulas e eventos
+\end{itemize}
+
+Com o reconhecimento da face de um indivíduo, deve-se colocar a sua presença em uma tabela que posteriormente é armazenada no banco de dados, assim é necessário que o administrador do sistema cadastre os eventos e aulas previamente, nesta parte do sistema o admnistrador pode colocar o nome da aula e do evento, a data.
+
+\begin{itemize}[resume]
+\item Verificar presença
+\end{itemize}
+
+Como existe a possibilidade de um indivíduo não estar cadastrado no sistema ou acabar sendo confundido com outro indivíduo, o administrador do sistema pode analisar a presença que foi atribuida no momento que um indivíduo foi ou não reconhecido, para que se necessário, retirar ou modifiar a presença manualmente.  
+
+\begin{enumerate}[resume]
+\item Atribuição de presença
+\end{enumerate}
+
+A tela de atribuição de presença pode ser considerado como a tela principal do sistema, devido este tela ser executada na meioria do tempo em contrapartida da tela de configuração. Nesta parte do sistema são utilizadas as funções de aquisição das imagens, processamento da imagem adiquirida, reconhecimento e cadastro da presença.
+
+A interface possui em sua tela principal a visualização da visão da câmera integrada ao sistema, quando uma face é encontrada pelo sistema, a mesma é resaltada na tela principal além das informações do indivíduo da qual a face o sistema reconheceu.
+
+
+\section{Integração Banco de Dados}
+Dentro do desenvolvimento do trabalho proposto, foi necessário criar um meio de armazenar e recuperar as imagens e valores utilizados pelo sistema. No inicio da aplicação foram utilizadas as imagens localmente, sendo armazenadas e utilizadas somente durante a execução do sistema. Contudo este tipo de solução pode acabar esgotando o armazenamento interno do dispositivo que roda o sistema, sendo assim para que este problema fosse sanado, a forma de armazenamento das informações foi dividdo em duas formas, sendo uma delas para o armazenamento das informações e outra para o armazenamento dos arquivos.
+
+As imagens que são utilizadas pelo sistema projetado deve ser alocado em um local que seja fácil buscar e armazenar, sendo assim foi pensado em utilizar um banco que tivesse uma liberdade de inserir as informações das imagens sem a necessidade de um banco complexo. Sendo assim o banco de dados MongoDB foi tutilizado, sendo o MongoDB um banco de dados não relacional que utiliza documentos para armazenar informações, utilizando informações na linguagem JSON. Podendo se conectar com as mais diversas linguagens de programação (como por exemplo: Java, Python, Ruby, C++, etc). Pode ser utilizado com repositórios locais ou até mesmo com repositórios armazenados em nuvem de forma gratuita (conforme utilização do armazenamento e acesso repetidos dos dados). Dentro de algumas de suas vantegens, pode-se elencar a relação de não ser necessário as condições relacionais para começar a armazenar dados, obtendo melhor performace em relação as suas consultas, já que tudo esta dentro de um único documento. Contudo isso acaba sendo uma desvantagem também, pois caso seja necessário a modificação de algum atributo para todos as entradas, cada valor deve ser tratado um a um. Devido a quantidade de arquivos que são necessários para o funcionamento do projeto, as informações dos arquivos foram salvos no MongoDB e os arquivos propriamente ditos foram armazenados no Google Drive, sendo este um serviço de armazenamento e sicronização de arquivos desenvolvido pela empresa Google.
+
+Para o acesso de ambos os bancos é necessário a configuração e utilização de arquivos de configuração, que contenham os usuários e senhas para acesso. Para o acesso do repositório do MongoDB é necessário repassar a linha de conexão do repositório. Para a conexão do Google Drive é necessário a configuração e o aceite na conta do usuário que irá hospedar os arquivos, neste caso foi configurado o arquivo \textit{settings.yaml} para que não fosse necessário abrir uma janela de aceite a cada vez que o sistema fosse executado.
+
+Para o armazenamento das informações no MongoDB, o seu acesso é feito a partir da biblioteca \textit{Pymongo}, onde cada face tem as seguintes informações armazenadas: 
+\begin{enumerate}
+\item ID do Mongo;
+\item Nome da Pessoa;
+\item ID do Google Drive.
+\end{enumerate}
+
+O \textit{ID do Mongo} é um identificador que é gerado automaticamente, sendo uma chave primária igual a de um banco de dados relacional, onde este é um identificador único. O \textit{ID do Google Drive} é o identificador único que é gerado automaticamente quando o arquivo com as informações da imagem da face são salvos.
+Para o armazenamento dos arquivos no Google Drive, o seu acesso é feito a partir da biblioteca \textit{Pydrive}, onde cada arquivo tem as seguintes infromações armazenadas:
+\begin{itemize}
+\item Valor de $\Phi$ da face ou valor de $\Psi$ da face ou valor das eigenfaces;
+\end{itemize}
+Os valores são armazenados em um arquivo \textit{JSON}, sendo o JSON uma notação de objetos JavaScript, onde é um formato de texto independente de linguagem de programação, pode ser interpretado pelas mais diversas linguagens. Para o armazenamento dos valores poderiam ser utilizadas outras formas de salvar o arquivo, contudo foi escolhido o arquivo JSON para a facilitação ao acesso das informações, já que as mesmas são armazenadas em formato de lista, sendo mais fácil de fazer a transformação para vetores da biblioteca \textit{Numpy}.
+
+\section{Atestado de Presença}
+O processo de atestado de presença de um aluno ocorre sempre que sua face já foi tratada pelo sistema, contudo existem duas possibilidades dentro do sistema, que são tratadas de formas diferentes, sendo elas:
+
+\begin{enumerate}
+\item Inserção da presença no sistema
+\end{enumerate}
+Após a aquisição da imagem, segmentação da face do aluno, cálculo de seus pesos $\Omega$ e classificação de sua face, a presença é atribuida ao aluno se caso ele seja pertencente ao banco de faces do sistema. 
+
+\begin{enumerate}[resume]
+\item Análise de presença pelo administrador
+\end{enumerate}
+A análise da presença ocorre caso o aluno não seja reconhecido pelo sistema, sendo assim se faz necessário que o aluno coloque manualmente o seu nome no sistema, com isso sua presença pode ser computada e um log é gerado para o administrador do sistema, com as informações inseridas pelo aluno, juntamente com a foto adquirida no momente em que a presença foi realizada pelo sistema.
+
+Para fins de registro e documentação, as presenças realizadas pelo sistema podem ser acessadas e baixadas pelo administrador do sistema.
+
+
+\section{Integração do Sistema}
+Na sua etapa final, todas as partes desenvolvidas serão integradas em uma versão final, já que ao longo do desenvolvimento do sistema as partes serão testadas para não ter nenhum tipo de problema na integração dos mesmos. O funcionamento do sistema pode ser visto na fig. \ref{sistema}.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figuras/sistema.png}
+	\caption{Diagrama do sistema.}
+	\label{sistema}
+\end{figure}
+
+Com isso o sistema final possui duas formas de acesso, a de administrador e a de usuário, possui funções de cadastro de face, de dados e de presença, 
+
+\chapter{Resultados e Experimentos}
+
+Nesta seção serão discutidos os resultados obtidos a partir da aplicação construida e das eigenfaces obtidas.
+
+\section{Eigenfaces}
+
+Durante o teste de reconhecimento a partir das eigenfaces calculadas previamente, foram utilizadas 50 imagens (100 imagens totais, devido ao espelhamento de cada imagem) de faces diferentes que são pertencentes as da base de treinamento, porém possuem um distúrbio em cada imagem (o distúrbio da imagem são as modificações do rosto de cada pessoa, pois estão sorrindo). Para a classificação a fórmula \ref{error} foi utilizada, obtendo um acerto de 80\% das faces testadas, utilizando somente o erro mínimo para a seleção da face. Assim com o valor de erro de cada face obtido, foi necessário procurar qual a face que havia obtido o menor erro, os resultdos podem ser observados na Figura \ref{erro_face}
 
 \begin{figure}[htb]
         \centering
@@ -695,7 +784,7 @@ Para se fazer uma análise dos valores de falsos e positivos negativos que podem 
 	\end{center}
 \end{table}
 
-Pode-se notar que conforme o valor de $e_\Phi$ vai aumentando, a quantidade de falsos negativos tende a diminuir, sendo assim pode-se notar que escolher somente um valor de \textit{Threshold} é uma limitação, pode utilizar ao invés de somente um valor ser uma faixa, sendo assim a faixa vai de 30 a 35. Com todos os valores de \textit{Threshold}, face $\Psi$ e eigenfaces, pode-se utilizar isto para a veriicação no sistema.
+Pode-se notar que conforme o valor de $e_\Phi$ vai aumentando, a quantidade de falsos negativos tende a diminuir, sendo assim pode-se notar que escolher somente um valor de \textit{Threshold} é uma limitação, pode utilizar ao invés de somente um valor ser uma faixa, sendo assim a faixa vai de 30 a 35. Com todos os valores de \textit{Threshold}, face $\Psi$ e eigenfaces, pode-se utilizar isto para a verificação no sistema.
 
 \section{Armazenamento}
 Dentro do desenvolvimento do trabalho proposto, foi necessário criar um meio de armazenar e recuperar as imagens e valores utilizados pelo sistema. O acesso das imagens feito localmente não possui um atraso para a obtenção de cada imagem, contudo caso exista algum tipo de perda do sistema por meios físicos, as imagens serão perdidas e será necessário reconfigurar o sistema. Com isso em mente o armazenamento externo foi pensado, sendo esta uma forma mais prática de salvar as informações do sistema, contudo existe o atraso para a recuperação das informações que foram salvas externamente.
@@ -742,12 +831,7 @@ Os tempos de aquisições dos arquivos estão diretamente atrelado ao acesso ao Goo
 
 Para a utilização das eigenfaces, foi desenvolvido uma interface utilizando a biblioteca Tkinter. O objetivo da interface é mostrar para o usuário que a sua face esta sendo capturada e sendo calculado se a sua face será reconhecida, devido ao fato de que as pessoas que serão submetidas ao sistema tem o interesse de serem reconhecidas.
 
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.6\textwidth]{figuras/interface.png}
-	\caption{Interface do sistema.}
-	\label{interface}
-\end{figure}
+
 
 \chapter{Conclusão} 
 
