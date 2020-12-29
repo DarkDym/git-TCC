@@ -1,7 +1,5 @@
 \begin{thebibliography}{\hspace{\parindent}}
 
-\bibitem[???(????)???]{fei}
-
 \bibitem[GONZALEZ(2010)GONZALEZ]{Gonza} GONZALEZ, R.~C\@. \textbf{Processamento
   Digital de Imagens}. Av. Ermano Marchetti, 1453, São Paulo, São Paulo:
   Pearson Prentice Hall, 2010.
@@ -20,5 +18,9 @@
 
 \bibitem[TURK; PENTLAND(1991)TURK; PENTLAND]{turk2} TURK, M.; PENTLAND, A.~P\@.
   \textbf{Eigenfaces for Recognition}. 1991.
+
+\bibitem[VIOLA; JONES(2001)VIOLA; JONES]{viola} VIOLA, P.; JONES, M\@.
+  \textbf{Rapid Object Detection using a Boosted Cascade of Simple Features}.
+  2001.
 
 \end{thebibliography}

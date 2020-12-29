@@ -32,7 +32,7 @@
 
 % a data deve ser a da defesa; se nao especificada, são gerados
 % mes e ano correntes
-\date{Dezembro}{2020}
+\date{Janeiro}{2021}
 
 \course{Engenharia de Computação}
 
@@ -50,7 +50,7 @@
 
 
 \begin{folhadeaprovacao}
-Monografia sob o título \textit{"Reconhecimento Facial para Classificação e Registro de Presença em Sala de Aula"}, defendida por Alleff Dymytry Pereira de Deus e aprovada em 3 de Julho de 2020, em Guaíba, estado do Rio Grande do Sul, pela banca examinadora constituída pelos professores:
+Monografia sob o título \textit{"Reconhecimento Facial para Classificação e Registro de Presença em Sala de Aula"}, defendida por Alleff Dymytry Pereira de Deus e aprovada em 15 de Janeiro de 2021, em Guaíba, estado do Rio Grande do Sul, pela banca examinadora constituída pelos professores:
     \assinatura{Profa. Dra. Letícia Vieira Guimarães \\ Orientadora}
     \assinatura{Profa. Dra. Adriane Parraga}
     \assinatura{Prof. Dr. João Leonardo Fragoso}
@@ -70,22 +70,16 @@ Monografia sob o título \textit{"Reconhecimento Facial para Classificação e Regi
 
 % agradecimentos
 \chapter*{Agradecimentos}
-Aos meus ....
+Aos meus familiares por possibilitar que eu pudesse realizar esta etapa dentro de minha vida, podendo dar o melhor de mim do inicio ao fim. Sempre ajudando nos momentos dificies e também nos momentos de alegrias.
 \vspace{0.5cm}
 
-
+À minha noiva, por poder dividir todos os momentos que foram a graduação, sempre me ajudando em situações adversas, sempre aconselhando e dividindo o conhecimento obtido. Ajudando a escalar esta montanha que não é fácil de chegar ao fim.
 \vspace{0.5cm}
 
-
-À minha ...
+Aos meus professores, que possibilitaram o conhecimento e o crescimento dos ideais, sempre aconselhando e mostrando os melhores trilhos para seguir nesta jornada.
 \vspace{0.5cm}
 
-
-Aos meus...
-\vspace{0.5cm}
-
-
-À Universidade, professores e funcionários que propiciaram um excelente ambiente de aprendizagem.
+À Universidade e funcionários que propiciaram um excelente ambiente de aprendizagem, conhecimento e crescimento.
 
 % sumario
 \tableofcontents
@@ -129,66 +123,97 @@ Este trabalho tem por objetivo o desenvolvimento de um sistema que detecta faces
 \end{englishabstract}
 
 \chapter{Introdução}
-Nos dias atuais pode-se notar que a biometria é algo amplamente utilizado e ajuda no cotidiano de todas as pessoas, já que pode-se fazer as mais diversas funções, sendo elas: pagamento de contas, liberação para áreas restritas, verificação em e-mails, para direção de um veículo, etc. A biometria tem por base a medição de características humanas de forma analógicas e transforma para o mundo digital, sendo uma delas a mais emergente o reconhecimento facial.
+Nos dias atuais pode-se notar que a biometria é algo amplamente utilizado e ajuda no cotidiano de todas as pessoas, já que pode-se fazer as mais diversas funções, sendo elas: pagamento de contas, liberação para áreas restritas, verificação em e-mails, para direção de um veículo, etc. A biometria tem por base a medição de características humanas de forma analógicas e transforma para o mundo digital, um exemplo de como a utilização da biometria tem sido ampliada é o seu uso no Brasil para operações eleitorais e cada vez mais serão utilizadas tecnologias mais avançadas para os mais diferentes fins, sendo um grande avanço a utilização de reconhecimento facial como biometria.
 
-Segundo a ANSA, no carnaval de 2019, a polícia do Rio de Janeiro e do Salvador, conseguiram detectar e prender criminosos com a ajuda de câmeras equipadas com reconhecimento facial. Existe no mercado atual um crescimento de 20% até 30% por ano na área.
+Segundo a ANSA, no carnaval de 2019, a polícia do Rio de Janeiro e do Salvador, conseguiram detectar e prender criminosos com a ajuda de câmeras equipadas com reconhecimento facial. Existe no mercado atual um crescimento de 20\% até 30\% por ano na área. O reconhecimento facial tem sido debatido para muitos usos, sendo o uso para a segurança pública como um dos usos mais comuns.
 
 O reconhecimento facial pode ser empregado nas mais diferentes áreas, sem ser a da segurança, com isso pode-se empregar o reconhecimento para verificar sentimentos, expressões, executar comandos configurados, check-in em eventos, entre outras aplicações.
 
 %Escrever aqui sobre as outras aplicações de reconhecimento facial.
-Com a popularização dos meios de reconhecimento facial, algumas técnicas foram desenvolvidas conforme o tempo e a tecnologia se desenvolveu. Algumas das técnicas que são utilizadas, são elas: Eigenfaces, Fisherfaces, Kernel Direct Discriminant Analysis, K Nearest Neighboors, Local Binary Pattern.
+Com a popularização dos meios de reconhecimento facial, algumas técnicas foram desenvolvidas conforme o tempo e a tecnologia se desenvolveu. Algumas das técnicas que são utilizadas, são elas: Eigenfaces, Fisherfaces, Kernel Direct Discriminant Analysis, K Nearest Neighboors, Local Binary Pattern e etc. As técnicas são utilizadas para os mais diversos fins, ganhando uma popularização muito grande nos últimos dez anos devido ao avanço com a utilização de redes neurais e inteligências artificiais para utilização de tais técnicas.
 
-Com esses avanços nas técnicas de reconhecimento facial, pode-se utilizar tais avanços para o reconhecimento de alunos em sala de aulas, já que os mesmos querem ter seus rostos reconhecidos para obter a presença em sala de aula, fazendo que o método tradicional de folha de chamada posso ser substituído e todo o sistema de presença seja diretamente integrado em um único sistema.
+Com esses avanços nas técnicas de reconhecimento facial, pode-se utilizar tais avanços para o reconhecimento de alunos em sala de aulas, já que os mesmos querem ter seus rostos reconhecidos para obter a presença em sala de aula, fazendo que o método tradicional de folha de chamada posso ser substituído e todo o sistema de presença seja diretamente integrado em um único sistema. E a utilização não precisa ficar somente nas salas de aula, as aplicações podem ser utilizadas para conferir a presença de um indivíduo nos mais diferentes eventos, onde o mesmo que ser reconhecido para obter algum certificado que esteve presente no momento em que foi reconhecido por algum tipo de sistema.
 
-Desta forma, a construção de um sistema de reconhecimento facial integrado com um controle de presença se faz necessário para sanar o problema de ainda hoje, em um tempo de integração e avanço tecnológico, utilizar chamadas impressas para marcar se o aluno estava ou não em aula ou em um determinado evento.
-   
+Desta forma, a construção de um sistema de reconhecimento facial integrado com um controle de presença se faz necessário para sanar o problema de ainda hoje, em um tempo de integração e avanço tecnológico, utilizar chamadas impressas para marcar se o aluno estava ou não em aula ou em um determinado evento. Mesmo utilizando alguns recursos tecnológicos como formulários online, ainda precisam que seja encaminhado e preenchidos manualmente para poder se ter a validação.
+
+Com isso o obgetivo geral do presente trabalho é desenvolver um sistema que reconheça um indivíduo e atribua a sua presença em sala de aula ou em eventos, priorizando a portabilidade e facilidade de acesso ao sistema, utilizando a ideia de um sistema que foi previamente pensado na Universidade Estadual do Rio Grande do Sul na unidade de Guaíba, onde o reconhecimento poderia ser feito através do modelo de reconhecimento com Eigenfaces.
 
 \chapter{Fundamentos Teóricos}
-Neste capítulo serão abordados os conhecimentos necessários para a contextualização do presente trabalho, bem como seus métodos de desenvolvimento e funcionalidades específicas.
+Neste capítulo serão abordados os conhecimentos necessários para o entendimento do presente trabalho, bem como seus métodos de desenvolvimento e funcionalidades específicas.
 
 \section{PROCESSAMENTO DIGITAL DE IMAGENS}
-Para poder abordar como são feitos os processamentos a cerca de imagens, primeiramente é necessário se fundamentar o que são imagens.
+Para poder abordar como são feitos os processos sobre as imagens, primeiramente é necessário se fundamentar o que são imagens em um computador.
 
-\subsection{Imagens}
-Uma imagem pode ser descrita como uma função bidimensional, que pode possuir dimensões de tamanhos diferentes. As coordenadas da imagem formam um plano e sua amplitude pode ser descrita como a intensidade do conjunto de coordenadas. As intensidades de uma imagem são processos físicos relacionados a energia irradiada pela fonte. Uma imagem pode ser captada a partir de sensores que conseguem traduzir a energia irradiada pela fonte em uma saída de tensão. Segundo \cite{Gonza}, um dos sensores mais conhecidos para tal utilização, são os fotodiodos, sendo estes sensores construídos com materiais semicondutores que possuem uma saída de tensão proporcional a intensidade luminosa. Pode-se caracterizar uma imagem como digital, quando os valores dos elementos de coordenadas e amplitude são finitas. Os elemntos que compoem uma imagem digitsal são comumente chamados de \textit{Pixels}.
+\subsection{Imagem digital}
+Uma imagem pode ser descrita como uma função bidimensional, com dimensões de tamanhos diferentes. As coordenadas da imagem formam um plano e sua amplitude pode ser descrita como a intensidade do conjunto de coordenadas. O valor da função que descreve a imagem é resultado de processos físicos relacionados a energia irradiada pela fonte. Uma imagem pode ser captada a partir de sensores que conseguem traduzir a energia irradiada pela fonte em valor de tensão. Segundo \cite{Gonza}, um dos sensores mais conhecidos para tal utilização, são os fotodiodos, sendo estes sensores construídos com materiais semicondutores que possuem uma saída de tensão proporcional a intensidade luminosa. Entretanto, a imagem digital tem valores dos elementos de coordenadas e amplitude finitas. Os elementos que compõem uma imagem digital são chamados de \textit{Pixels}.
 
-\section{HAAR LIKE FEATURES}
-Os Haar Like Features são características de imagens digitais utilizadas para o reconhecimento de objetos,
+\subsection{Processamento Digital}
+A imagem digital, pode ser processada por um sistema computacional de forma que pode-se abordar que o processamento digital de imagens sendo a área que utiliza imagens como entrada principal com diversos propósitos, por exemplo, realçar certas características de objetos na imagem. O processamento de imagem apresenta como saída uma nova imagem. Contudo alguns autores consideram certas operações como sendo parte da visão computacional, já que o precessamento é apontado como uma função que recebe uma imagem e retorna uma imagem. Todavia, funções como obtenção e classificação de informações nas imagens são consideradas parte da visão computacional e análise de imagens. Segundo \citep{Gonza}, não existem limites claros onde se pode considerar que uma operação faz parte de qual linha de pesquisa, o que se pode traçar é um paradigma que utiliza três níveis de operações, sendo eles: o nível de processo baixo, médio e alto. O nível de processamento baixo é constituído de pré-processamentos e as mais diversas operações primitivas que se pode fazer com uma imagem. O nível de processo médio constitui-se com tarefas de segmentação de ROIs, descrição para a posterior utilização na classificação dos objetos segmentados. E o nível de processo alto seria a área que atribui um sentido lógico e real para as informações adquiridas pelos dois níveis inferiores. 
+
+\section{CARACTERÍSTICAS DO TIPO HAAR}
+As características do tipo Haar ou (Haar Like Features) são características baseadas nos Haar wavelets desenvolvidas por Alfred Haar, onde transforma um sinal em uma representação mais simples para certos procedimentos de análise. Primeiramente desenvolvido por \cite{viola}, são características utilizadas para o reconhecimento de objetos (neste caso o reconhecimento de faces). As características utilizadas para o reconhecimento se baseiam no cálculo da diferença entre os pixels dentro de uma região retangular, essas características são divididas em três: 1) diferença entre dois retângulos, tanto verticais como horizontais; 2) diferença entre três retângulos, considerando a soma dos retângulos das bordas com a diferença do retângulo central e; 3) diferença diagonal de pares de retângulos, um exemplo dessas características pode ser notado na Figura \ref{haar}.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figuras/haar.png}
+	\caption{Exemplos de região retangular para análise de características do tipo Haar.}
+	\label{haar}
+\end{figure}
 
 \section{ANÁLISE DE COMPONENTES PRINCIPAIS}
-A Análise de Componentes Principais (Principal Component Analysis - PCA) é uma técnica matemática utilizada para a análise de dados de multivariáveis. Primeiramente concebido por Karl Pearson em 1901 e posteriormente desenvolvida por Harold Hotelling em 1930. O PCA não era utilizado tão comumente até os avanços na área da computação, se baseia na utilização de princípios matemáticos para transformar um número de variáveis correlacionais em quantidades menores de variáveis, sendo estas as principais componentes das variáveis.
-A principal transformação é a redução da dimensionalidade do conjunto de dados, fazendo com que seja resaltado as similaridades e diferenças dentro do conjunto de dados. Segundo \cite{pca} os autovetores e autovalores são os principios fundamentais para a determinação dos PCAs, decorrido da decomposição da matriz de covariância.
-O processo de obtenção dos PCAs pode ser feito através dos seguintes passos:
+A Análise de Componentes Principais (Principal Component Analysis - PCA) é uma técnica matemática utilizada para a análise de dados de para sistemas com múltiplas variáveis. Primeiramente concebido por Karl Pearson em 1901 e posteriormente desenvolvida por Harold Hotelling em 1930. O PCA não era utilizado tão comumente até os avanços na área da computação. Este método se baseia na utilização de princípios matemáticos para transformar um número de variáveis correlacionais em quantidades menores de variáveis, sendo estas as principais componentes das variáveis.A principal transformação é a redução da dimensionalidade do conjunto de dados, fazendo com que sejam ressaltadas as similaridades e diferenças dentro do conjunto de dados. Segundo \cite{pca} os autovetores e autovalores são os princípios fundamentais para a determinação dos PCAs, decorrido da decomposição da matriz de covariância. O processo de obtenção dos PCAs pode ser feito através dos seguintes passos:
 
-\begin{enumerate}
+\begin{itemize}
 \item \textbf{Subtração da Média} 
-\end{enumerate}
+\end{itemize}
 
 Para que o cálculo do PCA funcione devidamente, é necessário realizar a subtração do conjunto dos dados de sua média em ambos os eixos, para que possa ser produzido uma média dos dados de valor zero;
 
-\begin{enumerate}[resume]
-\item \textbf{Calcular a Matriz de Covariância} 
-\end{enumerate}
+\begin{itemize}[resume]
+\item \textbf{Cálculo da Matriz de Covariância} 
+\end{itemize}
 
-É necessário obter a matriz de covariância do conjunto de dados que já foram subtraídos da média;
+É necessário obter a matriz de covariância do conjunto de dados que já foram subtraídos da média, podendo se obter o valor de covariância através da Eq. \ref{covariancia}, onde $x_i$ e $y_i$ são pontos de um vetor de tamanho $n$ e $x^{\prime}$ e $y^{\prime}$ são os valores médios de cada vetor. A matriz de covariância é a junção da covariância de cada objeto das dimensões das variáveis, este cálculo pode ser notado na Eq. \ref{mat_cov}, onde $x$ e $y$ são coordenadas dos vetores $X$ e $Y$;
 
-\begin{enumerate}[resume]
+\begin{equation}
+	\label{covariancia}
+	cov(x,y) = \dfrac{1}{n} \sum \limits _{i=1}^{n} (x_i - x^{\prime})(y_i - y^{\prime})
+\end{equation}
+
+\begin{equation}
+	\label{mat_cov}
+	cov(X,Y) = \left[ \begin{array}{c c c c}
+				 cov(x_{1},y_{1}) & cov(x_{1},y_{2}) & \cdots & cov(x_{1},y_{n}) \\
+				 cov(x_{2},y_{1}) & cov(x_{2},y_{2}) & \cdots & cov(x_{2},y_{n}) \\
+				 \vdots & \vdots & \cdots & \vdots \\
+				 cov(x_{n},y_{1}) & cov(x_{n},y_{2}) & \cdots & cov(x_{n},y_{n}) \\
+			\end{array} \right]         	 
+\end{equation}
+
+\begin{itemize}[resume]
 \item \textbf{Cálculo dos autovetores e autovalores} 
-\end{enumerate}
+\end{itemize}
 
-Calcular os autovetores e autovalores da matriz de covariância, sendo os autovetores uma parte muito importante para o PCA;
+Existem várias formas de se calcular os autovetores e autovalores, uma delas é descrita pela Eq.\ref{eigenvec}.
 
-\begin{enumerate}[resume]
+\begin{equation}
+	\label{eigenvec}
+	(A - \lambda I)u = 0
+\end{equation}
+
+Onde 'A' é uma matriz conhecida, '$\lambda$' é o autovalor de 'A' , 'u' são os autovalores de 'A' e 'I' é a matriz identidade;
+
+\begin{itemize}[resume]
 \item \textbf{Escolher as componentes} 
-\end{enumerate}
+\end{itemize}
 
-Deve-se escolher os maiores eigenvalues dos quais serão obtidos os maiores eigenvectors como consequência, sendo estes os valores que mais representam as componentes principais do conjunto de dados.
+Deve-se escolher os maiores autovalores dos quais serão obtidos os maiores autovetores como consequência, sendo estes os valores que mais representam as componentes principais do conjunto de dados.
 
-Ainda segundo \cite{pca}, o PCA pode ser considerado como a projeção do conjunto de dados em uma direção do espaço onde os dados tem uma grande variação, onde a direção é dada pelos eigenvectors da matriz de covariância correspondendo aos maiores eigenvalues.
+Ainda, segundo \cite{pca}, o PCA pode ser considerado como a projeção do conjunto de dados em uma direção do espaço onde os dados têm uma grande variação, onde a direção é dada pelos autovetores da matriz de covariância correspondendo aos maiores autovalores.
 
 \section{EIGENFACES}\label{r1}
-Dentro dos algoritmos e cálculos de reconhecimento facial, um desses modelos de reconhecimento é o Eigenfaces, que consiste na obtenção de eigenvectors que melhor representam a face de cada indivíduo. A utilização do termo \textit{Eigenface} foi apresentado por \cite{turk2}, onde consiste "faces fantasmas" que possuem os maiores eigenvectors e eigenvalues do PCA do conjunto de dados. Segundo \cite{turk2} a ideia de se utilizar eigenfaces foi motivado na pesquisa de \cite{kirby}, que utilizavam as melhores coordenadas para representar uma face, sendo denominado de \textit{Eigenpictures}. Com isso podia-se reconhecer uma face com uma pequena componente, no caso de \cite{kirby} utilizava-se a parte dos olhos para se fazer o reconhecimento, contudo se pensou que poderiam utilizar uma pequena quantidade de características diferentes para reconhecer cada indivíduo, formando assim uma Eigenface.
-Sendo assim a utilização das eigenfaces é feito por meio da obtenção das PCAs da face de cada indivíduo de um conjunto de imagens previamente separado, onde os melhores eigenvectors serão a projeção dessas faces no conjunto de componentes denominado "espaço de faces". 
+Os eigenfaces é um dos modelos de representação das faces utilizados em algoritmos de reconhecimento facial. O Eigenfaces consiste na obtenção de autovetores que melhor representam (uma representação matamética generalizada de uma face) a face de cada indivíduo. A utilização do termo \textit{Eigenface} foi apresentado por \cite{turk2}. Neste artigo os autores definem "faces fantasmas" que possuem os maiores autovetores e autovalores do PCA do conjunto de dados. Segundo \cite{turk2} a ideia de  utilizar eigenfaces foi motivado na pesquisa de \cite{kirby}, que utilizavam as melhores coordenadas para representar uma face, sendo denominado de \textit{Eigenpictures}. Com isso podia-se reconhecer uma face com uma pequena componente \cite{kirby} , utilizava-se a parte dos olhos para se fazer o reconhecimento, contudo, a ideia de utilizar uma pequena quantidade de características diferentes para reconhecer cada indivíduo persistiu, formando (produzindo) assim uma Eigenface. Desta forma eigenfaces são produzidas multiplicando um conjunto de PCAs da face de cada indivíduo pelos maiores autovetores da matriz de covariância.
+%é feito por meio da obtenção das PCAs da face de cada indivíduo de um conjunto de imagens previamente separado, onde os melhores eigenvectors serão a projeção dessas faces no conjunto de componentes denominado "espaço de faces". 
  
 \subsection{Reconhecimento Utilizando Eigenfaces}
 
@@ -197,7 +222,7 @@ Pode-se utilizar eigenfaces para reconhecimento facial, alguns passos devem ser 
 \begin{itemize}
 
 \item Adquirir uma coletânea de imagens para ser o conjunto de treinamento;
-\item Deixar as imagens no tamanho desejado, cortando somente a face como objeto de insteresse;
+\item Deixar as imagens no tamanho desejado, cortando somente a face como objeto de interesse;
 \item Transformar o vetor de imagens I ($I = N \times N$) em um vetor gamma $\Gamma$ ($\Gamma = N^{2} \times 1$);
 \item Calcular a face média $\Psi$ do vetor $\Gamma$;
 \item Obter a matriz de covariância $C$;
@@ -219,7 +244,9 @@ A segunda etapa sendo a de reconhecimento, se utiliza uma face que esta fora do 
 \end{itemize}
 
 \section{SISTEMAS EMBARCADOS}\label{r2}
-Atualmente a tecnologia está cada vez mais popular e acessível, sendo assim possui-se diversos tipos diferentes de tecnologias para os mais diversos fins, sendo assim um conceito para que essas tecnologias possam ser classificadas e separadas para os seus específicos fins, pode-se utilizar o conceito de sistemas embarcados. Os sistemas embarcados são tecnologias que são construídas para devidos fins específicos com hardware específico que acaba não podendo ser reutilizado em outras aplicações que não possuam o mesmo hardware utilizado em seu desenvolvimento original.
+Atualmente as tecnologias de microeletrônica e de computação estão cada vez mais com maior capacidade, além de tornarem-se mais populares e acessíveis. Sendo assim encontram-se diversos tipos diferentes de tecnologias para os mais diversos fins.
+%sendo assim um conceito para que essas tecnologias possam ser classificadas e separadas para os seus específicos fins, pode-se utilizar o conceito de sistemas embarcados. 
+Os sistemas embarcados são tecnologias que são construídas para devidos fins específicos com hardware (circuítos e componentes eletrônicos) específico que acaba não podendo ser reutilizado em outras aplicações que não possuam o mesmo hardware utilizado em seu desenvolvimento original.
 
 Os sistemas embarcados podem normalmente desempenhar processos simples, que não geram nenhum tipo de risco para os usuários (exemplo de calculadoras, controles de videogames, telefones, etc.), contudo também podem ser utilizados para tarefas mais complexas que apresentam certos riscos se não forem projetados com um maior rigor (exemplo controle em aviões, controles industriais, monitoramento de saúde, etc.).
 
@@ -331,28 +358,28 @@ Cada fase do reconhecimento facial tem uma parte dentro do sistema que executa u
 \section{Aquisição da Imagem}
 Para a aquisição da imagem dentro do sistema é necessário a utilização de imagens adquiridas a partir de uma webcam para captura, para ser feito o acesso a webcam a biblioteca OpenCV foi utilizada, sendo o OpenCV uma biblioteca de visão computacional e aprendizagem de máquina com código livre, possuindo mais 2500 algoritmos otimizados para uso de todos. Os algoritmos vão desde detectar objetos até extração de modelos 3D. A biblioteca pode ser utilizada nas linguagens de programação Python, C++, Java e MatLab, tendo seus códigos escritos nativamente em C++. Com a utilização do OpenCV pode-se utilizar diversos tamanhos de imagens diferentes, no presente trabalho foi utilizado as seguintes dimensões: Altura - 480 pixels e Largura - 640 pixels, poderia se utilizar o tamanho da imagem necessária para a obtenção das eigenfaces diretamente, contudo se perderia resolução no momento de aquisição da imagem, reduzindo a chance de reconhecimento das eigenfaces.
 
-\begin{enumerate}
+\begin{itemize}
 \item Aquisição na Supervisão do Sistema
-\end{enumerate}
+\end{itemize}
 A aquisição da imagem durante a supervisão do sistema ocorre de forma a se obter imagens para cadastrar um novo aluno ou alterar uma imagem já existente. Sendo assim o administrador do sistema pode adquirir uma imagem quando achar necessário, durante a aquisição o processo de salvar uma imagem só pode ser feito se uma face for encontrada pelas características haar, como na Figura \ref{segmentacao}, caso não seja detectado uma face o sistema não permite que seja adquirido uma imagem, assim protejendo o sistema de possíveis falhas. 
 
-\begin{enumerate}[resume]
+\begin{itemize}[resume]
 \item Aquisição na Atribuição da presença
-\end{enumerate}
+\end{itemize}
 A aquisição da imagem durante o processo de atribuição da presença ocorre automaticamente, onde assim que uma face é encontrada, a imagem da mesma é adquirida e disponibilizada para o sistema, sem a supervisão de um usuário. A imagem adquirida é disponibilizada por um curto período de tempo para que o indivíduo possa ver que seu rosto foi adquirido pelo sistema e sua presença registrada.
 
 \section{Segmentação Facial}
 Para se obter somente a face de cada indivíduo, foi utilizado o Haar Like feature para faces frontais e realizar um processamento na imagem para se obter somente um único canal de escala de cinza (as imagens originais possuem três canais RGB), este tratamento e manuseio das imagens é feito utilizando o OpenCV. A segmentação das faces é dividida em duas situações:
 
-\begin{enumerate}
+\begin{itemize}
 \item Segmentação na Supervisão do Sistema
-\end{enumerate}
+\end{itemize}
 
 A segmentação da face na supervisão do sistema utiliza as faces adquiridas previamente pelo administrador do sistema, sendo processadas utilizando as características haar para retirar somente a face frontal sendo esta a região de interesse. As faces segmentadas passam por um processamento para somente possuir um canal em escala de cinza, assim elas podem ser utilizadas para os cálculos necessários no sistema.
 
-\begin{enumerate}[resume]
+\begin{itemize}[resume]
 \item Segmentação na Atribuição de presença
-\end{enumerate}
+\end{itemize}
 
 A segmentação da face durante a atribuição da presença, utiliza a face adquirida pelo sistema a partir da webcam, segmentando a face utilizando as características haar como na supervisão do sistema, contudo este processo ocorre sem que o administrador precise ter interação com o sistema. A face segmentada é encaminhada para as próximas funções necessárias para a atribuição da presença, um exemplo da segmentação na interface pode ser notado na Figura \ref{segmentacao}.
 
@@ -366,7 +393,7 @@ A segmentação da face durante a atribuição da presença, utiliza a face adquirida
 \section{Obtenção Eigenfaces}
 Para os cálculos de obtenção da eigenfaces a biblioteca Numpy foi utilizada, sendo esta uma biblioteca de código aberto que consegue processar os mais diversos tipos de processos de computação numérica. Criada em 2005 e utilizada amplamente na comunidade científica para os mais diversos cálculos matemáticos e manipulação de dados.
 
-Para os cálculos das eigenfaces deve-se considerar o tamanho das imagens que serão utilizadas no sistema, sendo assim, tanto as imagens do banco de faces e as imagens adquiridas pela webcam foram redimensionadas no tamanho $N = 300 \times 300$ e possuem somente um canal em escala de cinza para a minimização dos cálculos (Imagem sem modificar $I: (N \times N \times 3)$, imagem modificada $I: (N \times N \times 1)$)  após deve-se transformar cada imagem $I : (N \times N)$ em um vetor gama $\Gamma : (N^2 \times 1)$, onde é necessário tranformar o vetor em uma dimensão, um exemplo da imagem de treinamento pode ser vista na figura \ref{face}. As imagens podem ser normalizadas dividindo pelo valor máximo de 255 para facilitar os cálculos.
+Para os cálculos das eigenfaces deve-se considerar o tamanho das imagens que serão utilizadas no sistema, sendo assim, tanto as imagens do banco de faces e as imagens adquiridas pela webcam foram redimensionadas no tamanho $N = 300$ e possuem somente um canal em escala de cinza para a minimização dos cálculos (Imagem sem modificar $I: (N \times N \times 3)$, imagem modificada $I: (N \times N \times 1)$)  após deve-se transformar cada imagem $I : (N \times N)$ em um vetor gama $\Gamma : (N^2 \times 1)$, onde é necessário tranformar o vetor em uma dimensão, um exemplo da imagem de treinamento pode ser vista na figura \ref{face}. As imagens podem ser normalizadas dividindo pelo valor máximo de 255 para facilitar os cálculos.
 
 \begin{figure}[htb]
 	\centering
@@ -382,7 +409,7 @@ Para os cálculos das eigenfaces deve-se considerar o tamanho das imagens que ser
 	\label{face}
 \end{figure}
 
-Após este processo de achatamento da imagem, deve-se obter a face média do treinamento, sendo uma soma de todas as imagens presentes no treinamento e dividido pela quantidade de imagens, sendo obtida uma imagem psi na equação \ref{psi}.
+Após este processo de achatamento da imagem, deve-se obter a face média do treinamento, sendo uma soma de todas as imagens presentes no treinamento e dividido pela quantidade de imagens, sendo obtida uma imagem $\Psi$ na equação \ref{psi}.
 
 \begin{equation}
 \Psi = \dfrac{1}{M} \sum \limits _{i=1}^{M} \Gamma_i
@@ -438,14 +465,14 @@ Sendo assim é possível encontrar os autovetores da matriz de covariância $AA^T$,
 	\label{eigenface}
 \end{figure}
 
-Com as eigenfaces geradas é necessário calcular os pesos de cada eigenface nas diferentes faces do treinamento, os pesos calculados para cada face são obtidos utilizando as eigenfaces transpostas vezes a face $\Phi$ como na equação \ref{weigth}.
+Com as eigenfaces geradas é necessário calcular os pesos de cada eigenface nas diferentes faces do treinamento, os pesos calculados para cada face são obtidos utilizando as eigenfaces transpostas vezes a face $\Phi$ como na equação \ref{weigth}. Durante a fase de supervisão do sistema, após os pesos $\Omega$ serem gerados, os mesmos são salvos no banco de dados já que durante a fase de atribuição da presença somente é necessário o cálculo dos pesos $\Omega$ da face adquirida.
 
 \begin{equation}
 \label{weigth}
 	w_j = u_{j}^{T}\Phi_i
 \end{equation}
 
-Os pesos $w_j$ são distintos para cada face, esses pesos mais a face média $\Psi$, resulta na face original $\Phi$, contudo essa reconstrução pode não ocorrer do jeito esperado, já que cada rosto possui uma forma própria mesmo que elas sejam alinhadas. Para representar as faces no "espaço de faces" é necessário reunir cada peso $w_j$ de cada face em um vetor $\Omega$ como na equação \ref{Omega}
+Os pesos $w_j$ são distintos para cada face, a soma dos pesos mais a face média $\Psi$, resulta na face original $\Phi$, contudo essa reconstrução pode não ocorrer do jeito esperado, já que cada rosto possui uma forma própria mesmo que elas sejam alinhadas. Para representar as faces no "espaço de faces" é necessário reunir cada peso $w_j$ de cada face em um vetor $\Omega$ como na equação \ref{Omega}
 
 \begin{equation}
 \label{Omega}
@@ -458,7 +485,7 @@ Os pesos $w_j$ são distintos para cada face, esses pesos mais a face média $\Psi
 %Assim com as imagens previamente tratadas, é necessário calcular a imagem da face média $\Psi$, sendo este o valor médio do vetor $\Gamma$. Após este cálculo é necessário fazer a diferença da face média $\Psi$ com o vetor $\Gamma$ gerando o vetor de componentes principais $\Phi$, com isso é possível calcular a matriz de covariância e seus autovalores e autovetores. Os maiores autovetores da matriz de covariância são as eigenfaces do sistema. Um processo que serve para o reconhecimento é o cálculo dos pesos referentes as eigenfaces, esses pesos são colocados em um vetor $\Omega$.
 
 \section{Classificação Eigenfaces}
-Para os cálculos e processos para classificação das eigenfaces, a biblioteca Numpy foi utilizada. As imagens obtidas previamente são tratadas como vetores numéricos, para poder ser utilizado pela Numpy. Com isso é necessário obter a nova imagem para teste e refazer todos os processos anteriores para normalizar (segmentar a face da imagem, tranformar em um canal de escala de cinza, transformar em um vetor $\Gamma$) a imagem para estar igualmente com as imgens do conjunto de treinamento. A nova face não possui os pesos calculados em relação as eigenfaces do sistema, sendo assim é necessário fazer este cálculo dos pesos $\Omega$ para fazer o reconhecimento se a face pertence ou não ao sistema. Este processo é uma  representação da face nova, de fora do conjunto de treinamento, no "espaço de faces" normalizando ela com a face média $\Psi$ como na equação \ref{new_face} (a nova face já deve estar no formato de $\Gamma$ para ser representada).
+O processo de classificação utilizando eigenfaces somente é necessário na atribuição das presenças, já que para este atribuição a face do indivíduo deve ser reconhecida. Com isso para os cálculos e processos para classificação das eigenfaces, a biblioteca Numpy foi utilizada. As imagens obtidas previamente são tratadas como vetores numéricos, para poder ser utilizado pela Numpy. Com isso é necessário obter a nova imagem para teste e refazer todos os processos anteriores para normalizar (segmentar a face da imagem, tranformar em um canal de escala de cinza, transformar em um vetor $\Gamma$) a imagem para estar igualmente com as imgens do conjunto de treinamento. A nova face não possui os pesos calculados em relação as eigenfaces do sistema, sendo assim é necessário fazer este cálculo dos pesos $\Omega$ para fazer o reconhecimento se a face pertence ou não ao sistema. Este processo é uma  representação da face nova, de fora do conjunto de treinamento, no "espaço de faces" normalizando ela com a face média $\Psi$ como na equação \ref{new_face} (a nova face já deve estar no formato de $\Gamma$ para ser representada).
 
 \begin{equation}
 \label{new_face}
@@ -526,7 +553,7 @@ Com o reconhecimento da face de um indivíduo, deve-se colocar a sua presença em 
 \item Verificar presença
 \end{itemize}
 
-Como existe a possibilidade de um indivíduo não estar cadastrado no sistema ou acabar sendo confundido com outro indivíduo, o administrador do sistema pode analisar a presença que foi atribuida no momento que um indivíduo foi ou não reconhecido, para que se necessário, retirar ou modifiar a presença manualmente.  
+Como existe a possibilidade de um indivíduo não estar cadastrado no sistema ou acabar sendo confundido com outro indivíduo, o administrador do sistema pode  ver e analisar os logs do sistema no momento em que a presença foi assinalada ao indivíduo. Dentro desta análise é possível para o administrador cadastrar um novo indivíduo, já que dentro do log do indivíduo que não foi reconhecido possui anexado a imagem do mesmo.
 
 \begin{enumerate}[resume]
 \item Atribuição de presença
@@ -545,11 +572,11 @@ As imagens que são utilizadas pelo sistema projetado deve ser alocado em um loca
 Para o acesso de ambos os bancos é necessário a configuração e utilização de arquivos de configuração, que contenham os usuários e senhas para acesso. Para o acesso do repositório do MongoDB é necessário repassar a linha de conexão do repositório. Para a conexão do Google Drive é necessário a configuração e o aceite na conta do usuário que irá hospedar os arquivos, neste caso foi configurado o arquivo \textit{settings.yaml} para que não fosse necessário abrir uma janela de aceite a cada vez que o sistema fosse executado.
 
 Para o armazenamento das informações no MongoDB, o seu acesso é feito a partir da biblioteca \textit{Pymongo}, onde cada face tem as seguintes informações armazenadas: 
-\begin{enumerate}
+\begin{itemize}
 \item ID do Mongo;
 \item Nome da Pessoa;
 \item ID do Google Drive.
-\end{enumerate}
+\end{itemize}
 
 O \textit{ID do Mongo} é um identificador que é gerado automaticamente, sendo uma chave primária igual a de um banco de dados relacional, onde este é um identificador único. O \textit{ID do Google Drive} é o identificador único que é gerado automaticamente quando o arquivo com as informações da imagem da face são salvos.
 Para o armazenamento dos arquivos no Google Drive, o seu acesso é feito a partir da biblioteca \textit{Pydrive}, onde cada arquivo tem as seguintes infromações armazenadas:
@@ -561,21 +588,21 @@ Os valores são armazenados em um arquivo \textit{JSON}, sendo o JSON uma notação
 \section{Atestado de Presença}
 O processo de atestado de presença de um aluno ocorre sempre que sua face já foi tratada pelo sistema, contudo existem duas possibilidades dentro do sistema, que são tratadas de formas diferentes, sendo elas:
 
-\begin{enumerate}
+\begin{itemize}
 \item Inserção da presença no sistema
-\end{enumerate}
+\end{itemize}
 Após a aquisição da imagem, segmentação da face do aluno, cálculo de seus pesos $\Omega$ e classificação de sua face, a presença é atribuida ao aluno se caso ele seja pertencente ao banco de faces do sistema. 
 
-\begin{enumerate}[resume]
+\begin{itemize}[resume]
 \item Análise de presença pelo administrador
-\end{enumerate}
+\end{itemize}
 A análise da presença ocorre caso o aluno não seja reconhecido pelo sistema, sendo assim se faz necessário que o aluno coloque manualmente o seu nome no sistema, com isso sua presença pode ser computada e um log é gerado para o administrador do sistema, com as informações inseridas pelo aluno, juntamente com a foto adquirida no momente em que a presença foi realizada pelo sistema.
 
 Para fins de registro e documentação, as presenças realizadas pelo sistema podem ser acessadas e baixadas pelo administrador do sistema.
 
 
 \section{Integração do Sistema}
-Na sua etapa final, todas as partes desenvolvidas serão integradas em uma versão final, já que ao longo do desenvolvimento do sistema as partes serão testadas para não ter nenhum tipo de problema na integração dos mesmos. O funcionamento do sistema pode ser visto na fig. \ref{sistema}.
+Na sua etapa final, todas as partes desenvolvidas serão integradas em uma versão final, já que ao longo do desenvolvimento do sistema as partes serão testadas para não haver algum tipo de problema na integração dos mesmos. O funcionamento do sistema pode ser visto na fig. \ref{sistema}.
 
 \begin{figure}[htb]
 	\centering
@@ -584,7 +611,8 @@ Na sua etapa final, todas as partes desenvolvidas serão integradas em uma versão
 	\label{sistema}
 \end{figure}
 
-Com isso o sistema final possui duas formas de acesso, a de administrador e a de usuário, possui funções de cadastro de face, de dados e de presença, 
+
+%Com isso o sistema final possui duas formas de acesso, a de administrador e a de usuário, possui funções de cadastro de face, de dados e de presença, 
 
 \chapter{Resultados e Experimentos}
 
@@ -826,12 +854,6 @@ Para poder demonstrar que existe um atraso para a recuperação das imagens armaze
 \end{table}
 
 Os tempos de aquisições dos arquivos estão diretamente atrelado ao acesso ao Google Drive, devido que o tempo para a obtenção de todos os identificadores que estão armazenados no MongoDB acaba não levando mais do que um segundo. Com um total de 635 segundos para obter todos os arquivos necessários para o funcionamento do sistema, estes arquivos devem ser carregados na inicialização do sistema e ser utilizado localmente, devido a esta quantidade de tempo necessária para fazer a requisição dos arquivos, pois para cada face que irá ser reconhecida é necessário todos os arquivos armazenados, sendo assim o tempo total mais o tempo para o reconhecimento seria o tempo total que o usuário deve esperar pra poder ser reconhecido.
-
-\section{Interface}
-
-Para a utilização das eigenfaces, foi desenvolvido uma interface utilizando a biblioteca Tkinter. O objetivo da interface é mostrar para o usuário que a sua face esta sendo capturada e sendo calculado se a sua face será reconhecida, devido ao fato de que as pessoas que serão submetidas ao sistema tem o interesse de serem reconhecidas.
-
-
 
 \chapter{Conclusão} 
 

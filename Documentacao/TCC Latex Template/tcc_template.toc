@@ -8,27 +8,27 @@
 \contentsline {chapter}{Abstract}{12}%
 \babel@toc {brazilian}{}
 \contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{13}%
-\contentsline {chapter}{\numberline {2}Fundamentos Te\'oricos}{14}%
-\contentsline {section}{\numberline {2.1}PROCESSAMENTO DIGITAL DE IMAGENS}{14}%
-\contentsline {subsection}{\numberline {2.1.1}Imagens}{14}%
-\contentsline {section}{\numberline {2.2}HAAR LIKE FEATURES}{14}%
-\contentsline {section}{\numberline {2.3}AN\'ALISE DE COMPONENTES PRINCIPAIS}{14}%
-\contentsline {section}{\numberline {2.4}EIGENFACES}{15}%
-\contentsline {subsection}{\numberline {2.4.1}Reconhecimento Utilizando Eigenfaces}{16}%
-\contentsline {section}{\numberline {2.5}SISTEMAS EMBARCADOS}{16}%
-\contentsline {chapter}{\numberline {3}Materiais e m\'etodos}{18}%
-\contentsline {section}{\numberline {3.1}Aquisi\c c\~ao da Imagem}{21}%
-\contentsline {section}{\numberline {3.2}Segmenta\c c\~ao Facial}{21}%
-\contentsline {section}{\numberline {3.3}Obten\c c\~ao Eigenfaces}{22}%
-\contentsline {section}{\numberline {3.4}Classifica\c c\~ao Eigenfaces}{25}%
-\contentsline {section}{\numberline {3.5}Desenvolvimento da Interface}{26}%
-\contentsline {section}{\numberline {3.6}Integra\c c\~ao Banco de Dados}{27}%
-\contentsline {section}{\numberline {3.7}Atestado de Presen\c ca}{28}%
-\contentsline {section}{\numberline {3.8}Integra\c c\~ao do Sistema}{29}%
-\contentsline {chapter}{\numberline {4}Resultados e Experimentos}{30}%
-\contentsline {section}{\numberline {4.1}Eigenfaces}{30}%
-\contentsline {section}{\numberline {4.2}Armazenamento}{35}%
-\contentsline {section}{\numberline {4.3}Interface}{37}%
-\contentsline {chapter}{\numberline {5}Conclus\~ao}{40}%
-\contentsline {chapter}{\numberline {6}Trabalhos Futuros}{41}%
-\contentsline {chapter}{Refer{\^e}ncias}{42}%
+\contentsline {chapter}{\numberline {2}Fundamentos Te\'oricos}{15}%
+\contentsline {section}{\numberline {2.1}PROCESSAMENTO DIGITAL DE IMAGENS}{15}%
+\contentsline {subsection}{\numberline {2.1.1}Imagem digital}{15}%
+\contentsline {subsection}{\numberline {2.1.2}Processamento Digital}{15}%
+\contentsline {section}{\numberline {2.2}CARACTER\'ISTICAS DO TIPO HAAR}{16}%
+\contentsline {section}{\numberline {2.3}AN\'ALISE DE COMPONENTES PRINCIPAIS}{16}%
+\contentsline {section}{\numberline {2.4}EIGENFACES}{17}%
+\contentsline {subsection}{\numberline {2.4.1}Reconhecimento Utilizando Eigenfaces}{18}%
+\contentsline {section}{\numberline {2.5}SISTEMAS EMBARCADOS}{18}%
+\contentsline {chapter}{\numberline {3}Materiais e m\'etodos}{20}%
+\contentsline {section}{\numberline {3.1}Aquisi\c c\~ao da Imagem}{23}%
+\contentsline {section}{\numberline {3.2}Segmenta\c c\~ao Facial}{23}%
+\contentsline {section}{\numberline {3.3}Obten\c c\~ao Eigenfaces}{24}%
+\contentsline {section}{\numberline {3.4}Classifica\c c\~ao Eigenfaces}{27}%
+\contentsline {section}{\numberline {3.5}Desenvolvimento da Interface}{28}%
+\contentsline {section}{\numberline {3.6}Integra\c c\~ao Banco de Dados}{29}%
+\contentsline {section}{\numberline {3.7}Atestado de Presen\c ca}{31}%
+\contentsline {section}{\numberline {3.8}Integra\c c\~ao do Sistema}{31}%
+\contentsline {chapter}{\numberline {4}Resultados e Experimentos}{32}%
+\contentsline {section}{\numberline {4.1}Eigenfaces}{32}%
+\contentsline {section}{\numberline {4.2}Armazenamento}{37}%
+\contentsline {chapter}{\numberline {5}Conclus\~ao}{42}%
+\contentsline {chapter}{\numberline {6}Trabalhos Futuros}{43}%
+\contentsline {chapter}{Refer{\^e}ncias}{44}%

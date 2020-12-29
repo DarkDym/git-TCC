@@ -12,40 +12,41 @@
 \babel@toc {brazilian}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Exemplos de regi\~ao retangular para an\'alise de caracter\IeC {\'\i }sticas do tipo Haar.\relax }}{16}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagrama das etapas de desenvolvimento.\relax }}{18}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Diagrama do processo de supervis\~ao do sistema.\relax }}{19}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagrama das etapas de desenvolvimento.\relax }}{20}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Esquem\'atico do m\'etodo de classifica\c c\~ao.\relax }}{20}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Segmenta\c c\~ao Facial.\relax }}{22}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Faces sem tratamento pertencentes ao treino.\relax }}{23}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Face tratada pertencente ao treino.\relax }}{23}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Face m\'edia $\Psi $.\relax }}{24}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Faces $\Phi $.\relax }}{24}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Eigenfaces.\relax }}{25}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Diagrama do sistema.\relax }}{29}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagrama das etapas de desenvolvimento.\relax }}{20}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Diagrama do processo de supervis\~ao do sistema.\relax }}{21}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagrama das etapas de desenvolvimento.\relax }}{22}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Esquem\'atico do m\'etodo de classifica\c c\~ao.\relax }}{22}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Segmenta\c c\~ao Facial.\relax }}{24}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Faces sem tratamento pertencentes ao treino.\relax }}{25}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Face tratada pertencente ao treino.\relax }}{25}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Face m\'edia $\Psi $.\relax }}{26}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Faces $\Phi $.\relax }}{26}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Eigenfaces.\relax }}{27}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Diagrama do sistema.\relax }}{31}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Face de teste, Face reconhecida do banco e Face reconhecida do sistema: (a) Face que foi reconhecida, (b) Face n\~ao foi reconhecida\relax }}{30}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{30}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{30}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Gr\'afico K x Acertos.\relax }}{31}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Gr\'afico K x Erros.\relax }}{31}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Desvio Padr\~ao dos Omegas projetados no espa\c co de faces.\relax }}{32}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Desvio Padr\~ao dos Omegas no espa\c co de faces.\relax }}{32}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Faces reconhecidas do treinamento utilizando Erro $\Phi = 30$.\relax }}{33}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Faces reconhecidas do treinamento utilizando Erro $\Phi = 31$.\relax }}{33}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Faces reconhecidas do treinamento utilizando Erro $\Phi = 32$.\relax }}{34}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Faces reconhecidas do treinamento utilizando Erro $\Phi = 33$.\relax }}{34}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Faces reconhecidas do treinamento utilizando Erro $\Phi = 34$.\relax }}{35}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Faces reconhecidas do treinamento utilizando Erro $\Phi = 35$.\relax }}{35}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 30$.\relax }}{36}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 31$.\relax }}{36}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 32$.\relax }}{37}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 33$.\relax }}{37}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 34$.\relax }}{38}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 35$.\relax }}{38}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Armazenamento das imagens a partir dos Bancos de Dados.\relax }}{39}%
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Recupera\c c\~ao das imagens a partir dos Bancos de Dados.\relax }}{39}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Face de teste, Face reconhecida do banco e Face reconhecida do sistema: (a) Face que foi reconhecida, (b) Face n\~ao foi reconhecida\relax }}{32}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{32}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{32}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Gr\'afico K x Acertos.\relax }}{33}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Gr\'afico K x Erros.\relax }}{33}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Desvio Padr\~ao dos Omegas projetados no espa\c co de faces.\relax }}{34}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Desvio Padr\~ao dos Omegas no espa\c co de faces.\relax }}{34}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Faces reconhecidas do treinamento utilizando Erro $\Phi = 30$.\relax }}{35}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Faces reconhecidas do treinamento utilizando Erro $\Phi = 31$.\relax }}{35}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Faces reconhecidas do treinamento utilizando Erro $\Phi = 32$.\relax }}{36}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Faces reconhecidas do treinamento utilizando Erro $\Phi = 33$.\relax }}{36}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Faces reconhecidas do treinamento utilizando Erro $\Phi = 34$.\relax }}{37}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Faces reconhecidas do treinamento utilizando Erro $\Phi = 35$.\relax }}{37}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 30$.\relax }}{38}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 31$.\relax }}{38}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 32$.\relax }}{39}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 33$.\relax }}{39}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 34$.\relax }}{40}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Faces reconhecidas de fora do treinamento utilizando Erro $\Phi = 35$.\relax }}{40}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Armazenamento das imagens a partir dos Bancos de Dados.\relax }}{40}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Recupera\c c\~ao das imagens a partir dos Bancos de Dados.\relax }}{41}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

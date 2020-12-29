@@ -13,45 +13,47 @@ Warning--entry type for "pca" isn't style-file defined
 --line 78 of file tcc_template.bib
 Warning--entry type for "kirby" isn't style-file defined
 --line 87 of file tcc_template.bib
+Warning--entry type for "viola" isn't style-file defined
+--line 95 of file tcc_template.bib
 You've used 6 entries,
             2364 wiz_defined-function locations,
-            607 strings with 5303 characters,
-and the built_in function-call counts, 5900 in all, are:
-= -- 626
-> -- 9
-< -- 94
-+ -- 402
-- -- 5
-* -- 277
-:= -- 508
-add.period$ -- 16
+            610 strings with 5408 characters,
+and the built_in function-call counts, 6981 in all, are:
+= -- 772
+> -- 11
+< -- 109
++ -- 492
+- -- 6
+* -- 309
+:= -- 609
+add.period$ -- 19
 call.type$ -- 6
-change.case$ -- 79
+change.case$ -- 90
 chr.to.int$ -- 0
 cite$ -- 6
-duplicate$ -- 846
-empty$ -- 297
-format.name$ -- 99
-if$ -- 1242
+duplicate$ -- 1026
+empty$ -- 302
+format.name$ -- 113
+if$ -- 1449
 int.to.chr$ -- 0
 int.to.str$ -- 0
 missing$ -- 0
 newline$ -- 15
-num.names$ -- 25
-pop$ -- 95
+num.names$ -- 30
+pop$ -- 100
 preamble$ -- 1
 purify$ -- 6
 quote$ -- 0
-skip$ -- 326
+skip$ -- 400
 stack$ -- 0
-substring$ -- 298
-swap$ -- 546
+substring$ -- 370
+swap$ -- 658
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 38
 warning$ -- 0
-while$ -- 30
+while$ -- 36
 width$ -- 0
 write$ -- 8
-(There were 4 warnings)
+(There were 5 warnings)
