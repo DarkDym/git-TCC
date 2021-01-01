@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.10.5)  29 DEC 2020 15:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.10.5)  1 JAN 2021 19:09
 entering extended mode
 **./tcc_template.tex
 (tcc_template.tex
@@ -457,10 +457,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 <figuras/haar.png, id=57, 1136.74687pt x 359.09157pt>
 File: figuras/haar.png Graphic file (type png)
 <use figuras/haar.png>
-Package pdftex.def Info: figuras/haar.png  used on input line 158.
+Package pdftex.def Info: figuras/haar.png  used on input line 155.
 (pdftex.def)             Requested size: 213.39568pt x 67.4062pt.
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-67.
+64.
  ("C:\Program Files\MiKTeX\tex/latex/psnfss\ts1ptm.fd"
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
@@ -477,7 +477,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 <figuras/diagrama.jpg, id=77, 344.28625pt x 442.65375pt>
 File: figuras/diagrama.jpg Graphic file (type jpg)
 <use figuras/diagrama.jpg>
-Package pdftex.def Info: figuras/diagrama.jpg  used on input line 309.
+Package pdftex.def Info: figuras/diagrama.jpg  used on input line 306.
 (pdftex.def)             Requested size: 213.39568pt x 274.36818pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -490,17 +490,17 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 <figuras/proc_super.jpg, id=81, 180.675pt x 459.7175pt>
 File: figuras/proc_super.jpg Graphic file (type jpg)
 <use figuras/proc_super.jpg>
-Package pdftex.def Info: figuras/proc_super.jpg  used on input line 319.
+Package pdftex.def Info: figuras/proc_super.jpg  used on input line 316.
 (pdftex.def)             Requested size: 85.35696pt x 217.18259pt.
 <figuras/proc_atrib.jpg, id=82, 180.675pt x 560.0925pt>
 File: figuras/proc_atrib.jpg Graphic file (type jpg)
 <use figuras/proc_atrib.jpg>
-Package pdftex.def Info: figuras/proc_atrib.jpg  used on input line 326.
+Package pdftex.def Info: figuras/proc_atrib.jpg  used on input line 323.
 (pdftex.def)             Requested size: 85.35696pt x 264.60237pt.
 <figuras/metodologia2.jpg, id=83, 577.15625pt x 63.23625pt>
 File: figuras/metodologia2.jpg Graphic file (type jpg)
 <use figuras/metodologia2.jpg>
-Package pdftex.def Info: figuras/metodologia2.jpg  used on input line 339.
+Package pdftex.def Info: figuras/metodologia2.jpg  used on input line 336.
 (pdftex.def)             Requested size: 341.43437pt x 37.41037pt.
  [21 <./figuras/proc_super.jpg>]
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -511,22 +511,22 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 <figuras/segmentacao.jpg, id=93, 415.5525pt x 405.515pt>
 File: figuras/segmentacao.jpg Graphic file (type jpg)
 <use figuras/segmentacao.jpg>
-Package pdftex.def Info: figuras/segmentacao.jpg  used on input line 388.
+Package pdftex.def Info: figuras/segmentacao.jpg  used on input line 385.
 (pdftex.def)             Requested size: 213.39568pt x 208.23924pt.
 <figuras/faces.jpg, id=94, 803.0pt x 602.25pt>
 File: figuras/faces.jpg Graphic file (type jpg)
 <use figuras/faces.jpg>
-Package pdftex.def Info: figuras/faces.jpg  used on input line 400.
+Package pdftex.def Info: figuras/faces.jpg  used on input line 397.
 (pdftex.def)             Requested size: 213.39568pt x 160.04578pt.
 <figuras/face1.jpg, id=95, 301.125pt x 301.125pt>
 File: figuras/face1.jpg Graphic file (type jpg)
 <use figuras/face1.jpg>
-Package pdftex.def Info: figuras/face1.jpg  used on input line 407.
+Package pdftex.def Info: figuras/face1.jpg  used on input line 404.
 (pdftex.def)             Requested size: 170.71393pt x 170.71947pt.
 <figuras/psi.jpg, id=96, 301.125pt x 301.125pt>
 File: figuras/psi.jpg Graphic file (type jpg)
 <use figuras/psi.jpg>
-Package pdftex.def Info: figuras/psi.jpg  used on input line 423.
+Package pdftex.def Info: figuras/psi.jpg  used on input line 420.
 (pdftex.def)             Requested size: 170.71393pt x 170.71947pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -537,13 +537,13 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 <figuras/phi.jpg, id=100, 803.0pt x 602.25pt>
 File: figuras/phi.jpg Graphic file (type jpg)
 <use figuras/phi.jpg>
-Package pdftex.def Info: figuras/phi.jpg  used on input line 437.
+Package pdftex.def Info: figuras/phi.jpg  used on input line 434.
 (pdftex.def)             Requested size: 192.0548pt x 144.03752pt.
  [25 <./figuras/faces.jpg> <./figuras/face1.jpg>]
 <figuras/eigen.jpg, id=105, 803.0pt x 602.25pt>
 File: figuras/eigen.jpg Graphic file (type jpg)
 <use figuras/eigen.jpg>
-Package pdftex.def Info: figuras/eigen.jpg  used on input line 463.
+Package pdftex.def Info: figuras/eigen.jpg  used on input line 460.
 (pdftex.def)             Requested size: 192.0548pt x 144.03752pt.
 
 Underfull \vbox (badness 3009) has occurred while \output is active []
@@ -567,18 +567,18 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 <figuras/sistema.png, id=121, 454.69875pt x 128.73094pt>
 File: figuras/sistema.png Graphic file (type png)
 <use figuras/sistema.png>
-Package pdftex.def Info: figuras/sistema.png  used on input line 609.
+Package pdftex.def Info: figuras/sistema.png  used on input line 606.
 (pdftex.def)             Requested size: 341.43437pt x 96.6658pt.
  [31 <./figuras/sistema.png>]
 <figuras/erro_face_win.png, id=126, 680.5425pt x 228.10219pt>
 File: figuras/erro_face_win.png Graphic file (type png)
 <use figuras/erro_face_win.png>
-Package pdftex.def Info: figuras/erro_face_win.png  used on input line 630.
+Package pdftex.def Info: figuras/erro_face_win.png  used on input line 627.
 (pdftex.def)             Requested size: 188.21414pt x 63.08504pt.
 <Figuras/erro_face_lose.png, id=127, 678.28406pt x 225.84375pt>
 File: Figuras/erro_face_lose.png Graphic file (type png)
 <use Figuras/erro_face_lose.png>
-Package pdftex.def Info: Figuras/erro_face_lose.png  used on input line 634.
+Package pdftex.def Info: Figuras/erro_face_lose.png  used on input line 631.
 (pdftex.def)             Requested size: 188.21053pt x 62.6672pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -591,53 +591,53 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 <figuras/k_win.png, id=131, 1387.584pt x 710.4141pt>
 File: figuras/k_win.png Graphic file (type png)
 <use figuras/k_win.png>
-Package pdftex.def Info: figuras/k_win.png  used on input line 645.
+Package pdftex.def Info: figuras/k_win.png  used on input line 642.
 (pdftex.def)             Requested size: 362.77525pt x 185.73311pt.
 <figuras/k_lose.png, id=132, 1387.584pt x 710.4141pt>
 File: figuras/k_lose.png Graphic file (type png)
 <use figuras/k_lose.png>
-Package pdftex.def Info: figuras/k_lose.png  used on input line 652.
+Package pdftex.def Info: figuras/k_lose.png  used on input line 649.
 (pdftex.def)             Requested size: 362.77525pt x 185.73311pt.
 <figuras/s_omegap.png, id=133, 1387.584pt x 710.4141pt>
 File: figuras/s_omegap.png Graphic file (type png)
 <use figuras/s_omegap.png>
-Package pdftex.def Info: figuras/s_omegap.png  used on input line 662.
+Package pdftex.def Info: figuras/s_omegap.png  used on input line 659.
 (pdftex.def)             Requested size: 362.77525pt x 185.73311pt.
 <figuras/s_omega.png, id=134, 1387.584pt x 710.4141pt>
 File: figuras/s_omega.png Graphic file (type png)
 <use figuras/s_omega.png>
-Package pdftex.def Info: figuras/s_omega.png  used on input line 671.
+Package pdftex.def Info: figuras/s_omega.png  used on input line 668.
 (pdftex.def)             Requested size: 362.77525pt x 185.73311pt.
  [33 <./figuras/k_win.png> <./figuras/k_lose.png>]
 <figuras/erro_phi30_def.png, id=140, 987.2082pt x 484.9317pt>
 File: figuras/erro_phi30_def.png Graphic file (type png)
 <use figuras/erro_phi30_def.png>
-Package pdftex.def Info: figuras/erro_phi30_def.png  used on input line 687.
+Package pdftex.def Info: figuras/erro_phi30_def.png  used on input line 684.
 (pdftex.def)             Requested size: 426.79135pt x 209.64868pt.
 <figuras/erro_phi31_def.png, id=141, 987.2082pt x 484.9317pt>
 File: figuras/erro_phi31_def.png Graphic file (type png)
 <use figuras/erro_phi31_def.png>
-Package pdftex.def Info: figuras/erro_phi31_def.png  used on input line 696.
+Package pdftex.def Info: figuras/erro_phi31_def.png  used on input line 693.
 (pdftex.def)             Requested size: 426.79135pt x 209.64868pt.
 <figuras/erro_phi32_def.png, id=142, 987.2082pt x 484.9317pt>
 File: figuras/erro_phi32_def.png Graphic file (type png)
 <use figuras/erro_phi32_def.png>
-Package pdftex.def Info: figuras/erro_phi32_def.png  used on input line 703.
+Package pdftex.def Info: figuras/erro_phi32_def.png  used on input line 700.
 (pdftex.def)             Requested size: 426.79135pt x 209.64868pt.
 <figuras/erro_phi33_def.png, id=143, 987.2082pt x 484.9317pt>
 File: figuras/erro_phi33_def.png Graphic file (type png)
 <use figuras/erro_phi33_def.png>
-Package pdftex.def Info: figuras/erro_phi33_def.png  used on input line 710.
+Package pdftex.def Info: figuras/erro_phi33_def.png  used on input line 707.
 (pdftex.def)             Requested size: 426.79135pt x 209.64868pt.
 <figuras/erro_phi34_def.png, id=144, 987.2082pt x 484.9317pt>
 File: figuras/erro_phi34_def.png Graphic file (type png)
 <use figuras/erro_phi34_def.png>
-Package pdftex.def Info: figuras/erro_phi34_def.png  used on input line 717.
+Package pdftex.def Info: figuras/erro_phi34_def.png  used on input line 714.
 (pdftex.def)             Requested size: 426.79135pt x 209.64868pt.
 <figuras/erro_phi35_def.png, id=145, 987.2082pt x 484.9317pt>
 File: figuras/erro_phi35_def.png Graphic file (type png)
 <use figuras/erro_phi35_def.png>
-Package pdftex.def Info: figuras/erro_phi35_def.png  used on input line 724.
+Package pdftex.def Info: figuras/erro_phi35_def.png  used on input line 721.
 (pdftex.def)             Requested size: 426.79135pt x 209.64868pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -648,33 +648,33 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 <figuras/erro_phi30_des.png, id=151, 987.2082pt x 484.9317pt>
 File: figuras/erro_phi30_des.png Graphic file (type png)
 <use figuras/erro_phi30_des.png>
-Package pdftex.def Info: figuras/erro_phi30_des.png  used on input line 735.
+Package pdftex.def Info: figuras/erro_phi30_des.png  used on input line 732.
 (pdftex.def)             Requested size: 426.79135pt x 209.64868pt.
 <figuras/erro_phi31_des.png, id=152, 987.2082pt x 484.9317pt>
 File: figuras/erro_phi31_des.png Graphic file (type png)
 <use figuras/erro_phi31_des.png>
-Package pdftex.def Info: figuras/erro_phi31_des.png  used on input line 742.
+Package pdftex.def Info: figuras/erro_phi31_des.png  used on input line 739.
 (pdftex.def)             Requested size: 426.79135pt x 209.64868pt.
 <figuras/erro_phi32_des.png, id=153, 987.2082pt x 484.9317pt>
 File: figuras/erro_phi32_des.png Graphic file (type png)
 <use figuras/erro_phi32_des.png>
-Package pdftex.def Info: figuras/erro_phi32_des.png  used on input line 751.
+Package pdftex.def Info: figuras/erro_phi32_des.png  used on input line 748.
 (pdftex.def)             Requested size: 426.79135pt x 209.64868pt.
 <figuras/erro_phi33_des.png, id=154, 987.2082pt x 484.9317pt>
 File: figuras/erro_phi33_des.png Graphic file (type png)
 <use figuras/erro_phi33_des.png>
-Package pdftex.def Info: figuras/erro_phi33_des.png  used on input line 758.
+Package pdftex.def Info: figuras/erro_phi33_des.png  used on input line 755.
 (pdftex.def)             Requested size: 426.79135pt x 209.64868pt.
  [35 <./figuras/erro_phi30_def.png> <./figuras/erro_phi31_def.png>]
 <figuras/erro_phi34_des.png, id=160, 987.2082pt x 484.9317pt>
 File: figuras/erro_phi34_des.png Graphic file (type png)
 <use figuras/erro_phi34_des.png>
-Package pdftex.def Info: figuras/erro_phi34_des.png  used on input line 767.
+Package pdftex.def Info: figuras/erro_phi34_des.png  used on input line 764.
 (pdftex.def)             Requested size: 426.79135pt x 209.64868pt.
 <figuras/erro_phi35_des.png, id=161, 987.2082pt x 484.9317pt>
 File: figuras/erro_phi35_des.png Graphic file (type png)
 <use figuras/erro_phi35_des.png>
-Package pdftex.def Info: figuras/erro_phi35_des.png  used on input line 774.
+Package pdftex.def Info: figuras/erro_phi35_des.png  used on input line 771.
 (pdftex.def)             Requested size: 426.79135pt x 209.64868pt.
 
 
@@ -690,12 +690,12 @@ as/erro_phi34_def.png> <./figuras/erro_phi35_def.png>]
 <figuras/fluxo_arm.jpg, id=173, 599.23875pt x 209.28188pt>
 File: figuras/fluxo_arm.jpg Graphic file (type jpg)
 <use figuras/fluxo_arm.jpg>
-Package pdftex.def Info: figuras/fluxo_arm.jpg  used on input line 824.
+Package pdftex.def Info: figuras/fluxo_arm.jpg  used on input line 821.
 (pdftex.def)             Requested size: 426.79135pt x 149.05739pt.
 <figuras/recupera_img.jpg, id=174, 594.72188pt x 292.84406pt>
 File: figuras/recupera_img.jpg Graphic file (type jpg)
 <use figuras/recupera_img.jpg>
-Package pdftex.def Info: figuras/recupera_img.jpg  used on input line 833.
+Package pdftex.def Info: figuras/recupera_img.jpg  used on input line 830.
 (pdftex.def)             Requested size: 298.75264pt x 147.10533pt.
 
 
@@ -757,7 +757,7 @@ les/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX/fonts/t
 ype1/urw/helvetic/uhvro8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/ut
 mb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program 
 Files/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on tcc_template.pdf (44 pages, 1537702 bytes).
+Output written on tcc_template.pdf (44 pages, 1537696 bytes).
 PDF statistics:
  244 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
