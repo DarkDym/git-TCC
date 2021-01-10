@@ -8,6 +8,9 @@
 \contentsline {chapter}{Abstract}{12}%
 \babel@toc {brazilian}{}
 \contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{13}%
+\contentsline {subsection}{\numberline {1.0.1}Objetivo Geral}{13}%
+\contentsline {subsection}{\numberline {1.0.2}Objetivo Espec\IeC {\'\i }ficos}{14}%
+\contentsline {subsection}{\numberline {1.0.3}Motiva\c c\~ao}{14}%
 \contentsline {chapter}{\numberline {2}Fundamentos Te\'oricos}{15}%
 \contentsline {section}{\numberline {2.1}PROCESSAMENTO DIGITAL DE IMAGENS}{15}%
 \contentsline {subsection}{\numberline {2.1.1}Imagem digital}{15}%
@@ -18,17 +21,22 @@
 \contentsline {subsection}{\numberline {2.4.1}Reconhecimento Utilizando Eigenfaces}{18}%
 \contentsline {section}{\numberline {2.5}SISTEMAS EMBARCADOS}{18}%
 \contentsline {chapter}{\numberline {3}Materiais e m\'etodos}{20}%
-\contentsline {section}{\numberline {3.1}Aquisi\c c\~ao da Imagem}{23}%
-\contentsline {section}{\numberline {3.2}Segmenta\c c\~ao Facial}{23}%
-\contentsline {section}{\numberline {3.3}Obten\c c\~ao Eigenfaces}{24}%
-\contentsline {section}{\numberline {3.4}Classifica\c c\~ao Eigenfaces}{27}%
-\contentsline {section}{\numberline {3.5}Desenvolvimento da Interface}{28}%
-\contentsline {section}{\numberline {3.6}Integra\c c\~ao Banco de Dados}{29}%
-\contentsline {section}{\numberline {3.7}Atestado de Presen\c ca}{31}%
+\contentsline {section}{\numberline {3.1}Interface}{22}%
+\contentsline {subsection}{\numberline {3.1.1}Modo de Supervis\~ao}{22}%
+\contentsline {subsection}{\numberline {3.1.2}Modo de Atribui\c c\~ao de Presen\c ca do Aluno}{23}%
+\contentsline {section}{\numberline {3.2}Aquisi\c c\~ao da Imagem}{23}%
+\contentsline {section}{\numberline {3.3}Regi\~ao de Interesse (ROI)}{24}%
+\contentsline {section}{\numberline {3.4}Eigenfaces}{24}%
+\contentsline {section}{\numberline {3.5}Reconhecimento}{27}%
+\contentsline {section}{\numberline {3.6}Banco de Dados}{29}%
+\contentsline {section}{\numberline {3.7}Resultado do reconhecimento}{30}%
 \contentsline {section}{\numberline {3.8}Integra\c c\~ao do Sistema}{31}%
 \contentsline {chapter}{\numberline {4}Resultados e Experimentos}{32}%
-\contentsline {section}{\numberline {4.1}Eigenfaces}{32}%
-\contentsline {section}{\numberline {4.2}Armazenamento}{37}%
-\contentsline {chapter}{\numberline {5}Conclus\~ao}{42}%
-\contentsline {chapter}{\numberline {6}Trabalhos Futuros}{43}%
-\contentsline {chapter}{Refer{\^e}ncias}{44}%
+\contentsline {section}{\numberline {4.1}Descri\c c\~ao dos Testes com as Eigenfaces}{32}%
+\contentsline {subsection}{\numberline {4.1.1}Percentual de Acerto no Reconhecimento}{32}%
+\contentsline {subsection}{\numberline {4.1.2}Determina\c c\~ao do valor de K}{33}%
+\contentsline {subsection}{\numberline {4.1.3}Efeito do desvio padr\~ao nos pesos $\Omega $}{34}%
+\contentsline {subsection}{\numberline {4.1.4}Compara\c c\~ao do desempenho entre os par\^ametros de reconhecimento (Erro m\IeC {\'\i }nimo de $\Omega $ x Erro m\IeC {\'\i }nimo de $\Phi $)}{34}%
+\contentsline {section}{\numberline {4.2}Teste de tempo de resposta do Banco de Dados}{42}%
+\contentsline {chapter}{\numberline {5}Conclus\~ao e Trabalhos Futuros}{44}%
+\contentsline {chapter}{Refer{\^e}ncias}{46}%
