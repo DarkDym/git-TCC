@@ -1,5 +1,8 @@
 \begin{thebibliography}{\hspace{\parindent}}
 
+\bibitem[FEI(2012)FEI]{fei} FEI. \textbf{FEI Face Database}. (Acesso em 20 de
+  Março, 2019), https://fei.edu.br/~cet/facedatabase.html.
+
 \bibitem[GONZALEZ(2010)GONZALEZ]{Gonza} GONZALEZ, R.~C\@. \textbf{Processamento
   Digital de Imagens}. Av. Ermano Marchetti, 1453, São Paulo, São Paulo:
   Pearson Prentice Hall, 2010.
@@ -8,6 +11,26 @@
   PANDA; LAISHRAM]{pca} MISHRA, S.~P.; SARKAR, U.; TARAPHDER, S.; DATTA, S.;
   SWAIN, D.~P.; SAIKHOM, R.; PANDA, S.; LAISHRAM, M\@. \textbf{Multivariate
   Statistical Data Analysis- Principal Component Analysis (PCA)}. 2017.
+
+\bibitem[MONGODB(2020)MONGODB]{Mongo:2020} MONGODB. \textbf{MongoDB}. (Acesso
+  em 11 de Dezembro, 2020), https://www.mongodb.com.
+
+\bibitem[NUMPY(2005)NUMPY]{numpy} NUMPY. \textbf{About Us}. (Acesso em 02 de
+  Janeiro, 2021), https://numpy.org.
+
+\bibitem[OPENCV(2021)OPENCV]{opencv} OPENCV. \textbf{About OpenCV}. (Acesso em
+  2 de Janeiro, 2021), https://opencv.org/about/.
+
+\bibitem[PYTHON(2001)PYTHON]{Python} PYTHON. \textbf{Python}. (Acesso em 11 de
+  Dezembro, 2020), https://www.python.org.
+
+\bibitem[RASPBERRYPI(2012)RASPBERRYPI]{rasp} RASPBERRYPI. \textbf{About Us}.
+  (Acesso em 02 de Janeiro, 2021), https://www.raspberrypi.org.
+
+\bibitem[SECURITY(2020)SECURITY]{security} SECURITY. \textbf{Pandemia expande
+  uso do reconhecimento facial para controles de acesso}. (Acesso em 02 de
+  Janeiro, 2021),
+  https://revistadigitalsecurity.com.br/pandemia-expande-uso-do-reconhecimento-facial-para-controles-de-acesso/.
 
 \bibitem[SIROVICH; KIRBY(1987)SIROVICH; KIRBY]{kirby} SIROVICH, L.; KIRBY, M\@.
   \textbf{Low-dimensional procedure for the characterization of human faces}.
